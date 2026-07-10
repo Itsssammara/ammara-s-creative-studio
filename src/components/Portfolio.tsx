@@ -769,97 +769,197 @@ function Packages() {
   );
 }
 
-const tools = [
-  "Meta Ads Manager", "Canva", "CapCut", "WordPress", "Elementor", "WooCommerce",
-  "Figma", "GA4 basics", "Copywriting", "Content Planning", "Reporting",
-  "Carousel Design", "Reels Editing",
+const experiences = [
+  { y: "Present", t: "Freelance", p: "Social Media Manager & Meta Ads" },
+  { y: "2024 — 2025", t: "WebXtreme", p: "Web & Social (WordPress / WooCommerce)" },
+  { y: "2023 — 2024", t: "Gatesville Pet Centre", p: "Content & Meta Ads Campaigns" },
+  { y: "2023 — 2024", t: "Nature's Secrets", p: "Short-form Video Strategy" },
+  { y: "2022 — 2023", t: "Freelance Clients", p: "Branding & Ad Creative" },
 ];
 
-function Skills() {
-  return (
-    <section className="relative px-5 py-24">
-      <div className="mx-auto max-w-6xl">
-        <Reveal>
-          <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--star)]">skills & tools</span>
-            <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
-              The toolkit.
-            </h2>
-          </div>
-        </Reveal>
+const educationList = [
+  { y: "2023 — 2024", t: "CodeSpace Academy", p: "Full-Stack Web Development" },
+  { y: "Ongoing", t: "Meta Blueprint", p: "Ads & Platform Certifications" },
+];
 
-        <BinderBoard className="mt-10" holes={7}>
-          <StaggerGroup className="flex flex-wrap gap-3">
-            {tools.map((t, i) => (
-              <motion.span
-                key={t}
-                variants={fadeUp}
-                className="rounded-full border border-[color:var(--burgundy)]/25 bg-[color:var(--cream)] px-5 py-2 text-sm text-[color:var(--burgundy)] shadow-sm"
-                style={{ transform: `rotate(${(i % 5) - 2}deg)` }}
-              >
-                {t}
-              </motion.span>
-            ))}
-          </StaggerGroup>
-        </BinderBoard>
-      </div>
-    </section>
+const skillTags = [
+  { t: "Social Media", c: "oklch(0.65 0.22 340)" },
+  { t: "Meta Ads", c: "oklch(0.62 0.18 145)" },
+  { t: "Branding", c: "oklch(0.68 0.17 45)" },
+  { t: "Marketing", c: "oklch(0.6 0.16 240)" },
+  { t: "Content Strategy", c: "oklch(0.6 0.22 340)" },
+  { t: "Reels Editing", c: "oklch(0.65 0.2 300)" },
+  { t: "Visual Storytelling", c: "oklch(0.78 0.16 90)" },
+];
+
+function Keycap({
+  label,
+  color,
+  textColor = "oklch(0.2 0.05 22)",
+  bg = "oklch(0.98 0.01 80)",
+  italic = false,
+}: {
+  label: ReactNode;
+  color?: string;
+  textColor?: string;
+  bg?: string;
+  italic?: boolean;
+}) {
+  return (
+    <div
+      className="relative flex aspect-square items-center justify-center rounded-lg sm:rounded-xl"
+      style={{
+        background: color ?? bg,
+        boxShadow:
+          "inset 0 -3px 0 oklch(0 0 0 / 0.25), inset 0 2px 0 oklch(1 0 0 / 0.35), 0 3px 6px -2px oklch(0 0 0 / 0.35)",
+      }}
+    >
+      <span
+        className={`select-none text-2xl font-black leading-none sm:text-3xl ${italic ? "italic" : ""}`}
+        style={{ color: color ? "oklch(0.98 0.01 80)" : textColor, fontFamily: "var(--font-display)" }}
+      >
+        {label}
+      </span>
+    </div>
   );
 }
 
-const education = [
-  {
-    y: "2023 — 2024",
-    t: "Full-Stack Web Development",
-    p: "CodeSpace Academy",
-    d: "HTML, CSS, JavaScript, React — with a design-first approach to building the web.",
-  },
-  {
-    y: "2022 — 2023",
-    t: "Social Media & Digital Marketing",
-    p: "Self-directed + client work",
-    d: "Meta Ads, content strategy, short-form video, and reporting — learned by doing.",
-  },
-  {
-    y: "Ongoing",
-    t: "Meta Blueprint & Industry Courses",
-    p: "Meta / continuous learning",
-    d: "Staying current on ad platform changes, creative trends, and algorithm shifts.",
-  },
-];
-
-function Education() {
+function Keyboard() {
   return (
-    <section id="education" className="relative px-5 py-24">
-      <div className="mx-auto max-w-6xl">
+    <div
+      className="relative rounded-2xl p-3 sm:p-4"
+      style={{
+        background: "linear-gradient(145deg, oklch(0.86 0.02 80), oklch(0.72 0.02 80))",
+        boxShadow:
+          "inset 0 2px 0 oklch(1 0 0 / 0.5), inset 0 -4px 0 oklch(0 0 0 / 0.25), 0 18px 40px -20px oklch(0 0 0 / 0.55)",
+      }}
+    >
+      <div className="grid grid-cols-3 gap-2 sm:gap-3">
+        <Keycap label="Ae" color="oklch(0.35 0.12 300)" />
+        <Keycap label="Ai" color="oklch(0.55 0.19 40)" />
+        <Keycap label="Ps" color="oklch(0.45 0.14 240)" />
+        <Keycap
+          label={<span style={{ color: "oklch(0.55 0.18 240)" }}>Canva</span>}
+          italic
+        />
+        <Keycap
+          label={
+            <span className="flex gap-0.5">
+              <span style={{ color: "oklch(0.65 0.2 25)" }}>■</span>
+              <span style={{ color: "oklch(0.65 0.18 300)" }}>■</span>
+              <span style={{ color: "oklch(0.6 0.2 240)" }}>■</span>
+            </span>
+          }
+          bg="oklch(0.22 0.03 80)"
+          textColor="oklch(0.98 0.01 80)"
+        />
+        <Keycap
+          label={<span style={{ fontFamily: "var(--font-heavy)", letterSpacing: "-0.1em" }}>✂</span>}
+          textColor="oklch(0.2 0.05 22)"
+        />
+      </div>
+    </div>
+  );
+}
+
+function TimelineList({
+  title,
+  items,
+}: {
+  title: string;
+  items: { y: string; t: string; p: string }[];
+}) {
+  return (
+    <div>
+      <h3 className="font-display text-3xl italic text-[color:var(--cream)] sm:text-4xl">
+        {title}
+      </h3>
+      <ul className="mt-5 space-y-4">
+        {items.map((it, i) => (
+          <li key={i} className="grid grid-cols-[auto_10px_1fr] items-start gap-3 sm:gap-4">
+            <span className="pt-1 text-right text-[11px] uppercase tracking-wider text-[color:var(--cream)]/60 sm:text-xs">
+              {it.y}
+            </span>
+            <span className="relative mt-1.5 block h-2.5 w-2.5 rounded-full bg-[color:var(--star)] shadow-[0_0_0_3px_oklch(0.28_0.12_22)]">
+              {i < items.length - 1 && (
+                <span className="absolute left-1/2 top-full h-8 w-px -translate-x-1/2 bg-[color:var(--cream)]/25" />
+              )}
+            </span>
+            <div>
+              <div className="font-display text-lg font-semibold text-[color:var(--cream)] sm:text-xl">
+                {it.t}
+              </div>
+              <div className="text-xs text-[color:var(--cream)]/70 sm:text-sm">{it.p}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Background() {
+  return (
+    <section id="background" className="relative overflow-hidden px-5 py-24">
+      <ChalkStar className="pointer-events-none absolute left-[4%] top-10 text-[color:var(--cream)]/80 rotate-[-12deg]" size={70} />
+      <ChalkSpiral className="pointer-events-none absolute right-[6%] top-16 text-[color:var(--cream)]/70" size={110} />
+      <ChalkScribble className="pointer-events-none absolute left-[45%] bottom-8 text-[color:var(--cream)]/70 rotate-[6deg]" size={120} />
+
+      <div className="relative mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--star)]">education & training</span>
+            <span className="handwritten text-2xl text-[color:var(--star)]">background</span>
             <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
-              Study notes.
+              Experience, education & toolkit.
             </h2>
           </div>
         </Reveal>
 
-        <BinderBoard className="mt-14" holes={7}>
-          <StaggerGroup className="grid gap-6 md:grid-cols-3">
-            {education.map((e, i) => (
-              <motion.div key={e.t} variants={fadeUp}>
-                <PaperCard rotate={[-1.2, 0.6, -0.4][i]} className="h-full p-6">
-                  <Tape className="-top-3 left-6" rotate={-5 + i * 4} />
-                  <div className="text-[10px] uppercase tracking-widest text-[color:var(--accent)]">
-                    {e.y}
-                  </div>
-                  <h3 className="mt-2 font-display text-xl font-semibold text-[color:var(--burgundy)]">
-                    {e.t}
-                  </h3>
-                  <div className="handwritten mt-1 text-lg text-[color:var(--ink)]/70">{e.p}</div>
-                  <p className="mt-3 text-sm leading-relaxed text-[color:var(--ink)]/75">{e.d}</p>
-                </PaperCard>
-              </motion.div>
-            ))}
-          </StaggerGroup>
-        </BinderBoard>
+        <div className="mt-14 grid gap-12 lg:grid-cols-2">
+          {/* Left column: Career */}
+          <Reveal>
+            <TimelineList title="Career Experiences" items={experiences} />
+          </Reveal>
+
+          {/* Right column: Education + Tools */}
+          <div className="space-y-10">
+            <Reveal delay={0.1}>
+              <TimelineList title="Education" items={educationList} />
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div>
+                <h3 className="font-display text-3xl italic text-[color:var(--cream)] sm:text-4xl">
+                  Tools I use
+                </h3>
+                <div className="mt-5 max-w-sm">
+                  <Keyboard />
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+
+        {/* Skills row */}
+        <Reveal delay={0.15}>
+          <div className="mt-14">
+            <h3 className="font-display text-3xl italic text-[color:var(--cream)] sm:text-4xl">
+              Skills
+            </h3>
+            <StaggerGroup className="mt-5 flex flex-wrap gap-2 sm:gap-3">
+              {skillTags.map((s) => (
+                <motion.span
+                  key={s.t}
+                  variants={fadeUp}
+                  className="rounded-full px-4 py-2 text-xs font-semibold text-[color:var(--cream)] shadow-md sm:text-sm"
+                  style={{ background: s.c }}
+                >
+                  {s.t}
+                </motion.span>
+              ))}
+            </StaggerGroup>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
