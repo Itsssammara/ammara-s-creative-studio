@@ -2,6 +2,11 @@
 @source "../src";
 @import "tw-animate-css";
 
+@utility cutout {
+  /* transparent cutout with a soft depth shadow; the PNG already carries the white outline */
+  filter: drop-shadow(0 6px 22px oklch(0 0 0 / 0.35));
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
