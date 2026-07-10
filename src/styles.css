@@ -4,6 +4,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-display: "Fraunces", "Playfair Display", Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-hand: "Caveat", "Homemade Apple", cursive;
+}
+
 /*
  * Design system definition.
  *
@@ -63,25 +69,33 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  /* Editorial scrapbook palette */
+  --background: oklch(0.955 0.018 75);      /* warm cream */
+  --foreground: oklch(0.22 0.07 22);        /* deep burgundy ink */
+  --card: oklch(0.975 0.014 80);            /* off-white paper */
+  --card-foreground: oklch(0.22 0.07 22);
+  --popover: oklch(0.975 0.014 80);
+  --popover-foreground: oklch(0.22 0.07 22);
+  --primary: oklch(0.32 0.13 20);           /* deep burgundy */
+  --primary-foreground: oklch(0.97 0.02 80);
+  --secondary: oklch(0.92 0.03 60);         /* aged paper */
+  --secondary-foreground: oklch(0.22 0.07 22);
+  --muted: oklch(0.92 0.025 70);
+  --muted-foreground: oklch(0.42 0.05 25);
+  --accent: oklch(0.72 0.16 45);            /* warm terracotta */
+  --accent-foreground: oklch(0.98 0.01 80);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.86 0.03 55);
+  --input: oklch(0.86 0.03 55);
+  --ring: oklch(0.32 0.13 20);
+  --burgundy: oklch(0.32 0.13 20);
+  --burgundy-deep: oklch(0.24 0.11 22);
+  --cream: oklch(0.955 0.018 75);
+  --paper: oklch(0.975 0.014 80);
+  --ink: oklch(0.22 0.07 22);
+  --tape: oklch(0.88 0.07 85 / 0.75);
+  --star: oklch(0.78 0.16 75);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +154,64 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+    background-image:
+      radial-gradient(oklch(0.22 0.07 22 / 0.05) 1px, transparent 1px),
+      radial-gradient(oklch(0.22 0.07 22 / 0.04) 1px, transparent 1px);
+    background-size: 24px 24px, 24px 24px;
+    background-position: 0 0, 12px 12px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility paper-card {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(oklch(0.22 0.07 22 / 0.035) 1px, transparent 1px);
+  background-size: 18px 18px;
+  box-shadow:
+    0 1px 0 oklch(0.22 0.07 22 / 0.04),
+    0 12px 30px -18px oklch(0.22 0.07 22 / 0.35);
+  border: 1px solid oklch(0.86 0.03 55);
+  position: relative;
+}
+
+@utility torn-edge {
+  clip-path: polygon(
+    0% 3%, 3% 0%, 12% 2%, 22% 0%, 35% 3%, 48% 0%, 60% 2%, 73% 0%, 85% 3%, 96% 0%, 100% 4%,
+    98% 15%, 100% 28%, 97% 42%, 100% 55%, 98% 68%, 100% 82%, 97% 95%, 100% 100%,
+    88% 98%, 76% 100%, 62% 97%, 50% 100%, 38% 98%, 24% 100%, 12% 97%, 0% 100%,
+    2% 88%, 0% 74%, 3% 60%, 0% 46%, 2% 32%, 0% 18%
+  );
+}
+
+@utility tape {
+  background: var(--tape);
+  box-shadow: 0 2px 6px -3px oklch(0.22 0.07 22 / 0.3);
+  border-left: 1px dashed oklch(0.22 0.07 22 / 0.08);
+  border-right: 1px dashed oklch(0.22 0.07 22 / 0.08);
+}
+
+@utility handwritten {
+  font-family: var(--font-hand);
+  font-weight: 500;
+}
+
+@utility grain {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(oklch(0.22 0.07 22 / 0.12) 1px, transparent 1px);
+    background-size: 3px 3px;
+    mix-blend-mode: multiply;
+    opacity: 0.25;
   }
 }
