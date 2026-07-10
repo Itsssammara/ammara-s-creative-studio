@@ -1,6 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
-import ammaraImg from "@/assets/ammara.jpg";
+import ammaraImg from "@/assets/ammara-outline.png";
 
 /* ---------- Animation helpers ---------- */
 
@@ -305,19 +305,17 @@ function Hero() {
           </div>
         </Reveal>
 
-        {/* Portrait with brush frame */}
+        {/* Portrait cutout with white outline */}
         <Reveal className="lg:col-span-4" delay={0.15}>
           <div className="relative mx-auto max-w-xs lg:max-w-none">
             <ChalkStar className="pointer-events-none absolute -left-6 top-10 z-10 text-[color:var(--cream)]" size={54} />
-            <div className="brush-frame">
-              <img
-                src={ammaraImg}
-                alt="Portrait of Ammara Hoosen"
-                width={800}
-                height={1000}
-                className="aspect-[4/5] w-full object-cover"
-              />
-            </div>
+            <img
+              src={ammaraImg}
+              alt="Portrait of Ammara Hoosen"
+              width={800}
+              height={1000}
+              className="cutout aspect-[4/5] w-full object-contain"
+            />
             <ChalkStar className="pointer-events-none absolute -bottom-4 -right-4 text-[color:var(--cream)] rotate-[18deg]" size={70} />
           </div>
         </Reveal>
@@ -342,20 +340,18 @@ function About() {
       <ChalkSwirl className="pointer-events-none absolute right-[4%] bottom-32 text-[color:var(--cream)]/80 rotate-[8deg]" size={130} />
 
       <div className="relative mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-12">
-        {/* Photo with brush frame */}
+        {/* Photo cutout with white outline */}
         <Reveal className="lg:col-span-5">
           <div className="relative mx-auto max-w-sm">
             <ChalkStar className="pointer-events-none absolute -left-8 -top-6 z-10 text-[color:var(--cream)] rotate-[-15deg]" size={60} />
-            <div className="brush-frame">
-              <img
-                src={ammaraImg}
-                alt="Portrait of Ammara Hoosen"
-                width={800}
-                height={1000}
-                loading="lazy"
-                className="aspect-[4/5] w-full object-cover"
-              />
-            </div>
+            <img
+              src={ammaraImg}
+              alt="Portrait of Ammara Hoosen"
+              width={800}
+              height={1000}
+              loading="lazy"
+              className="cutout aspect-[4/5] w-full object-contain"
+            />
           </div>
         </Reveal>
 
