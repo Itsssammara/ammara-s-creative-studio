@@ -5,7 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-display: "Fraunces", "Playfair Display", Georgia, serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-heavy: "Anton", "Impact", "Arial Narrow", sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-hand: "Caveat", "Homemade Apple", cursive;
 }
@@ -70,8 +71,8 @@
 :root {
   --radius: 0.625rem;
   /* Editorial scrapbook palette */
-  --background: oklch(0.955 0.018 75);      /* warm cream */
-  --foreground: oklch(0.22 0.07 22);        /* deep burgundy ink */
+  --background: oklch(0.28 0.12 22);        /* deep burgundy */
+  --foreground: oklch(0.955 0.018 75);      /* warm cream */
   --card: oklch(0.975 0.014 80);            /* off-white paper */
   --card-foreground: oklch(0.22 0.07 22);
   --popover: oklch(0.975 0.014 80);
@@ -89,11 +90,12 @@
   --border: oklch(0.86 0.03 55);
   --input: oklch(0.86 0.03 55);
   --ring: oklch(0.32 0.13 20);
-  --burgundy: oklch(0.32 0.13 20);
-  --burgundy-deep: oklch(0.24 0.11 22);
+  --burgundy: oklch(0.28 0.12 22);
+  --burgundy-deep: oklch(0.20 0.09 22);
+  --burgundy-darker: oklch(0.14 0.07 22);
   --cream: oklch(0.955 0.018 75);
   --paper: oklch(0.975 0.014 80);
-  --ink: oklch(0.22 0.07 22);
+  --ink: oklch(0.20 0.07 22);
   --tape: oklch(0.88 0.07 85 / 0.75);
   --star: oklch(0.78 0.16 75);
   --chart-1: oklch(0.646 0.222 41.116);
@@ -155,20 +157,70 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
+    /* Deep burgundy corduroy / ribbed canvas */
+    background-color: oklch(0.24 0.11 22);
     background-image:
-      /* woven canvas texture — SVG fractal noise */
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.25  0 0 0 0 0.08  0 0 0 0 0.08  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),
-      /* diagonal weave */
-      repeating-linear-gradient(45deg, oklch(0.22 0.07 22 / 0.035) 0 1px, transparent 1px 4px),
-      repeating-linear-gradient(-45deg, oklch(0.22 0.07 22 / 0.03) 0 1px, transparent 1px 4px);
-    background-size: 300px 300px, auto, auto;
-    background-attachment: fixed, fixed, fixed;
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"),
+      repeating-linear-gradient(90deg,
+        oklch(0 0 0 / 0.28) 0 1px,
+        oklch(1 0 0 / 0.03) 1px 3px,
+        oklch(0 0 0 / 0.18) 3px 4px,
+        transparent 4px 6px);
+    background-size: 260px 260px, auto;
+    background-attachment: fixed, fixed;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.01em;
   }
+}
+
+@utility heavy {
+  font-family: var(--font-heavy);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 0.95;
+}
+
+@utility torn-paper {
+  background-color: var(--paper);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.22  0 0 0 0 0.07  0 0 0 0 0.07  0 0 0 0.10 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  clip-path: polygon(
+    1% 4%, 4% 1%, 9% 3%, 15% 0%, 22% 2%, 30% 0%, 38% 3%, 46% 1%, 55% 2%, 63% 0%, 72% 3%, 82% 1%, 91% 3%, 98% 0%, 100% 6%,
+    97% 14%, 100% 24%, 98% 34%, 100% 46%, 97% 58%, 100% 70%, 98% 82%, 100% 92%, 96% 100%,
+    88% 97%, 78% 100%, 68% 97%, 58% 100%, 48% 98%, 38% 100%, 28% 97%, 18% 100%, 8% 97%, 0% 100%,
+    2% 90%, 0% 78%, 3% 66%, 0% 54%, 2% 42%, 0% 30%, 3% 18%, 0% 8%
+  );
+  filter: drop-shadow(0 20px 40px oklch(0 0 0 / 0.35));
+}
+
+@utility brush-frame {
+  /* rough hand-cut white brush border around a photo */
+  padding: 12px;
+  background: var(--cream);
+  clip-path: polygon(
+    2% 3%, 8% 0%, 18% 2%, 28% 0%, 40% 3%, 52% 0%, 64% 2%, 76% 0%, 88% 3%, 98% 0%, 100% 7%,
+    97% 18%, 100% 30%, 98% 44%, 100% 58%, 97% 72%, 100% 86%, 96% 100%,
+    84% 97%, 70% 100%, 56% 97%, 42% 100%, 28% 97%, 14% 100%, 0% 96%,
+    3% 82%, 0% 68%, 2% 52%, 0% 36%, 3% 22%, 0% 10%
+  );
+  filter: drop-shadow(0 12px 30px oklch(0 0 0 / 0.4));
+}
+
+@utility speech-bubble {
+  position: relative;
+  background: var(--cream);
+  color: var(--burgundy);
+  padding: 14px 22px;
+  clip-path: polygon(
+    3% 8%, 8% 0%, 30% 4%, 55% 0%, 80% 3%, 100% 6%,
+    97% 30%, 100% 55%, 96% 80%,
+    75% 78%, 60% 100%, 55% 78%,
+    30% 82%, 8% 78%, 0% 60%, 3% 30%
+  );
+  filter: drop-shadow(0 6px 14px oklch(0 0 0 / 0.35));
 }
 
 @utility paper-card {
