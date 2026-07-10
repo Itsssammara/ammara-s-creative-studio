@@ -598,7 +598,7 @@ function Process() {
           <StaggerGroup className="grid gap-5">
             {steps.map(([n, t, d]) => (
               <motion.div key={n} variants={fadeUp} className="relative md:pl-16">
-                <div className="absolute left-0 top-0 hidden grid h-12 w-12 place-items-center rounded-full bg-[color:var(--burgundy)] font-display text-sm text-[color:var(--cream)] md:grid">
+                <div className="absolute left-0 top-0 hidden h-12 w-12 place-items-center rounded-full bg-[color:var(--burgundy)] font-display text-sm text-[color:var(--cream)] md:grid">
                   {n}
                 </div>
                 <PaperCard rotate={-0.3} className="p-5">
