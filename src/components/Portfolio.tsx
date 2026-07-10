@@ -774,18 +774,78 @@ function Skills() {
           </div>
         </Reveal>
 
-        <StaggerGroup className="mt-10 flex flex-wrap gap-3">
-          {tools.map((t, i) => (
-            <motion.span
-              key={t}
-              variants={fadeUp}
-              className="rounded-full border border-[color:var(--burgundy)]/25 bg-[color:var(--paper)] px-5 py-2 text-sm text-[color:var(--burgundy)] shadow-sm"
-              style={{ transform: `rotate(${(i % 5) - 2}deg)` }}
-            >
-              {t}
-            </motion.span>
-          ))}
-        </StaggerGroup>
+        <BinderBoard className="mt-10" holes={7}>
+          <StaggerGroup className="flex flex-wrap gap-3">
+            {tools.map((t, i) => (
+              <motion.span
+                key={t}
+                variants={fadeUp}
+                className="rounded-full border border-[color:var(--burgundy)]/25 bg-[color:var(--cream)] px-5 py-2 text-sm text-[color:var(--burgundy)] shadow-sm"
+                style={{ transform: `rotate(${(i % 5) - 2}deg)` }}
+              >
+                {t}
+              </motion.span>
+            ))}
+          </StaggerGroup>
+        </BinderBoard>
+      </div>
+    </section>
+  );
+}
+
+const education = [
+  {
+    y: "2023 — 2024",
+    t: "Full-Stack Web Development",
+    p: "CodeSpace Academy",
+    d: "HTML, CSS, JavaScript, React — with a design-first approach to building the web.",
+  },
+  {
+    y: "2022 — 2023",
+    t: "Social Media & Digital Marketing",
+    p: "Self-directed + client work",
+    d: "Meta Ads, content strategy, short-form video, and reporting — learned by doing.",
+  },
+  {
+    y: "Ongoing",
+    t: "Meta Blueprint & Industry Courses",
+    p: "Meta / continuous learning",
+    d: "Staying current on ad platform changes, creative trends, and algorithm shifts.",
+  },
+];
+
+function Education() {
+  return (
+    <section id="education" className="relative px-5 py-24">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <div className="max-w-2xl">
+            <span className="handwritten text-2xl text-[color:var(--accent)]">education & training</span>
+            <h2 className="mt-2 font-display text-4xl font-semibold text-[color:var(--burgundy)] sm:text-5xl">
+              Study notes.
+            </h2>
+          </div>
+        </Reveal>
+
+        <BinderBoard className="mt-14" holes={7}>
+          <StaggerGroup className="grid gap-6 md:grid-cols-3">
+            {education.map((e, i) => (
+              <motion.div key={e.t} variants={fadeUp}>
+                <PaperCard rotate={[-1.2, 0.6, -0.4][i]} className="h-full p-6">
+                  <Tape className="-top-3 left-6" rotate={-5 + i * 4} />
+                  <div className="text-[10px] uppercase tracking-widest text-[color:var(--accent)]">
+                    {e.y}
+                  </div>
+                  <h3 className="mt-2 font-display text-xl font-semibold text-[color:var(--burgundy)]">
+                    {e.t}
+                  </h3>
+                  <div className="handwritten mt-1 text-lg text-[color:var(--ink)]/70">{e.p}</div>
+                  <p className="mt-3 text-sm leading-relaxed text-[color:var(--ink)]/75">{e.d}</p>
+                </PaperCard>
+              </motion.div>
+            ))}
+          </StaggerGroup>
+        </BinderBoard>
       </div>
     </section>
   );
