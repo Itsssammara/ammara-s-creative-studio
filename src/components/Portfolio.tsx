@@ -438,9 +438,9 @@ function Services() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--accent)]">what I help with</span>
-            <h2 className="mt-2 font-display text-4xl font-semibold text-[color:var(--burgundy)] sm:text-5xl">
-              A studio-sized skillset — <em className="text-[color:var(--accent)]">without the agency price tag.</em>
+            <span className="handwritten text-2xl text-[color:var(--star)]">what I help with</span>
+            <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
+              A studio-sized skillset — <em className="font-display normal-case text-[color:var(--star)]">without the agency price tag.</em>
             </h2>
           </div>
         </Reveal>
@@ -471,15 +471,15 @@ const whyItems = [
 
 function Why() {
   return (
-    <section className="relative bg-[color:var(--burgundy)] px-5 py-24 text-[color:var(--cream)]">
+    <section className="relative bg-[color:var(--burgundy-darker)] px-5 py-24 text-[color:var(--cream)]">
       <Star className="absolute left-[8%] top-16 text-[color:var(--cream)]/40" size={20} />
-      <Star className="absolute right-[10%] bottom-20 text-[color:var(--accent)]" size={26} />
+      <Star className="absolute right-[10%] bottom-20 text-[color:var(--star)]" size={26} />
 
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
-          <span className="handwritten text-2xl text-[color:var(--accent)]">why work with me</span>
-          <h2 className="mt-2 font-display text-4xl font-semibold sm:text-5xl">
-            Not just pretty <em className="text-[color:var(--accent)]">posts.</em>
+          <span className="handwritten text-2xl text-[color:var(--star)]">why work with me</span>
+          <h2 className="heavy mt-2 text-5xl uppercase sm:text-6xl">
+            Not just pretty <em className="font-display normal-case text-[color:var(--star)]">posts.</em>
           </h2>
           <p className="mt-6 max-w-md text-lg text-[color:var(--cream)]/80">
             I sit at the intersection of design, strategy, and code — which
@@ -542,8 +542,8 @@ function Projects() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--accent)]">featured projects</span>
-            <h2 className="mt-2 font-display text-4xl font-semibold text-[color:var(--burgundy)] sm:text-5xl">
+            <span className="handwritten text-2xl text-[color:var(--star)]">featured projects</span>
+            <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
               Selected work from the studio.
             </h2>
           </div>
@@ -606,8 +606,8 @@ function Results() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--accent)]">sample results</span>
-            <h2 className="mt-2 font-display text-4xl font-semibold text-[color:var(--burgundy)] sm:text-5xl">
+            <span className="handwritten text-2xl text-[color:var(--star)]">sample results</span>
+            <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
               Numbers from real campaigns.
             </h2>
           </div>
@@ -627,7 +627,7 @@ function Results() {
         </StaggerGroup>
 
         <Reveal delay={0.2}>
-          <p className="handwritten mx-auto mt-10 max-w-xl text-center text-xl text-[color:var(--ink)]/60">
+          <p className="handwritten mx-auto mt-10 max-w-xl text-center text-xl text-[color:var(--cream)]/70">
             * Results vary by client, budget, offer, and consistency.
           </p>
         </Reveal>
@@ -651,19 +651,19 @@ function Process() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--accent)]">how we work</span>
-            <h2 className="mt-2 font-display text-4xl font-semibold text-[color:var(--burgundy)] sm:text-5xl">
+            <span className="handwritten text-2xl text-[color:var(--star)]">how we work</span>
+            <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
               A simple, repeatable process.
             </h2>
           </div>
         </Reveal>
 
         <div className="relative mt-14">
-          <div className="absolute left-6 top-2 bottom-2 hidden w-px border-l-2 border-dashed border-[color:var(--burgundy)]/25 md:block" />
+          <div className="absolute left-6 top-2 bottom-2 hidden w-px border-l-2 border-dashed border-[color:var(--cream)]/25 md:block" />
           <StaggerGroup className="grid gap-5">
             {steps.map(([n, t, d]) => (
               <motion.div key={n} variants={fadeUp} className="relative md:pl-16">
-                <div className="absolute left-0 top-0 hidden h-12 w-12 place-items-center rounded-full bg-[color:var(--burgundy)] font-display text-sm text-[color:var(--cream)] md:grid">
+                <div className="absolute left-0 top-0 hidden h-12 w-12 place-items-center rounded-full bg-[color:var(--cream)] font-display text-sm text-[color:var(--burgundy)] md:grid">
                   {n}
                 </div>
                 <PaperCard rotate={-0.3} className="p-5">
@@ -718,8 +718,8 @@ function Packages() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--accent)]">services & packages</span>
-            <h2 className="mt-2 font-display text-4xl font-semibold text-[color:var(--burgundy)] sm:text-5xl">
+            <span className="handwritten text-2xl text-[color:var(--star)]">services & packages</span>
+            <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
               Pick a starting point.
             </h2>
           </div>
@@ -785,8 +785,8 @@ function Skills() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--accent)]">skills & tools</span>
-            <h2 className="mt-2 font-display text-4xl font-semibold text-[color:var(--burgundy)] sm:text-5xl">
+            <span className="handwritten text-2xl text-[color:var(--star)]">skills & tools</span>
+            <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
               The toolkit.
             </h2>
           </div>
@@ -838,8 +838,8 @@ function Education() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--accent)]">education & training</span>
-            <h2 className="mt-2 font-display text-4xl font-semibold text-[color:var(--burgundy)] sm:text-5xl">
+            <span className="handwritten text-2xl text-[color:var(--star)]">education & training</span>
+            <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
               Study notes.
             </h2>
           </div>
@@ -889,12 +889,12 @@ const testimonials = [
 
 function Testimonials() {
   return (
-    <section className="relative bg-[color:var(--burgundy)] px-5 py-24 text-[color:var(--cream)]">
+    <section className="relative bg-[color:var(--burgundy-darker)] px-5 py-24 text-[color:var(--cream)]">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--accent)]">kind words</span>
-            <h2 className="mt-2 font-display text-4xl font-semibold sm:text-5xl">
+            <span className="handwritten text-2xl text-[color:var(--star)]">kind words</span>
+            <h2 className="heavy mt-2 text-5xl uppercase sm:text-6xl">
               What clients say.
             </h2>
           </div>
@@ -932,16 +932,15 @@ function Contact() {
 
       <div className="mx-auto max-w-3xl text-center">
         <Reveal>
-          <span className="handwritten text-2xl text-[color:var(--accent)]">let's talk</span>
+          <span className="handwritten text-2xl text-[color:var(--star)]">let's talk</span>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="mt-3 font-display text-5xl font-semibold leading-[1.05] text-[color:var(--burgundy)] sm:text-6xl">
-            Ready to make your socials
-            <em className="text-[color:var(--accent)]"> work harder?</em>
+          <h2 className="heavy mt-3 text-5xl uppercase leading-[0.95] text-[color:var(--cream)] sm:text-7xl">
+            Ready to make your socials <em className="font-display normal-case text-[color:var(--star)]">work harder?</em>
           </h2>
         </Reveal>
         <Reveal delay={0.15}>
-          <p className="mt-6 text-lg text-[color:var(--ink)]/75">
+          <p className="mt-6 text-lg text-[color:var(--cream)]/80">
             Tell me about your business, your goals, and where you're stuck.
             I'll come back with a plan.
           </p>
@@ -950,13 +949,13 @@ function Contact() {
           <div className="mt-10 flex flex-col items-center gap-4">
             <a
               href="mailto:yourname@gmail.com"
-              className="rounded-full bg-[color:var(--burgundy)] px-8 py-4 text-base font-medium text-[color:var(--cream)] shadow-lg shadow-[color:var(--burgundy)]/25 transition hover:-translate-y-0.5 hover:bg-[color:var(--burgundy-deep)]"
+              className="rounded-full bg-[color:var(--cream)] px-8 py-4 text-base font-medium text-[color:var(--burgundy)] shadow-lg transition hover:-translate-y-0.5 hover:bg-[color:var(--star)]"
             >
               Let's work together →
             </a>
             <a
               href="mailto:yourname@gmail.com"
-              className="text-sm text-[color:var(--ink)]/60 underline-offset-4 hover:underline"
+              className="text-sm text-[color:var(--cream)]/60 underline-offset-4 hover:underline"
             >
               yourname@gmail.com
             </a>
@@ -969,10 +968,10 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="border-t border-[color:var(--burgundy)]/15 px-5 py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-[color:var(--ink)]/60 sm:flex-row">
+    <footer className="border-t border-[color:var(--cream)]/15 px-5 py-10">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-[color:var(--cream)]/60 sm:flex-row">
         <div>© {new Date().getFullYear()} Ammara Hoosen · Cape Town</div>
-        <div className="handwritten text-lg text-[color:var(--accent)]">
+        <div className="handwritten text-lg text-[color:var(--star)]">
           made with care ✿
         </div>
       </div>
@@ -982,7 +981,7 @@ function Footer() {
 
 export default function Portfolio() {
   return (
-    <main className="min-h-screen bg-[color:var(--cream)] text-[color:var(--ink)]">
+    <main className="min-h-screen text-[color:var(--cream)]">
       <Nav />
       <Hero />
       <About />
