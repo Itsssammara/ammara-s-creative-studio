@@ -101,12 +101,57 @@ function PaperCard({
 }) {
   return (
     <div
-      className={`paper-card relative rounded-[6px] ${className ?? ""}`}
+      className={`paper-card crumpled relative rounded-[6px] ${className ?? ""}`}
       style={{ transform: `rotate(${rotate}deg)` }}
     >
       {withTape && (
         <Tape className="-top-3 left-1/2 -translate-x-1/2" rotate={-3} />
       )}
+      {children}
+    </div>
+  );
+}
+
+function BinderBoard({
+  children,
+  className,
+  holes = 6,
+}: {
+  children: ReactNode;
+  className?: string;
+  holes?: number;
+}) {
+  return (
+    <div className={`binder-board relative px-5 pb-10 pt-16 sm:px-10 sm:pt-20 ${className ?? ""}`}>
+      {/* Binder rings row */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 flex -translate-y-1/2 justify-around px-6 sm:px-12"
+        aria-hidden
+      >
+        {Array.from({ length: holes }).map((_, i) => (
+          <div key={i} className="relative">
+            {/* punched hole */}
+            <div
+              className="h-6 w-6 rounded-full sm:h-7 sm:w-7"
+              style={{
+                background: "radial-gradient(circle at 40% 35%, oklch(0.14 0.05 22) 0%, oklch(0.22 0.07 22) 55%, oklch(0.32 0.13 20) 100%)",
+                boxShadow:
+                  "inset 0 2px 3px oklch(0 0 0 / 0.55), 0 1px 0 oklch(1 0 0 / 0.4)",
+              }}
+            />
+            {/* metal ring */}
+            <div
+              className="absolute -inset-1 rounded-full border-2 sm:-inset-1.5"
+              style={{
+                borderImage:
+                  "linear-gradient(135deg, oklch(0.95 0.02 80), oklch(0.55 0.02 80) 45%, oklch(0.98 0.02 80) 55%, oklch(0.5 0.02 80)) 1",
+                boxShadow:
+                  "0 3px 6px -2px oklch(0.22 0.07 22 / 0.5), inset 0 1px 0 oklch(1 0 0 / 0.6)",
+              }}
+            />
+          </div>
+        ))}
+      </div>
       {children}
     </div>
   );
@@ -486,7 +531,8 @@ function Projects() {
           </div>
         </Reveal>
 
-        <StaggerGroup className="mt-14 grid gap-8 md:grid-cols-2">
+        <BinderBoard className="mt-14" holes={7}>
+          <StaggerGroup className="grid gap-8 md:grid-cols-2">
           {projects.map((p, i) => (
             <motion.div key={p.name} variants={fadeUp}>
               <PaperCard rotate={i % 2 === 0 ? -0.6 : 0.8} className="h-full p-8">
@@ -522,7 +568,8 @@ function Projects() {
               </PaperCard>
             </motion.div>
           ))}
-        </StaggerGroup>
+          </StaggerGroup>
+        </BinderBoard>
       </div>
     </section>
   );
@@ -727,18 +774,78 @@ function Skills() {
           </div>
         </Reveal>
 
-        <StaggerGroup className="mt-10 flex flex-wrap gap-3">
-          {tools.map((t, i) => (
-            <motion.span
-              key={t}
-              variants={fadeUp}
-              className="rounded-full border border-[color:var(--burgundy)]/25 bg-[color:var(--paper)] px-5 py-2 text-sm text-[color:var(--burgundy)] shadow-sm"
-              style={{ transform: `rotate(${(i % 5) - 2}deg)` }}
-            >
-              {t}
-            </motion.span>
-          ))}
-        </StaggerGroup>
+        <BinderBoard className="mt-10" holes={7}>
+          <StaggerGroup className="flex flex-wrap gap-3">
+            {tools.map((t, i) => (
+              <motion.span
+                key={t}
+                variants={fadeUp}
+                className="rounded-full border border-[color:var(--burgundy)]/25 bg-[color:var(--cream)] px-5 py-2 text-sm text-[color:var(--burgundy)] shadow-sm"
+                style={{ transform: `rotate(${(i % 5) - 2}deg)` }}
+              >
+                {t}
+              </motion.span>
+            ))}
+          </StaggerGroup>
+        </BinderBoard>
+      </div>
+    </section>
+  );
+}
+
+const education = [
+  {
+    y: "2023 — 2024",
+    t: "Full-Stack Web Development",
+    p: "CodeSpace Academy",
+    d: "HTML, CSS, JavaScript, React — with a design-first approach to building the web.",
+  },
+  {
+    y: "2022 — 2023",
+    t: "Social Media & Digital Marketing",
+    p: "Self-directed + client work",
+    d: "Meta Ads, content strategy, short-form video, and reporting — learned by doing.",
+  },
+  {
+    y: "Ongoing",
+    t: "Meta Blueprint & Industry Courses",
+    p: "Meta / continuous learning",
+    d: "Staying current on ad platform changes, creative trends, and algorithm shifts.",
+  },
+];
+
+function Education() {
+  return (
+    <section id="education" className="relative px-5 py-24">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <div className="max-w-2xl">
+            <span className="handwritten text-2xl text-[color:var(--accent)]">education & training</span>
+            <h2 className="mt-2 font-display text-4xl font-semibold text-[color:var(--burgundy)] sm:text-5xl">
+              Study notes.
+            </h2>
+          </div>
+        </Reveal>
+
+        <BinderBoard className="mt-14" holes={7}>
+          <StaggerGroup className="grid gap-6 md:grid-cols-3">
+            {education.map((e, i) => (
+              <motion.div key={e.t} variants={fadeUp}>
+                <PaperCard rotate={[-1.2, 0.6, -0.4][i]} className="h-full p-6">
+                  <Tape className="-top-3 left-6" rotate={-5 + i * 4} />
+                  <div className="text-[10px] uppercase tracking-widest text-[color:var(--accent)]">
+                    {e.y}
+                  </div>
+                  <h3 className="mt-2 font-display text-xl font-semibold text-[color:var(--burgundy)]">
+                    {e.t}
+                  </h3>
+                  <div className="handwritten mt-1 text-lg text-[color:var(--ink)]/70">{e.p}</div>
+                  <p className="mt-3 text-sm leading-relaxed text-[color:var(--ink)]/75">{e.d}</p>
+                </PaperCard>
+              </motion.div>
+            ))}
+          </StaggerGroup>
+        </BinderBoard>
       </div>
     </section>
   );
@@ -868,6 +975,7 @@ export default function Portfolio() {
       <Process />
       <Packages />
       <Skills />
+      <Education />
       <Testimonials />
       <Contact />
       <Footer />
