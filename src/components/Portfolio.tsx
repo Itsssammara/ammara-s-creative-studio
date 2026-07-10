@@ -385,9 +385,9 @@ function About() {
           </Reveal>
 
           {/* Rotated script + paragraph like the reference */}
-          <div className="mt-8 grid gap-5 sm:grid-cols-[auto_1fr] sm:items-start">
-            <Reveal delay={0.28}>
-              <div className="handwritten text-4xl leading-none text-[color:var(--cream)] sm:rotate-[-90deg] sm:text-5xl sm:origin-top-right sm:translate-x-2 sm:pt-24">
+          <div className="mt-8 grid gap-5 sm:grid-cols-[48px_1fr] sm:items-start">
+            <Reveal delay={0.28} className="hidden sm:block">
+              <div className="handwritten flex h-40 items-center justify-center text-4xl leading-none text-[color:var(--star)] [writing-mode:vertical-rl] rotate-180">
                 Why me?
               </div>
             </Reveal>
