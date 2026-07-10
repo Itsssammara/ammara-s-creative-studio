@@ -78,6 +78,43 @@ function Squiggle({ className }: { className?: string }) {
   );
 }
 
+/* Chalky brush-style doodles inspired by the reference */
+function ChalkStar({ className, size = 90 }: { className?: string; size?: number }) {
+  return (
+    <svg className={className} width={size} height={size} viewBox="0 0 100 100" fill="none" aria-hidden>
+      <path
+        d="M50 6 C 52 28, 58 40, 82 44 C 60 50, 54 58, 50 92 C 46 60, 40 52, 14 46 C 42 40, 48 30, 50 6 Z"
+        fill="currentColor"
+        opacity="0.92"
+      />
+    </svg>
+  );
+}
+
+function ChalkSpiral({ className, size = 130 }: { className?: string; size?: number }) {
+  return (
+    <svg className={className} width={size} height={size} viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth={7} strokeLinecap="round" aria-hidden>
+      <path d="M60 60 m-6 0 a6 6 0 1 0 12 0 a12 12 0 1 1 -24 0 a20 20 0 1 0 40 0 a30 30 0 1 1 -60 0 a44 44 0 1 0 88 0" opacity="0.9" />
+    </svg>
+  );
+}
+
+function ChalkSwirl({ className, size = 150 }: { className?: string; size?: number }) {
+  return (
+    <svg className={className} width={size} height={size} viewBox="0 0 160 80" fill="none" stroke="currentColor" strokeWidth={8} strokeLinecap="round" aria-hidden>
+      <path d="M10 60 C 20 20, 50 20, 60 50 C 65 68, 45 72, 40 55 C 35 35, 70 20, 95 40 C 125 62, 145 30, 150 15" opacity="0.9" />
+    </svg>
+  );
+}
+
+function ChalkScribble({ className, size = 120 }: { className?: string; size?: number }) {
+  return (
+    <svg className={className} width={size} height={size} viewBox="0 0 140 80" fill="none" stroke="currentColor" strokeWidth={9} strokeLinecap="round" aria-hidden>
+      <path d="M10 50 Q 30 10, 50 45 T 90 45 Q 110 20, 130 50" opacity="0.9" />
+    </svg>
+  );
+}
+
 function Tape({ className, style, rotate = -4 }: { className?: string; style?: CSSProperties; rotate?: number }) {
   return (
     <div
@@ -169,13 +206,13 @@ function Nav() {
     ["Contact", "#contact"],
   ];
   return (
-    <header className="sticky top-0 z-40 border-b border-[color:var(--burgundy)]/10 bg-[color:var(--cream)]/85 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-[color:var(--cream)]/10 bg-[color:var(--burgundy-deep)]/80 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <a href="#top" className="flex items-baseline gap-2">
-          <span className="font-display text-xl font-semibold tracking-tight text-[color:var(--burgundy)]">
+          <span className="font-display text-xl font-semibold tracking-tight text-[color:var(--cream)]">
             Ammara Hoosen
           </span>
-          <span className="handwritten hidden text-lg text-[color:var(--accent)] sm:inline">
+          <span className="handwritten hidden text-lg text-[color:var(--star)] sm:inline">
             — studio
           </span>
         </a>
@@ -184,7 +221,7 @@ function Nav() {
             <li key={href}>
               <a
                 href={href}
-                className="text-[color:var(--ink)]/70 transition hover:text-[color:var(--burgundy)]"
+                className="text-[color:var(--cream)]/70 transition hover:text-[color:var(--cream)]"
               >
                 {label}
               </a>
@@ -193,7 +230,7 @@ function Nav() {
         </ul>
         <a
           href="#contact"
-          className="rounded-full bg-[color:var(--burgundy)] px-4 py-2 text-xs font-medium text-[color:var(--cream)] transition hover:bg-[color:var(--burgundy-deep)]"
+          className="rounded-full bg-[color:var(--cream)] px-4 py-2 text-xs font-medium text-[color:var(--burgundy)] transition hover:bg-[color:var(--star)]"
         >
           Work with me
         </a>
@@ -204,197 +241,178 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden px-5 pb-24 pt-16 sm:pt-24">
-      {/* Decorative stars */}
-      <Star className="absolute left-[8%] top-24 text-[color:var(--star)]" size={22} />
-      <Star className="absolute right-[10%] top-40 text-[color:var(--accent)]" size={16} />
-      <Star className="absolute bottom-24 left-[15%] text-[color:var(--burgundy)]/60" size={18} />
+    <section id="top" className="relative overflow-hidden px-5 pb-24 pt-14 sm:pt-20">
+      {/* Chalk doodles scattered across the burgundy corduroy */}
+      <ChalkStar className="pointer-events-none absolute left-[4%] top-16 text-[color:var(--cream)]/90 rotate-[-15deg]" size={70} />
+      <ChalkStar className="pointer-events-none absolute right-[6%] top-8 text-[color:var(--cream)]/85 rotate-[20deg]" size={95} />
+      <ChalkSpiral className="pointer-events-none absolute right-[38%] top-4 text-[color:var(--cream)]/80" size={110} />
+      <ChalkSwirl className="pointer-events-none absolute left-[2%] bottom-24 text-[color:var(--cream)]/85 rotate-[-8deg]" size={170} />
+      <ChalkScribble className="pointer-events-none absolute right-[3%] bottom-20 text-[color:var(--cream)]/85 rotate-[12deg]" size={140} />
+      <ChalkStar className="pointer-events-none absolute left-[46%] bottom-10 text-[color:var(--cream)]/90 rotate-[8deg]" size={58} />
 
-      <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-12">
-        <div className="lg:col-span-7">
-          <Reveal>
-            <span className="handwritten inline-flex items-center gap-2 text-2xl text-[color:var(--accent)]">
-              <Squiggle className="h-4 w-16 text-[color:var(--accent)]" />
-              Hi, I'm Ammara —
-            </span>
-          </Reveal>
-
-          <Reveal delay={0.05}>
-            <h1 className="mt-3 font-display text-5xl font-semibold leading-[1.02] tracking-tight text-[color:var(--burgundy)] sm:text-6xl lg:text-7xl">
-              Social media that
-              <span className="italic text-[color:var(--accent)]"> actually </span>
-              works for small business.
-            </h1>
-          </Reveal>
-
-          <Reveal delay={0.15}>
-            <p className="mt-6 max-w-xl text-lg text-[color:var(--ink)]/80">
-              Cape Town-based social media manager & Meta ads specialist helping
-              brands turn content into <em>clicks, conversations, and customers.</em>
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.25}>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#work"
-                className="rounded-full bg-[color:var(--burgundy)] px-6 py-3 text-sm font-medium text-[color:var(--cream)] shadow-lg shadow-[color:var(--burgundy)]/20 transition hover:-translate-y-0.5 hover:bg-[color:var(--burgundy-deep)]"
-              >
-                View My Work →
-              </a>
-              <a
-                href="#contact"
-                className="rounded-full border border-[color:var(--burgundy)]/30 bg-[color:var(--paper)] px-6 py-3 text-sm font-medium text-[color:var(--burgundy)] transition hover:-translate-y-0.5 hover:border-[color:var(--burgundy)]"
-              >
-                Work With Me
-              </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.35}>
-            <p className="mt-8 text-xs uppercase tracking-[0.25em] text-[color:var(--ink)]/50">
-              📍 Cape Town, South Africa · Available worldwide
-            </p>
-          </Reveal>
-        </div>
-
-        {/* Floating scrapbook collage */}
-        <div className="relative h-[520px] lg:col-span-5">
-          <Reveal delay={0.2} y={30}>
-            <PaperCard
-              rotate={-5}
-              className="absolute left-0 top-4 w-56 p-4"
-              withTape
-            >
-              <div className="flex items-center gap-2 text-xs">
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-tr from-[color:var(--accent)] to-[color:var(--burgundy)] text-[color:var(--cream)] font-bold">A</span>
-                <div className="leading-tight">
-                  <div className="font-semibold text-[color:var(--ink)]">@ammara.studio</div>
-                  <div className="text-[color:var(--ink)]/50">2h · Sponsored</div>
+      <div className="relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-12">
+        {/* Torn paper hero card */}
+        <Reveal className="relative lg:col-span-8" y={40}>
+          <div className="relative">
+            <div className="torn-paper relative px-8 py-14 sm:px-14 sm:py-20">
+              <div className="relative">
+                <span className="handwritten text-2xl text-[color:var(--accent)]">
+                  hi, I'm Ammara —
+                </span>
+                <h1 className="mt-2 font-display text-6xl italic leading-[0.95] text-[color:var(--ink)] sm:text-7xl lg:text-[7.5rem]">
+                  Portfolio
+                </h1>
+                <div className="mt-4 space-y-1">
+                  <div className="heavy text-4xl uppercase text-[color:var(--burgundy)] sm:text-5xl lg:text-6xl">
+                    Social Media Manager
+                  </div>
+                  <div className="heavy flex items-baseline gap-3 text-4xl uppercase text-[color:var(--burgundy-deep)] sm:text-5xl lg:text-6xl">
+                    <span className="font-display text-2xl italic sm:text-3xl">&</span>
+                    <span>Meta Ads Specialist</span>
+                  </div>
+                </div>
+                <p className="mt-6 max-w-lg text-[color:var(--ink)]/80">
+                  Cape Town–based creative helping small businesses turn content
+                  into <em>clicks, conversations, and customers.</em>
+                </p>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <a
+                    href="#work"
+                    className="rounded-full bg-[color:var(--burgundy)] px-6 py-3 text-sm font-medium text-[color:var(--cream)] shadow-lg transition hover:-translate-y-0.5 hover:bg-[color:var(--burgundy-deep)]"
+                  >
+                    View My Work →
+                  </a>
+                  <a
+                    href="#contact"
+                    className="rounded-full border-2 border-[color:var(--burgundy)] px-6 py-3 text-sm font-medium text-[color:var(--burgundy)] transition hover:-translate-y-0.5 hover:bg-[color:var(--burgundy)] hover:text-[color:var(--cream)]"
+                  >
+                    Work With Me
+                  </a>
                 </div>
               </div>
-              <div className="mt-3 h-24 rounded bg-gradient-to-br from-[color:var(--accent)]/40 to-[color:var(--burgundy)]/30" />
-              <div className="mt-2 text-[11px] text-[color:var(--ink)]/70">
-                Shop the new drop → link in bio
-              </div>
-              <div className="mt-2 flex gap-3 text-[10px] text-[color:var(--ink)]/60">
-                <span>♥ 1.2k</span><span>💬 84</span><span>↗ 213</span>
-              </div>
-            </PaperCard>
-          </Reveal>
+            </div>
 
-          <Reveal delay={0.3} y={40}>
-            <PaperCard
-              rotate={4}
-              className="absolute right-0 top-24 w-52 p-4"
-            >
-              <Tape className="-top-3 right-6" rotate={8} />
-              <div className="text-[10px] font-semibold uppercase tracking-widest text-[color:var(--accent)]">Meta Ads</div>
-              <div className="mt-1 font-display text-3xl font-semibold text-[color:var(--burgundy)]">4.2x</div>
-              <div className="text-xs text-[color:var(--ink)]/70">Return on ad spend</div>
-              <div className="mt-3 flex items-end gap-1">
-                {[30, 55, 40, 78, 62, 90].map((h, i) => (
-                  <div key={i} className="w-3 rounded-t bg-[color:var(--burgundy)]/70" style={{ height: `${h}%`, maxHeight: 40 }} />
-                ))}
+            {/* Speech bubble callout */}
+            <Reveal delay={0.25} className="absolute -top-4 right-4 hidden sm:block lg:-right-8">
+              <div className="speech-bubble w-64 text-center">
+                <div className="heavy px-2 text-lg uppercase text-[color:var(--burgundy)]">
+                  Fluent in strategy,
+                  <br />
+                  native in scroll.
+                </div>
               </div>
-            </PaperCard>
-          </Reveal>
+            </Reveal>
+          </div>
+        </Reveal>
 
-          <Reveal delay={0.4} y={30}>
-            <PaperCard
-              rotate={-3}
-              className="absolute bottom-6 left-6 w-52 p-4"
-            >
-              <Tape className="-top-3 left-4" rotate={-10} />
-              <div className="text-[10px] font-semibold uppercase tracking-widest text-[color:var(--accent)]">Reel · 7 days</div>
-              <div className="mt-1 font-display text-3xl font-semibold text-[color:var(--burgundy)]">43K</div>
-              <div className="text-xs text-[color:var(--ink)]/70">views on short-form</div>
-              <div className="handwritten mt-2 text-lg text-[color:var(--accent)]">↑ went viral!</div>
-            </PaperCard>
-          </Reveal>
-
-          <Reveal delay={0.5} y={30}>
-            <PaperCard
-              rotate={6}
-              className="absolute bottom-24 right-2 w-44 p-3"
-            >
-              <div className="text-[10px] font-semibold uppercase tracking-widest text-[color:var(--accent)]">Engagement</div>
-              <div className="mt-2 flex items-baseline gap-2">
-                <span className="font-display text-2xl font-semibold text-[color:var(--burgundy)]">+312%</span>
-                <span className="text-[10px] text-[color:var(--ink)]/60">vs last month</span>
-              </div>
-              <div className="mt-2 h-1.5 w-full overflow-hidden rounded bg-[color:var(--muted)]">
-                <div className="h-full w-4/5 bg-gradient-to-r from-[color:var(--accent)] to-[color:var(--burgundy)]" />
-              </div>
-            </PaperCard>
-          </Reveal>
-
-          <Star className="absolute right-24 top-6 text-[color:var(--star)]" size={20} />
-          <Squiggle className="absolute bottom-2 left-10 h-4 w-24 text-[color:var(--burgundy)]/40" />
-        </div>
+        {/* Portrait with brush frame */}
+        <Reveal className="lg:col-span-4" delay={0.15}>
+          <div className="relative mx-auto max-w-xs lg:max-w-none">
+            <ChalkStar className="pointer-events-none absolute -left-6 top-10 z-10 text-[color:var(--cream)]" size={54} />
+            <div className="brush-frame">
+              <img
+                src={ammaraImg}
+                alt="Portrait of Ammara Hoosen"
+                width={800}
+                height={1000}
+                className="aspect-[4/5] w-full object-cover"
+              />
+            </div>
+            <ChalkStar className="pointer-events-none absolute -bottom-4 -right-4 text-[color:var(--cream)] rotate-[18deg]" size={70} />
+          </div>
+        </Reveal>
       </div>
+
+      <Reveal delay={0.35}>
+        <p className="relative mt-14 text-center text-xs uppercase tracking-[0.35em] text-[color:var(--cream)]/60">
+          📍 Cape Town, South Africa · Available worldwide
+        </p>
+      </Reveal>
     </section>
   );
 }
 
 function About() {
   return (
-    <section id="about" className="relative px-5 py-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-12">
+    <section id="about" className="relative overflow-hidden px-5 py-24">
+      {/* Chalk doodles */}
+      <ChalkStar className="pointer-events-none absolute left-[4%] top-14 text-[color:var(--cream)] rotate-[-12deg]" size={80} />
+      <ChalkSpiral className="pointer-events-none absolute left-[26%] top-10 text-[color:var(--cream)]/85" size={140} />
+      <ChalkStar className="pointer-events-none absolute right-[8%] top-24 text-[color:var(--cream)] rotate-[15deg]" size={54} />
+      <ChalkSwirl className="pointer-events-none absolute right-[4%] bottom-32 text-[color:var(--cream)]/80 rotate-[8deg]" size={130} />
+
+      <div className="relative mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-12">
+        {/* Photo with brush frame */}
         <Reveal className="lg:col-span-5">
           <div className="relative mx-auto max-w-sm">
-            <Tape className="-top-3 left-8" rotate={-6} />
-            <Tape className="-top-3 right-8" rotate={7} />
-            <div className="paper-card overflow-hidden rounded-sm p-3">
+            <ChalkStar className="pointer-events-none absolute -left-8 -top-6 z-10 text-[color:var(--cream)] rotate-[-15deg]" size={60} />
+            <div className="brush-frame">
               <img
                 src={ammaraImg}
                 alt="Portrait of Ammara Hoosen"
                 width={800}
                 height={1000}
                 loading="lazy"
-                className="aspect-[4/5] w-full rounded-sm object-cover"
+                className="aspect-[4/5] w-full object-cover"
               />
-              <p className="handwritten mt-3 text-center text-2xl text-[color:var(--burgundy)]">
-                — Ammara, Cape Town ✿
-              </p>
             </div>
-            <Star className="absolute -right-6 top-10 text-[color:var(--accent)]" size={26} />
           </div>
         </Reveal>
 
-        <div className="lg:col-span-7">
+        {/* Text block */}
+        <div className="relative lg:col-span-7">
           <Reveal>
-            <span className="handwritten text-2xl text-[color:var(--accent)]">about me</span>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <h2 className="mt-2 font-display text-4xl font-semibold text-[color:var(--burgundy)] sm:text-5xl">
-              Strategy-first content <em className="text-[color:var(--accent)]">with a design eye.</em>
+            <h2 className="heavy text-6xl uppercase text-[color:var(--cream)] sm:text-7xl lg:text-8xl">
+              About Me
             </h2>
           </Reveal>
-          <Reveal delay={0.15}>
-            <p className="mt-6 text-lg leading-relaxed text-[color:var(--ink)]/80">
-              I'm a Cape Town-based creative with a background in web development,
-              social media management, graphic design, and paid ads. I help brands
-              show up online with content that looks good, makes sense, and
-              supports real business goals.
+
+          <Reveal delay={0.1}>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-[color:var(--cream)]/90 sm:text-lg">
+              Hi, call me Ammara. I'm a Cape Town–based creative with a background
+              in web development, social media management, graphic design, and
+              paid ads. My path wasn't a straight line — it was a convergence.
             </p>
           </Reveal>
-          <Reveal delay={0.25}>
-            <p className="mt-4 text-lg leading-relaxed text-[color:var(--ink)]/80">
-              I care about clean visuals, clear strategy, and content that does
-              more than just <span className="italic">"look cute"</span>.
+
+          <Reveal delay={0.2}>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-[color:var(--cream)]/85 sm:text-lg">
+              If you look at my resume, you see a marketer. If you look at my
+              camera roll, you see a storyteller. I help brands show up online
+              with content that looks good, makes sense, and supports real
+              business goals.
             </p>
           </Reveal>
-          <Reveal delay={0.35}>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {["Strategy", "Design", "Meta Ads", "Web", "Copy"].map((t) => (
-                <span
-                  key={t}
-                  className="rounded-full border border-[color:var(--burgundy)]/20 bg-[color:var(--paper)] px-4 py-1.5 text-xs uppercase tracking-widest text-[color:var(--burgundy)]"
-                >
-                  {t}
-                </span>
-              ))}
+
+          {/* Rotated script + paragraph like the reference */}
+          <div className="mt-8 grid gap-5 sm:grid-cols-[auto_1fr] sm:items-start">
+            <Reveal delay={0.28}>
+              <div className="handwritten text-4xl leading-none text-[color:var(--cream)] sm:rotate-[-90deg] sm:text-5xl sm:origin-top-right sm:translate-x-2 sm:pt-24">
+                Why me?
+              </div>
+            </Reveal>
+            <Reveal delay={0.32}>
+              <p className="max-w-xl text-base leading-relaxed text-[color:var(--cream)]/90 sm:text-lg">
+                Because I care about clean visuals, clear strategy, and content
+                that does more than just <em>"look cute."</em> I sit at the
+                intersection of design, strategy, and code — which means your
+                content, ads, and website all pull in the same direction.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* Info card */}
+          <Reveal delay={0.4}>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <div className="relative bg-[color:var(--cream)] px-6 py-3 text-[color:var(--burgundy)] shadow-lg" style={{ clipPath: "polygon(2% 0%, 100% 4%, 98% 100%, 0% 96%)" }}>
+                <div className="text-sm">
+                  <div className="font-semibold">📩 hello@ammara.studio</div>
+                  <div className="text-[color:var(--ink)]/70">Cape Town · ZA</div>
+                </div>
+              </div>
+              <div className="heavy rounded-md bg-[color:var(--burgundy-darker)] px-4 py-3 text-sm uppercase tracking-wider text-[color:var(--cream)]">
+                Info
+              </div>
             </div>
           </Reveal>
         </div>
