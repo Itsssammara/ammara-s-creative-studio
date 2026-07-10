@@ -101,12 +101,57 @@ function PaperCard({
 }) {
   return (
     <div
-      className={`paper-card relative rounded-[6px] ${className ?? ""}`}
+      className={`paper-card crumpled relative rounded-[6px] ${className ?? ""}`}
       style={{ transform: `rotate(${rotate}deg)` }}
     >
       {withTape && (
         <Tape className="-top-3 left-1/2 -translate-x-1/2" rotate={-3} />
       )}
+      {children}
+    </div>
+  );
+}
+
+function BinderBoard({
+  children,
+  className,
+  holes = 6,
+}: {
+  children: ReactNode;
+  className?: string;
+  holes?: number;
+}) {
+  return (
+    <div className={`binder-board relative px-5 pb-10 pt-16 sm:px-10 sm:pt-20 ${className ?? ""}`}>
+      {/* Binder rings row */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 flex -translate-y-1/2 justify-around px-6 sm:px-12"
+        aria-hidden
+      >
+        {Array.from({ length: holes }).map((_, i) => (
+          <div key={i} className="relative">
+            {/* punched hole */}
+            <div
+              className="h-6 w-6 rounded-full sm:h-7 sm:w-7"
+              style={{
+                background: "radial-gradient(circle at 40% 35%, oklch(0.14 0.05 22) 0%, oklch(0.22 0.07 22) 55%, oklch(0.32 0.13 20) 100%)",
+                boxShadow:
+                  "inset 0 2px 3px oklch(0 0 0 / 0.55), 0 1px 0 oklch(1 0 0 / 0.4)",
+              }}
+            />
+            {/* metal ring */}
+            <div
+              className="absolute -inset-1 rounded-full border-2 sm:-inset-1.5"
+              style={{
+                borderImage:
+                  "linear-gradient(135deg, oklch(0.95 0.02 80), oklch(0.55 0.02 80) 45%, oklch(0.98 0.02 80) 55%, oklch(0.5 0.02 80)) 1",
+                boxShadow:
+                  "0 3px 6px -2px oklch(0.22 0.07 22 / 0.5), inset 0 1px 0 oklch(1 0 0 / 0.6)",
+              }}
+            />
+          </div>
+        ))}
+      </div>
       {children}
     </div>
   );
