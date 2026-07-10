@@ -531,7 +531,8 @@ function Projects() {
           </div>
         </Reveal>
 
-        <StaggerGroup className="mt-14 grid gap-8 md:grid-cols-2">
+        <BinderBoard className="mt-14" holes={7}>
+          <StaggerGroup className="grid gap-8 md:grid-cols-2">
           {projects.map((p, i) => (
             <motion.div key={p.name} variants={fadeUp}>
               <PaperCard rotate={i % 2 === 0 ? -0.6 : 0.8} className="h-full p-8">
@@ -567,7 +568,8 @@ function Projects() {
               </PaperCard>
             </motion.div>
           ))}
-        </StaggerGroup>
+          </StaggerGroup>
+        </BinderBoard>
       </div>
     </section>
   );
