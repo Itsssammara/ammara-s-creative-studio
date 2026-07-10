@@ -975,6 +975,7 @@ export default function Portfolio() {
       <Process />
       <Packages />
       <Skills />
+      <Education />
       <Testimonials />
       <Contact />
       <Footer />
