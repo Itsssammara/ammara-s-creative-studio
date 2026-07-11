@@ -93,8 +93,29 @@ function ChalkStar({ className, size = 90 }: { className?: string; size?: number
 
 function ChalkSpiral({ className, size = 130 }: { className?: string; size?: number }) {
   return (
-    <svg className={className} width={size} height={size} viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth={7} strokeLinecap="round" aria-hidden>
-      <path d="M60 60 m-6 0 a6 6 0 1 0 12 0 a12 12 0 1 1 -24 0 a20 20 0 1 0 40 0 a30 30 0 1 1 -60 0 a44 44 0 1 0 88 0" opacity="0.9" />
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 140 110"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      {/* concentric arcs (rainbow-style, opening downward) */}
+      <path d="M20 70 A50 50 0 0 1 120 70" opacity="0.95" />
+      <path d="M32 70 A38 38 0 0 1 108 70" opacity="0.95" />
+      <path d="M44 70 A26 26 0 0 1 96 70" opacity="0.95" />
+      <path d="M56 70 A14 14 0 0 1 84 70" opacity="0.95" />
+      {/* little tulip on top */}
+      <path d="M70 22 C 64 30, 64 40, 70 44 C 76 40, 76 30, 70 22 Z" fill="currentColor" opacity="0.95" />
+      <path d="M62 34 C 58 40, 58 46, 64 48" opacity="0.9" />
+      <path d="M78 34 C 82 40, 82 46, 76 48" opacity="0.9" />
+      {/* stem */}
+      <path d="M70 44 L70 58" opacity="0.9" />
     </svg>
   );
 }
