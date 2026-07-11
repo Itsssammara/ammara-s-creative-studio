@@ -1105,13 +1105,13 @@ export default function Portfolio() {
       <Nav />
       <Hero />
       <About />
+      <Background />
       <Services />
       <Why />
       <Projects />
       <Results />
       <Process />
       <Packages />
-      <Background />
       <Testimonials />
       <Contact />
       <Footer />
