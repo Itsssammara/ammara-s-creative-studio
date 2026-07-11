@@ -220,7 +220,6 @@ function BinderBoard({
 function Nav() {
   const links = [
     ["About", "#about"],
-    ["Services", "#services"],
     ["Work", "#work"],
     ["Logos", "#logofolio"],
     ["Social", "#social"],
@@ -319,9 +318,7 @@ function Hero() {
             <Reveal delay={0.25} className="absolute -top-4 right-4 hidden sm:block lg:-right-8">
               <div className="speech-bubble w-64 text-center">
                 <div className="heavy px-2 text-lg uppercase text-[color:var(--burgundy)]">
-                  Fluent in strategy,
-                  <br />
-                  native in scroll.
+                  2+ Years of Experience
                 </div>
               </div>
             </Reveal>
@@ -389,7 +386,7 @@ function About() {
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-[color:var(--cream)]/90 sm:text-lg">
               Hi, call me Ammara. I'm a Cape Town–based creative with a background
-              in web development, social media management, graphic design, and
+              in web development, social media management, graphic design and
               paid ads. My path wasn't a straight line — it was a convergence.
             </p>
           </Reveal>
@@ -398,7 +395,7 @@ function About() {
             <p className="mt-5 max-w-xl text-base leading-relaxed text-[color:var(--cream)]/85 sm:text-lg">
               If you look at my resume, you see a marketer. If you look at my
               camera roll, you see a storyteller. I help brands show up online
-              with content that looks good, makes sense, and supports real
+              with content that looks good, makes sense and supports real
               business goals.
             </p>
           </Reveal>
@@ -616,130 +613,67 @@ function Projects() {
 
 type LogoMark = {
   name: string;
-  render: (color: string) => ReactNode;
+  image: string;
 };
 
 const logofolio: LogoMark[] = [
   {
-    name: "Café Manna",
-    render: (c) => (
-      <svg viewBox="0 0 120 60" className="h-14 w-auto" fill="none" stroke={c} strokeWidth={2.2}>
-        <circle cx="24" cy="30" r="16" />
-        <path d="M18 30 Q24 22 30 30 Q24 38 18 30" fill={c} stroke="none" />
-        <text x="46" y="28" fontFamily="Playfair Display, serif" fontSize="14" fontStyle="italic" fill={c} stroke="none">café</text>
-        <text x="46" y="44" fontFamily="Inter, sans-serif" fontSize="14" fontWeight="700" fill={c} stroke="none">manna</text>
-      </svg>
-    ),
+    name: "African Flag Removal",
+    image: "/logos/marketing-portfolio-logo-1.png",
   },
   {
-    name: "Konstrukt Hardware",
-    render: (c) => (
-      <svg viewBox="0 0 110 60" className="h-14 w-auto" fill={c}>
-        <text x="4" y="46" fontFamily="Anton, Impact, sans-serif" fontSize="52" letterSpacing="-2">KH</text>
-      </svg>
-    ),
+    name: "Logo 2",
+    image: "/logos/marketing-portfolio-logo-1.png",
   },
   {
-    name: "L.A Pares",
-    render: (c) => (
-      <svg viewBox="0 0 110 70" className="h-16 w-auto" fill="none" stroke={c} strokeWidth={1.8}>
-        <path d="M20 18 L55 8 L90 18 L90 40 Q55 56 20 40 Z" />
-        <path d="M42 22 L55 14 L68 22" strokeWidth={1.4} />
-        <text x="55" y="36" textAnchor="middle" fontFamily="Anton, sans-serif" fontSize="12" fill={c} stroke="none">L.A</text>
-        <text x="55" y="60" textAnchor="middle" fontFamily="Playfair Display, serif" fontStyle="italic" fontSize="10" fill={c} stroke="none">pares</text>
-      </svg>
-    ),
+    name: "Logo 3",
+    image: "/logos/marketing-portfolio-logo-1.png",
   },
   {
-    name: "Precious Moments",
-    render: (c) => (
-      <svg viewBox="0 0 120 60" className="h-14 w-auto" fill="none" stroke={c} strokeWidth={2}>
-        <path d="M20 50 Q20 10 45 10 Q60 10 55 30 Q50 50 30 50" />
-        <path d="M65 10 L65 50 M65 10 L90 50 M90 10 L90 50" />
-      </svg>
-    ),
+    name: "Logo 4",
+    image: "/logos/marketing-portfolio-logo-1.png",
   },
   {
-    name: "Kape't Bahay",
-    render: (c) => (
-      <svg viewBox="0 0 90 70" className="h-16 w-auto" fill="none" stroke={c} strokeWidth={2}>
-        <path d="M18 12 Q22 4 26 12 M32 12 Q36 4 40 12" strokeLinecap="round" />
-        <path d="M10 22 L58 22 L54 56 Q45 62 30 62 Q18 62 14 56 Z" fill={c} stroke="none" />
-        <path d="M58 30 Q78 32 78 44 Q78 54 62 54" />
-      </svg>
-    ),
-  },
-  {
-    name: "Kuya Sidney's",
-    render: (c) => (
-      <svg viewBox="0 0 140 60" className="h-14 w-auto" fill={c}>
-        <text x="10" y="34" fontFamily="Caveat, cursive" fontSize="34" fontWeight="700">Kuya</text>
-        <text x="46" y="52" fontFamily="Caveat, cursive" fontStyle="italic" fontSize="28">Sidney's</text>
-      </svg>
-    ),
-  },
-  {
-    name: "Lucere",
-    render: (c) => (
-      <svg viewBox="0 0 90 60" className="h-14 w-auto" fill={c}>
-        <text x="10" y="46" fontFamily="Playfair Display, serif" fontSize="48" fontStyle="italic">LU</text>
-        <path d="M12 8 L14 14 L20 14 L15 18 L17 24 L12 20 L7 24 L9 18 L4 14 L10 14 Z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Tara Laba",
-    render: (c) => (
-      <svg viewBox="0 0 80 70" className="h-16 w-auto" fill="none" stroke={c} strokeWidth={2.5}>
-        <circle cx="40" cy="35" r="26" />
-        <circle cx="32" cy="30" r="2.5" fill={c} />
-        <circle cx="48" cy="30" r="2.5" fill={c} />
-        <path d="M30 40 Q40 48 50 40" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    name: "Pizzeria Blend",
-    render: (c) => (
-      <svg viewBox="0 0 110 70" className="h-16 w-auto" fill="none" stroke={c} strokeWidth={2}>
-        <path d="M12 44 Q12 12 55 12 Q98 12 98 44" />
-        <path d="M6 44 L104 44" strokeWidth={3} />
-        <path d="M35 40 Q40 28 48 32 Q50 22 58 28 Q64 20 68 32 Q74 30 72 40" />
-        <text x="55" y="60" textAnchor="middle" fontFamily="Anton, sans-serif" fontSize="10" fill={c} stroke="none">PIZZERIA BLEND</text>
-      </svg>
-    ),
-  },
-  {
-    name: "Studio Ammara",
-    render: (c) => (
-      <svg viewBox="0 0 120 60" className="h-14 w-auto" fill={c}>
-        <text x="60" y="34" textAnchor="middle" fontFamily="Playfair Display, serif" fontStyle="italic" fontSize="26">Ammara</text>
-        <text x="60" y="50" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="8" letterSpacing="4">— STUDIO —</text>
-      </svg>
-    ),
+    name: "Logo 5",
+    image: "/logos/marketing-portfolio-logo-1.png",
   },
 ];
 
 function Logofolio() {
-  const burgundy = "oklch(0.28 0.12 22)";
+  const logoColor = "#ffffff";
+
   return (
     <section id="logofolio" className="relative px-5 py-24">
-      <ChalkStar className="pointer-events-none absolute left-[3%] top-14 text-[color:var(--cream)]/70 rotate-[-10deg]" size={54} />
-      <ChalkScribble className="pointer-events-none absolute right-[4%] top-10 text-[color:var(--cream)]/70 rotate-[8deg]" size={110} />
+      <ChalkStar
+        className="pointer-events-none absolute left-[3%] top-14 rotate-[-10deg] text-[color:var(--cream)]/70"
+        size={54}
+      />
+
+      <ChalkScribble
+        className="pointer-events-none absolute right-[4%] top-10 rotate-[8deg] text-[color:var(--cream)]/70"
+        size={110}
+      />
+
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="flex items-end justify-between gap-6">
             <div>
-              <span className="handwritten text-2xl text-[color:var(--star)]">01 logofolio</span>
+              <span className="handwritten text-2xl text-[color:var(--star)]">
+                01 logofolio
+              </span>
+
               <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
-                Marks & <em className="font-display normal-case italic text-[color:var(--star)]">monograms.</em>
+                Marks &{" "}
+                <em className="font-display normal-case italic text-[color:var(--star)]">
+                  monograms.
+                </em>
               </h2>
             </div>
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mt-12 torn-paper px-6 py-14 sm:px-14 sm:py-20">
+          <div className="torn-paper-logo mt-12 px-6 py-14 sm:px-14 sm:py-20">
             <StaggerGroup className="grid grid-cols-2 gap-x-6 gap-y-14 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
               {logofolio.map((logo) => (
                 <motion.div
@@ -747,12 +681,15 @@ function Logofolio() {
                   variants={fadeUp}
                   className="flex flex-col items-center justify-end gap-4 text-center"
                 >
-                  <div className="flex h-20 w-full items-center justify-center">
-                    {logo.render(burgundy)}
+                  <div className="flex h-36 w-full items-center justify-center">
+                    <img
+                      src={logo.image}
+                      alt={logo.name}
+                      className="h-28 w-full object-contain brightness-0 invert sm:h-32"
+                    />
                   </div>
-                  <div
-                    className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[color:var(--burgundy)]/80 sm:text-xs"
-                  >
+
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/80 sm:text-xs">
                     {logo.name}
                   </div>
                 </motion.div>
@@ -1452,12 +1389,10 @@ export default function Portfolio() {
       <Hero />
       <About />
       <Background />
-      <Services />
       <Why />
       <Logofolio />
       <SocialProjects />
       <Results />
-      <Process />
       <Packages />
       <Testimonials />
       <Contact />
