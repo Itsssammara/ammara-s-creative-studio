@@ -222,6 +222,8 @@ function Nav() {
     ["About", "#about"],
     ["Services", "#services"],
     ["Work", "#work"],
+    ["Logos", "#logofolio"],
+    ["Social", "#social"],
     ["Process", "#process"],
     ["Packages", "#packages"],
     ["Contact", "#contact"],
@@ -1459,6 +1461,8 @@ export default function Portfolio() {
       <Services />
       <Why />
       <Projects />
+      <Logofolio />
+      <SocialProjects />
       <Results />
       <Process />
       <Packages />
