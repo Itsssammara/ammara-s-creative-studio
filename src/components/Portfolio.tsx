@@ -610,6 +610,356 @@ function Projects() {
   );
 }
 
+/* ---------- Logofolio ---------- */
+
+type LogoMark = {
+  name: string;
+  render: (color: string) => ReactNode;
+};
+
+const logofolio: LogoMark[] = [
+  {
+    name: "Café Manna",
+    render: (c) => (
+      <svg viewBox="0 0 120 60" className="h-14 w-auto" fill="none" stroke={c} strokeWidth={2.2}>
+        <circle cx="24" cy="30" r="16" />
+        <path d="M18 30 Q24 22 30 30 Q24 38 18 30" fill={c} stroke="none" />
+        <text x="46" y="28" fontFamily="Playfair Display, serif" fontSize="14" fontStyle="italic" fill={c} stroke="none">café</text>
+        <text x="46" y="44" fontFamily="Inter, sans-serif" fontSize="14" fontWeight="700" fill={c} stroke="none">manna</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Konstrukt Hardware",
+    render: (c) => (
+      <svg viewBox="0 0 110 60" className="h-14 w-auto" fill={c}>
+        <text x="4" y="46" fontFamily="Anton, Impact, sans-serif" fontSize="52" letterSpacing="-2">KH</text>
+      </svg>
+    ),
+  },
+  {
+    name: "L.A Pares",
+    render: (c) => (
+      <svg viewBox="0 0 110 70" className="h-16 w-auto" fill="none" stroke={c} strokeWidth={1.8}>
+        <path d="M20 18 L55 8 L90 18 L90 40 Q55 56 20 40 Z" />
+        <path d="M42 22 L55 14 L68 22" strokeWidth={1.4} />
+        <text x="55" y="36" textAnchor="middle" fontFamily="Anton, sans-serif" fontSize="12" fill={c} stroke="none">L.A</text>
+        <text x="55" y="60" textAnchor="middle" fontFamily="Playfair Display, serif" fontStyle="italic" fontSize="10" fill={c} stroke="none">pares</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Precious Moments",
+    render: (c) => (
+      <svg viewBox="0 0 120 60" className="h-14 w-auto" fill="none" stroke={c} strokeWidth={2}>
+        <path d="M20 50 Q20 10 45 10 Q60 10 55 30 Q50 50 30 50" />
+        <path d="M65 10 L65 50 M65 10 L90 50 M90 10 L90 50" />
+      </svg>
+    ),
+  },
+  {
+    name: "Kape't Bahay",
+    render: (c) => (
+      <svg viewBox="0 0 90 70" className="h-16 w-auto" fill="none" stroke={c} strokeWidth={2}>
+        <path d="M18 12 Q22 4 26 12 M32 12 Q36 4 40 12" strokeLinecap="round" />
+        <path d="M10 22 L58 22 L54 56 Q45 62 30 62 Q18 62 14 56 Z" fill={c} stroke="none" />
+        <path d="M58 30 Q78 32 78 44 Q78 54 62 54" />
+      </svg>
+    ),
+  },
+  {
+    name: "Kuya Sidney's",
+    render: (c) => (
+      <svg viewBox="0 0 140 60" className="h-14 w-auto" fill={c}>
+        <text x="10" y="34" fontFamily="Caveat, cursive" fontSize="34" fontWeight="700">Kuya</text>
+        <text x="46" y="52" fontFamily="Caveat, cursive" fontStyle="italic" fontSize="28">Sidney's</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Lucere",
+    render: (c) => (
+      <svg viewBox="0 0 90 60" className="h-14 w-auto" fill={c}>
+        <text x="10" y="46" fontFamily="Playfair Display, serif" fontSize="48" fontStyle="italic">LU</text>
+        <path d="M12 8 L14 14 L20 14 L15 18 L17 24 L12 20 L7 24 L9 18 L4 14 L10 14 Z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Tara Laba",
+    render: (c) => (
+      <svg viewBox="0 0 80 70" className="h-16 w-auto" fill="none" stroke={c} strokeWidth={2.5}>
+        <circle cx="40" cy="35" r="26" />
+        <circle cx="32" cy="30" r="2.5" fill={c} />
+        <circle cx="48" cy="30" r="2.5" fill={c} />
+        <path d="M30 40 Q40 48 50 40" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    name: "Pizzeria Blend",
+    render: (c) => (
+      <svg viewBox="0 0 110 70" className="h-16 w-auto" fill="none" stroke={c} strokeWidth={2}>
+        <path d="M12 44 Q12 12 55 12 Q98 12 98 44" />
+        <path d="M6 44 L104 44" strokeWidth={3} />
+        <path d="M35 40 Q40 28 48 32 Q50 22 58 28 Q64 20 68 32 Q74 30 72 40" />
+        <text x="55" y="60" textAnchor="middle" fontFamily="Anton, sans-serif" fontSize="10" fill={c} stroke="none">PIZZERIA BLEND</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Studio Ammara",
+    render: (c) => (
+      <svg viewBox="0 0 120 60" className="h-14 w-auto" fill={c}>
+        <text x="60" y="34" textAnchor="middle" fontFamily="Playfair Display, serif" fontStyle="italic" fontSize="26">Ammara</text>
+        <text x="60" y="50" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="8" letterSpacing="4">— STUDIO —</text>
+      </svg>
+    ),
+  },
+];
+
+function Logofolio() {
+  const burgundy = "oklch(0.28 0.12 22)";
+  return (
+    <section id="logofolio" className="relative px-5 py-24">
+      <ChalkStar className="pointer-events-none absolute left-[3%] top-14 text-[color:var(--cream)]/70 rotate-[-10deg]" size={54} />
+      <ChalkScribble className="pointer-events-none absolute right-[4%] top-10 text-[color:var(--cream)]/70 rotate-[8deg]" size={110} />
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <span className="handwritten text-2xl text-[color:var(--star)]">01 logofolio</span>
+              <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
+                Marks & <em className="font-display normal-case italic text-[color:var(--star)]">monograms.</em>
+              </h2>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <div className="mt-12 torn-paper px-6 py-14 sm:px-14 sm:py-20">
+            <StaggerGroup className="grid grid-cols-2 gap-x-6 gap-y-14 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+              {logofolio.map((logo) => (
+                <motion.div
+                  key={logo.name}
+                  variants={fadeUp}
+                  className="flex flex-col items-center justify-end gap-4 text-center"
+                >
+                  <div className="flex h-20 w-full items-center justify-center">
+                    {logo.render(burgundy)}
+                  </div>
+                  <div
+                    className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[color:var(--burgundy)]/80 sm:text-xs"
+                  >
+                    {logo.name}
+                  </div>
+                </motion.div>
+              ))}
+            </StaggerGroup>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Social Media Projects ---------- */
+
+type SocialTile = {
+  bg: string;
+  fg: string;
+  label?: string;
+  sub?: string;
+  emoji?: string;
+  variant?: "text" | "big" | "repeat";
+};
+
+type SocialProject = {
+  category: string;
+  name: string;
+  description: string;
+  swatches: string[];
+  note: string;
+  tiles: SocialTile[];
+};
+
+const socialProjects: SocialProject[] = [
+  {
+    category: "Social Media",
+    name: "Gatesville Pet Centre",
+    description:
+      "A playful, product-first content system for a neighbourhood pet store — carousels, promo posts and Reels that turn browsing into buying.",
+    swatches: ["oklch(0.55 0.19 40)", "oklch(0.72 0.16 65)", "oklch(0.92 0.05 80)"],
+    note: "product posts that convert!",
+    tiles: [
+      { bg: "oklch(0.55 0.18 40)", fg: "oklch(0.97 0.02 80)", label: "2 DAYS", sub: "TO GO", variant: "big", emoji: "🐾" },
+      { bg: "oklch(0.92 0.03 80)", fg: "oklch(0.35 0.13 40)", label: "New Arrivals", sub: "R120", emoji: "🦴" },
+      { bg: "oklch(0.86 0.09 70)", fg: "oklch(0.30 0.12 40)", label: "Weekend Sale", sub: "up to 30% off", emoji: "🐶" },
+      { bg: "oklch(0.35 0.13 40)", fg: "oklch(0.96 0.03 80)", label: "TREAT", sub: "of the week", variant: "big", emoji: "🐕" },
+      { bg: "oklch(0.94 0.02 80)", fg: "oklch(0.35 0.13 40)", label: "Vet-Approved", sub: "food & care", emoji: "🐱" },
+      { bg: "oklch(0.66 0.16 45)", fg: "oklch(0.97 0.02 80)", label: "3 DAYS", sub: "TO GO", variant: "repeat", emoji: "🐟" },
+    ],
+  },
+  {
+    category: "Social Media",
+    name: "Nature's Secrets",
+    description:
+      "Short-form video and educational carousels for a wellness brand — soft, botanical, and confidently informative content that makes ingredients easy to trust.",
+    swatches: ["oklch(0.55 0.14 145)", "oklch(0.78 0.09 130)", "oklch(0.95 0.03 100)"],
+    note: "wellness that actually explains itself.",
+    tiles: [
+      { bg: "oklch(0.55 0.14 145)", fg: "oklch(0.97 0.02 100)", label: "GLOW", sub: "from within", variant: "big", emoji: "🌿" },
+      { bg: "oklch(0.94 0.03 100)", fg: "oklch(0.35 0.12 145)", label: "Ingredient", sub: "spotlight", emoji: "🌱" },
+      { bg: "oklch(0.78 0.09 130)", fg: "oklch(0.28 0.12 145)", label: "3 Reasons", sub: "to switch", emoji: "🍃" },
+      { bg: "oklch(0.28 0.09 145)", fg: "oklch(0.95 0.03 100)", label: "NEW", sub: "drops Friday", variant: "big", emoji: "✨" },
+      { bg: "oklch(0.9 0.05 90)", fg: "oklch(0.35 0.12 145)", label: "How to use", sub: "morning routine", emoji: "🧴" },
+      { bg: "oklch(0.65 0.13 130)", fg: "oklch(0.97 0.02 100)", label: "SAVE", sub: "for later", variant: "repeat", emoji: "💚" },
+    ],
+  },
+  {
+    category: "Social Media",
+    name: "WebXtreme",
+    description:
+      "Bold, editorial content for an agency — feed grids that look intentional, ad creatives that don't blend in, and stories that turn scrolls into sign-ups.",
+    swatches: ["oklch(0.32 0.13 20)", "oklch(0.72 0.16 45)", "oklch(0.94 0.02 80)"],
+    note: "content-led, results-first.",
+    tiles: [
+      { bg: "oklch(0.32 0.13 20)", fg: "oklch(0.96 0.03 80)", label: "BOOK A", sub: "STRATEGY CALL", variant: "big" },
+      { bg: "oklch(0.94 0.02 80)", fg: "oklch(0.32 0.13 20)", label: "Case Study", sub: "01" },
+      { bg: "oklch(0.72 0.16 45)", fg: "oklch(0.97 0.02 80)", label: "Client Win", sub: "+218% reach" },
+      { bg: "oklch(0.22 0.09 22)", fg: "oklch(0.96 0.03 80)", label: "TIPS", sub: "for founders", variant: "big" },
+      { bg: "oklch(0.86 0.05 60)", fg: "oklch(0.32 0.13 20)", label: "Behind", sub: "the scenes" },
+      { bg: "oklch(0.55 0.15 25)", fg: "oklch(0.96 0.03 80)", label: "GROW", sub: "with us", variant: "repeat" },
+    ],
+  },
+];
+
+function SocialTileCard({ tile }: { tile: SocialTile }) {
+  return (
+    <div
+      className="relative aspect-square overflow-hidden rounded-sm shadow-md"
+      style={{ background: tile.bg, color: tile.fg }}
+    >
+      {tile.variant === "repeat" ? (
+        <div className="absolute inset-0 flex flex-wrap content-start gap-x-2 gap-y-1 p-3 text-[10px] font-black uppercase leading-none opacity-90 sm:text-xs">
+          {Array.from({ length: 18 }).map((_, i) => (
+            <span key={i} className={i % 3 === 0 ? "italic" : ""}>
+              {tile.label} {tile.sub}
+            </span>
+          ))}
+          {tile.emoji && (
+            <div className="absolute inset-0 grid place-items-center text-4xl sm:text-5xl">
+              {tile.emoji}
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="flex h-full flex-col justify-between p-3 sm:p-4">
+          <div className="flex items-start justify-between">
+            <span className="text-[9px] font-semibold uppercase tracking-[0.2em] opacity-80 sm:text-[10px]">
+              {tile.category ?? "post"}
+            </span>
+            {tile.emoji && <span className="text-xl sm:text-2xl">{tile.emoji}</span>}
+          </div>
+          <div>
+            <div
+              className={`font-black uppercase leading-none ${
+                tile.variant === "big" ? "text-2xl sm:text-4xl" : "text-lg sm:text-xl"
+              }`}
+              style={{ fontFamily: "var(--font-heavy)" }}
+            >
+              {tile.label}
+            </div>
+            {tile.sub && (
+              <div className="mt-1 text-[10px] font-medium uppercase tracking-wider opacity-90 sm:text-xs">
+                {tile.sub}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SocialProjectRow({
+  project,
+  reverse,
+}: {
+  project: SocialProject;
+  reverse?: boolean;
+}) {
+  return (
+    <Reveal>
+      <div
+        className={`grid gap-8 lg:gap-14 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] ${
+          reverse ? "lg:[&>*:first-child]:order-2" : ""
+        }`}
+      >
+        <div className="grid grid-cols-3 gap-3 sm:gap-4">
+          {project.tiles.map((t, i) => (
+            <SocialTileCard key={i} tile={t} />
+          ))}
+        </div>
+        <div className="flex flex-col justify-center">
+          <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--burgundy)]/70">
+            {project.category}
+          </div>
+          <h3 className="mt-3 heavy text-3xl uppercase text-[color:var(--burgundy)] sm:text-4xl">
+            {project.name}
+          </h3>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-[color:var(--ink)]/80 sm:text-base">
+            {project.description}
+          </p>
+          <div className="mt-6 flex items-center gap-4">
+            <div className="flex -space-x-2">
+              {project.swatches.map((c, i) => (
+                <span
+                  key={i}
+                  className="h-7 w-7 rounded-full ring-2 ring-[color:var(--paper)]"
+                  style={{ background: c }}
+                  aria-hidden
+                />
+              ))}
+            </div>
+            <span className="handwritten text-xl text-[color:var(--ink)]/70 sm:text-2xl">
+              {project.note}
+            </span>
+          </div>
+        </div>
+      </div>
+    </Reveal>
+  );
+}
+
+function SocialProjects() {
+  return (
+    <section id="social" className="relative px-5 py-24">
+      <ChalkStar className="pointer-events-none absolute left-[6%] top-12 text-[color:var(--cream)]/70 rotate-[10deg]" size={54} />
+      <ChalkSwirl className="pointer-events-none absolute right-[4%] top-16 hidden text-[color:var(--cream)]/70 lg:block" size={130} />
+
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <div className="max-w-2xl">
+            <span className="handwritten text-2xl text-[color:var(--star)]">02 social media projects</span>
+            <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
+              Feeds that <em className="font-display normal-case italic text-[color:var(--star)]">actually do work.</em>
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className="mt-14 torn-paper px-5 py-14 sm:px-12 sm:py-20">
+          <div className="space-y-16 sm:space-y-24">
+            {socialProjects.map((p, i) => (
+              <SocialProjectRow key={p.name} project={p} reverse={i % 2 === 1} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const metrics = [
   { v: "43K", l: "views on product-style short-form content", note: "single reel" },
   { v: "31K", l: "views on educational TikTok-style content", note: "series avg." },
