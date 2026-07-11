@@ -266,7 +266,7 @@ function Hero() {
       {/* Chalk doodles scattered across the burgundy corduroy */}
       <ChalkStar className="pointer-events-none absolute left-[4%] top-16 text-[color:var(--cream)]/90 rotate-[-15deg]" size={70} />
       <ChalkStar className="pointer-events-none absolute right-[6%] top-8 text-[color:var(--cream)]/85 rotate-[20deg]" size={95} />
-      <ChalkSpiral className="pointer-events-none absolute right-[38%] top-4 text-[color:var(--cream)]/80" size={110} />
+      <ChalkSpiral className="pointer-events-none absolute right-[36%] top-6 hidden text-[color:var(--cream)]/80 sm:block" size={120} />
       <ChalkSwirl className="pointer-events-none absolute left-[2%] bottom-24 text-[color:var(--cream)]/85 rotate-[-8deg]" size={170} />
       <ChalkScribble className="pointer-events-none absolute right-[3%] bottom-20 text-[color:var(--cream)]/85 rotate-[12deg]" size={140} />
       <ChalkStar className="pointer-events-none absolute left-[46%] bottom-10 text-[color:var(--cream)]/90 rotate-[8deg]" size={58} />
@@ -356,7 +356,7 @@ function About() {
     <section id="about" className="relative overflow-hidden px-5 py-24">
       {/* Chalk doodles */}
       <ChalkStar className="pointer-events-none absolute left-[4%] top-14 text-[color:var(--cream)] rotate-[-12deg]" size={80} />
-      <ChalkSpiral className="pointer-events-none absolute left-[26%] top-10 text-[color:var(--cream)]/85" size={140} />
+      <ChalkSpiral className="pointer-events-none absolute left-[24%] top-10 hidden text-[color:var(--cream)]/85 sm:block" size={150} />
       <ChalkStar className="pointer-events-none absolute right-[8%] top-24 text-[color:var(--cream)] rotate-[15deg]" size={54} />
       <ChalkSwirl className="pointer-events-none absolute right-[4%] bottom-32 text-[color:var(--cream)]/80 rotate-[8deg]" size={130} />
 
@@ -926,7 +926,7 @@ function Background() {
   return (
     <section id="background" className="relative overflow-hidden px-5 py-24">
       <ChalkStar className="pointer-events-none absolute left-[4%] top-10 text-[color:var(--cream)]/80 rotate-[-12deg]" size={70} />
-      <ChalkSpiral className="pointer-events-none absolute right-[6%] top-16 text-[color:var(--cream)]/70" size={110} />
+      <ChalkSpiral className="pointer-events-none absolute right-[6%] top-14 hidden text-[color:var(--cream)]/70 sm:block" size={120} />
       <ChalkScribble className="pointer-events-none absolute left-[45%] bottom-8 text-[color:var(--cream)]/70 rotate-[6deg]" size={120} />
 
       <div className="relative mx-auto max-w-6xl">
