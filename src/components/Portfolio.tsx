@@ -1143,16 +1143,15 @@ function Packages() {
 }
 
 const experiences = [
-  { y: "Present", t: "Freelance", p: "Social Media Manager & Meta Ads" },
-  { y: "2024 — 2025", t: "WebXtreme", p: "Web & Social (WordPress / WooCommerce)" },
-  { y: "2023 — 2024", t: "Gatesville Pet Centre", p: "Content & Meta Ads Campaigns" },
-  { y: "2023 — 2024", t: "Nature's Secrets", p: "Short-form Video Strategy" },
-  { y: "2022 — 2023", t: "Freelance Clients", p: "Branding & Ad Creative" },
+  { y: "Jun 2025 – May 2026", t: "WebXtreme ", p: "Web Developer & Social Media Manager" },
+  { y: "Nov 2024 — May 2025", t: "The Three Stars ", p: "Web Designer and Developer" },
+  { y: "Apr 2024 — Sept 2024", t: "Life Choices Studio", p: "Technical intern" },
 ];
 
 const educationList = [
-  { y: "2023 — 2024", t: "CodeSpace Academy", p: "Full-Stack Web Development" },
-  { y: "Ongoing", t: "Meta Blueprint", p: "Ads & Platform Certifications" },
+  { y: "Ongoing", t: "SMMA Academy", p: "Social Media Management" },
+  { y: "2025", t: "She Can Do", p: "UI/UX Part-time Internship" },
+  { y: "2023 — 2024", t: "Life Choices Coding Academy", p: "Certificate in Web Development" },
 ];
 
 const skillTags = [
@@ -1343,9 +1342,9 @@ function Background() {
 
 const testimonials = [
   {
-    q: "Ammara took our socials from an afterthought to something we actually get customers from. Her carousels are gold.",
-    n: "— Client name",
-    r: "Small business owner",
+    q: "Ammara is a young, talented and creative professional who brought fresh ideas to the table while remaining attentive to our firm's specific needs and branding. Her support was consistent, her communication was clear and she was always willing to go the extra mile to ensure we were satisfied with the final product.",
+    n: "— Muzzamil",
+    r: "Founder & Principal Attorney",
   },
   {
     q: "She gets strategy, design, and ads — which meant we didn't have to hire three different people. Rare find.",
@@ -1411,25 +1410,20 @@ function Contact() {
             Ready to make your socials <em className="font-display normal-case text-[color:var(--star)]">work harder?</em>
           </h2>
         </Reveal>
-        <Reveal delay={0.15}>
-          <p className="mt-6 text-lg text-[color:var(--cream)]/80">
-            Tell me about your business, your goals, and where you're stuck.
-            I'll come back with a plan.
-          </p>
-        </Reveal>
+
         <Reveal delay={0.25}>
           <div className="mt-10 flex flex-col items-center gap-4">
             <a
-              href="mailto:yourname@gmail.com"
+              href="mailto:hoosenammara@gmail.com"
               className="rounded-full bg-[color:var(--cream)] px-8 py-4 text-base font-medium text-[color:var(--burgundy)] shadow-lg transition hover:-translate-y-0.5 hover:bg-[color:var(--star)]"
             >
               Let's work together →
             </a>
             <a
-              href="mailto:yourname@gmail.com"
+              href="mailto:hoosenammara@gmail.com"
               className="text-sm text-[color:var(--cream)]/60 underline-offset-4 hover:underline"
             >
-              yourname@gmail.com
+              hoosenammara@gmail.com
             </a>
           </div>
         </Reveal>
@@ -1442,9 +1436,9 @@ function Footer() {
   return (
     <footer className="border-t border-[color:var(--cream)]/15 px-5 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-[color:var(--cream)]/60 sm:flex-row">
-        <div>© {new Date().getFullYear()} Ammara Hoosen · Cape Town</div>
+        <div>© {new Date().getFullYear()} Ammara Hoosen · South Africa</div>
         <div className="handwritten text-lg text-[color:var(--star)]">
-          made with care ✿
+          all rights reserved ✿
         </div>
       </div>
     </footer>
@@ -1460,7 +1454,6 @@ export default function Portfolio() {
       <Background />
       <Services />
       <Why />
-      <Projects />
       <Logofolio />
       <SocialProjects />
       <Results />
