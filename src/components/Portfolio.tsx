@@ -857,7 +857,7 @@ function SocialTileCard({ tile }: { tile: SocialTile }) {
         <div className="flex h-full flex-col justify-between p-3 sm:p-4">
           <div className="flex items-start justify-between">
             <span className="text-[9px] font-semibold uppercase tracking-[0.2em] opacity-80 sm:text-[10px]">
-              {tile.category ?? "post"}
+              post
             </span>
             {tile.emoji && <span className="text-xl sm:text-2xl">{tile.emoji}</span>}
           </div>
