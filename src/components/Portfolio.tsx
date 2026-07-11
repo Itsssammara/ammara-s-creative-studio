@@ -93,8 +93,29 @@ function ChalkStar({ className, size = 90 }: { className?: string; size?: number
 
 function ChalkSpiral({ className, size = 130 }: { className?: string; size?: number }) {
   return (
-    <svg className={className} width={size} height={size} viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth={7} strokeLinecap="round" aria-hidden>
-      <path d="M60 60 m-6 0 a6 6 0 1 0 12 0 a12 12 0 1 1 -24 0 a20 20 0 1 0 40 0 a30 30 0 1 1 -60 0 a44 44 0 1 0 88 0" opacity="0.9" />
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 140 110"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      {/* concentric arcs (rainbow-style, opening downward) */}
+      <path d="M20 70 A50 50 0 0 1 120 70" opacity="0.95" />
+      <path d="M32 70 A38 38 0 0 1 108 70" opacity="0.95" />
+      <path d="M44 70 A26 26 0 0 1 96 70" opacity="0.95" />
+      <path d="M56 70 A14 14 0 0 1 84 70" opacity="0.95" />
+      {/* little tulip on top */}
+      <path d="M70 22 C 64 30, 64 40, 70 44 C 76 40, 76 30, 70 22 Z" fill="currentColor" opacity="0.95" />
+      <path d="M62 34 C 58 40, 58 46, 64 48" opacity="0.9" />
+      <path d="M78 34 C 82 40, 82 46, 76 48" opacity="0.9" />
+      {/* stem */}
+      <path d="M70 44 L70 58" opacity="0.9" />
     </svg>
   );
 }
@@ -245,7 +266,7 @@ function Hero() {
       {/* Chalk doodles scattered across the burgundy corduroy */}
       <ChalkStar className="pointer-events-none absolute left-[4%] top-16 text-[color:var(--cream)]/90 rotate-[-15deg]" size={70} />
       <ChalkStar className="pointer-events-none absolute right-[6%] top-8 text-[color:var(--cream)]/85 rotate-[20deg]" size={95} />
-      <ChalkSpiral className="pointer-events-none absolute right-[38%] top-4 text-[color:var(--cream)]/80" size={110} />
+      <ChalkSpiral className="pointer-events-none absolute right-[36%] top-6 hidden text-[color:var(--cream)]/80 sm:block" size={120} />
       <ChalkSwirl className="pointer-events-none absolute left-[2%] bottom-24 text-[color:var(--cream)]/85 rotate-[-8deg]" size={170} />
       <ChalkScribble className="pointer-events-none absolute right-[3%] bottom-20 text-[color:var(--cream)]/85 rotate-[12deg]" size={140} />
       <ChalkStar className="pointer-events-none absolute left-[46%] bottom-10 text-[color:var(--cream)]/90 rotate-[8deg]" size={58} />
@@ -335,7 +356,7 @@ function About() {
     <section id="about" className="relative overflow-hidden px-5 py-24">
       {/* Chalk doodles */}
       <ChalkStar className="pointer-events-none absolute left-[4%] top-14 text-[color:var(--cream)] rotate-[-12deg]" size={80} />
-      <ChalkSpiral className="pointer-events-none absolute left-[26%] top-10 text-[color:var(--cream)]/85" size={140} />
+      <ChalkSpiral className="pointer-events-none absolute left-[24%] top-10 hidden text-[color:var(--cream)]/85 sm:block" size={150} />
       <ChalkStar className="pointer-events-none absolute right-[8%] top-24 text-[color:var(--cream)] rotate-[15deg]" size={54} />
       <ChalkSwirl className="pointer-events-none absolute right-[4%] bottom-32 text-[color:var(--cream)]/80 rotate-[8deg]" size={130} />
 
@@ -876,16 +897,19 @@ function TimelineList({
       </h3>
       <ul className="mt-5 space-y-4">
         {items.map((it, i) => (
-          <li key={i} className="grid grid-cols-[auto_10px_1fr] items-start gap-3 sm:gap-4">
-            <span className="pt-1 text-right text-[11px] uppercase tracking-wider text-[color:var(--cream)]/60 sm:text-xs">
+          <li
+            key={i}
+            className="grid grid-cols-[84px_14px_1fr] items-start gap-3 sm:grid-cols-[110px_14px_1fr] sm:gap-4"
+          >
+            <span className="pt-1.5 text-right text-[10px] uppercase tracking-wider text-[color:var(--cream)]/60 sm:text-xs">
               {it.y}
             </span>
-            <span className="relative mt-1.5 block h-2.5 w-2.5 rounded-full bg-[color:var(--star)] shadow-[0_0_0_3px_oklch(0.28_0.12_22)]">
+            <span className="relative mt-2 block h-2.5 w-2.5 justify-self-center rounded-full bg-[color:var(--star)] shadow-[0_0_0_3px_oklch(0.28_0.12_22)]">
               {i < items.length - 1 && (
-                <span className="absolute left-1/2 top-full h-8 w-px -translate-x-1/2 bg-[color:var(--cream)]/25" />
+                <span className="absolute left-1/2 top-[calc(100%+2px)] h-[calc(100%+1.25rem)] w-px -translate-x-1/2 bg-[color:var(--cream)]/25" />
               )}
             </span>
-            <div>
+            <div className="min-w-0">
               <div className="font-display text-lg font-semibold text-[color:var(--cream)] sm:text-xl">
                 {it.t}
               </div>
@@ -902,7 +926,7 @@ function Background() {
   return (
     <section id="background" className="relative overflow-hidden px-5 py-24">
       <ChalkStar className="pointer-events-none absolute left-[4%] top-10 text-[color:var(--cream)]/80 rotate-[-12deg]" size={70} />
-      <ChalkSpiral className="pointer-events-none absolute right-[6%] top-16 text-[color:var(--cream)]/70" size={110} />
+      <ChalkSpiral className="pointer-events-none absolute right-[6%] top-14 hidden text-[color:var(--cream)]/70 sm:block" size={120} />
       <ChalkScribble className="pointer-events-none absolute left-[45%] bottom-8 text-[color:var(--cream)]/70 rotate-[6deg]" size={120} />
 
       <div className="relative mx-auto max-w-6xl">
@@ -1081,13 +1105,13 @@ export default function Portfolio() {
       <Nav />
       <Hero />
       <About />
+      <Background />
       <Services />
       <Why />
       <Projects />
       <Results />
       <Process />
       <Packages />
-      <Background />
       <Testimonials />
       <Contact />
       <Footer />
