@@ -897,16 +897,19 @@ function TimelineList({
       </h3>
       <ul className="mt-5 space-y-4">
         {items.map((it, i) => (
-          <li key={i} className="grid grid-cols-[auto_10px_1fr] items-start gap-3 sm:gap-4">
-            <span className="pt-1 text-right text-[11px] uppercase tracking-wider text-[color:var(--cream)]/60 sm:text-xs">
+          <li
+            key={i}
+            className="grid grid-cols-[84px_14px_1fr] items-start gap-3 sm:grid-cols-[110px_14px_1fr] sm:gap-4"
+          >
+            <span className="pt-1.5 text-right text-[10px] uppercase tracking-wider text-[color:var(--cream)]/60 sm:text-xs">
               {it.y}
             </span>
-            <span className="relative mt-1.5 block h-2.5 w-2.5 rounded-full bg-[color:var(--star)] shadow-[0_0_0_3px_oklch(0.28_0.12_22)]">
+            <span className="relative mt-2 block h-2.5 w-2.5 justify-self-center rounded-full bg-[color:var(--star)] shadow-[0_0_0_3px_oklch(0.28_0.12_22)]">
               {i < items.length - 1 && (
-                <span className="absolute left-1/2 top-full h-8 w-px -translate-x-1/2 bg-[color:var(--cream)]/25" />
+                <span className="absolute left-1/2 top-[calc(100%+2px)] h-[calc(100%+1.25rem)] w-px -translate-x-1/2 bg-[color:var(--cream)]/25" />
               )}
             </span>
-            <div>
+            <div className="min-w-0">
               <div className="font-display text-lg font-semibold text-[color:var(--cream)] sm:text-xl">
                 {it.t}
               </div>
