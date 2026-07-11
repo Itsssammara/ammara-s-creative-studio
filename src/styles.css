@@ -3,8 +3,36 @@
 @import "tw-animate-css";
 
 @utility cutout {
-  /* transparent cutout with a soft depth shadow; the PNG already carries the white outline */
-  filter: drop-shadow(0 6px 22px oklch(0 0 0 / 0.35));
+  /* Sticker-style cream outline built from stacked drop-shadows, plus a soft depth shadow */
+  --outline: oklch(0.955 0.018 75);
+  filter:
+    drop-shadow(2px 0 0 var(--outline))
+    drop-shadow(-2px 0 0 var(--outline))
+    drop-shadow(0 2px 0 var(--outline))
+    drop-shadow(0 -2px 0 var(--outline))
+    drop-shadow(2px 2px 0 var(--outline))
+    drop-shadow(-2px -2px 0 var(--outline))
+    drop-shadow(2px -2px 0 var(--outline))
+    drop-shadow(-2px 2px 0 var(--outline))
+    drop-shadow(3px 3px 0 var(--outline))
+    drop-shadow(-3px -3px 0 var(--outline))
+    drop-shadow(0 10px 24px oklch(0 0 0 / 0.4));
+}
+
+@utility cutout-burgundy {
+  --outline: var(--burgundy-deep);
+  filter:
+    drop-shadow(2px 0 0 var(--outline))
+    drop-shadow(-2px 0 0 var(--outline))
+    drop-shadow(0 2px 0 var(--outline))
+    drop-shadow(0 -2px 0 var(--outline))
+    drop-shadow(2px 2px 0 var(--outline))
+    drop-shadow(-2px -2px 0 var(--outline))
+    drop-shadow(2px -2px 0 var(--outline))
+    drop-shadow(-2px 2px 0 var(--outline))
+    drop-shadow(3px 3px 0 var(--outline))
+    drop-shadow(-3px -3px 0 var(--outline))
+    drop-shadow(0 10px 24px oklch(0 0 0 / 0.25));
 }
 
 @custom-variant dark (&:is(.dark *));
