@@ -485,41 +485,7 @@ const whyItems = [
   { t: "Clear reporting", d: "You'll always know what worked, what didn't, and what we're trying next." },
 ];
 
-function Why() {
-  return (
-    <section className="relative bg-[color:var(--burgundy-darker)] px-5 py-24 text-[color:var(--cream)]">
-      <Star className="absolute left-[8%] top-16 text-[color:var(--cream)]/40" size={20} />
-      <Star className="absolute right-[10%] bottom-20 text-[color:var(--star)]" size={26} />
-
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12">
-        <Reveal className="lg:col-span-5">
-          <span className="handwritten text-2xl text-[color:var(--star)]">why work with me</span>
-          <h2 className="heavy mt-2 text-5xl uppercase sm:text-6xl">
-            Not just pretty <em className="font-display normal-case text-[color:var(--star)]">posts.</em>
-          </h2>
-          <p className="mt-6 max-w-md text-lg text-[color:var(--cream)]/80">
-            I sit at the intersection of design, strategy, and code — which
-            means your content, ads, and website all pull in the same direction.
-          </p>
-        </Reveal>
-
-        <StaggerGroup className="grid gap-4 lg:col-span-7">
-          {whyItems.map((w, i) => (
-            <motion.div key={w.t} variants={fadeUp}>
-              <div className="flex gap-4 rounded-lg border border-[color:var(--cream)]/15 bg-[color:var(--burgundy-deep)]/50 p-5">
-                <div className="handwritten text-3xl text-[color:var(--accent)]">0{i + 1}</div>
-                <div>
-                  <h3 className="font-display text-lg font-semibold text-[color:var(--cream)]">{w.t}</h3>
-                  <p className="mt-1 text-sm text-[color:var(--cream)]/75">{w.d}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </StaggerGroup>
-      </div>
-    </section>
-  );
-}
+// Why section removed per request.
 
 const projects = [
   {
@@ -643,7 +609,7 @@ function Logofolio() {
   const logoColor = "#ffffff";
 
   return (
-    <section id="logofolio" className="relative px-5 py-24">
+    <section id="logofolio" className="relative bg-[color:var(--burgundy-darker)] px-5 py-24">
       <ChalkStar
         className="pointer-events-none absolute left-[3%] top-14 rotate-[-10deg] text-[color:var(--cream)]/70"
         size={54}
