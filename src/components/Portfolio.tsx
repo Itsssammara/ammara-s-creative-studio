@@ -220,7 +220,6 @@ function BinderBoard({
 function Nav() {
   const links = [
     ["About", "#about"],
-    ["Work", "#work"],
     ["Logos", "#logofolio"],
     ["Social", "#social"],
     ["Packages", "#packages"],
@@ -273,7 +272,7 @@ function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-12">
         {/* Torn paper hero card */}
-        <Reveal className="relative lg:col-span-8" y={40}>
+        <Reveal className="order-2 relative lg:order-1 lg:col-span-8" y={40}>
           <div className="relative">
             <div className="torn-paper relative px-8 py-14 sm:px-14 sm:py-20">
               <div className="relative">
@@ -314,26 +313,30 @@ function Hero() {
             </div>
 
             {/* Speech bubble callout */}
-            <Reveal delay={0.25} className="absolute -top-4 right-4 hidden sm:block lg:-right-8">
-              <div className="speech-bubble w-64 text-center">
-                <div className="heavy px-2 text-lg uppercase text-[color:var(--burgundy)]">
+            <Reveal delay={0.25} 
+            className="absolute right-3 top-3 z-30 sm:right-0 sm:top-20 lg:-right-10">
+              <div className="w-44 rotate-[-2deg] border-2 border-[color:var(--cream)] bg-[color:var(--accent)] px-3 py-2 text-center shadow-lg sm:w-64 sm:px-5 sm:py-4">
+                    <div className="heavy text-sm uppercase text-[color:var(--cream)] sm:text-lg">
                   2+ Years of Experience
                 </div>
-              </div>
+            </div>
             </Reveal>
           </div>
         </Reveal>
 
-{/* Animated hero graphic */}
-          <Reveal className="lg:col-span-4" delay={0.15}>
-            <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
+          {/* hero graphic */}
+          <Reveal
+            className="order-1 relative z-20 lg:order-2 lg:col-span-4"
+            delay={0.15}
+            >            
+              <div className="relative mx-auto w-full max-w-[380px] sm:max-w-[460px] lg:-ml-40 lg:w-[160%] lg:max-w-none">
               <ChalkStar
                 className="pointer-events-none absolute -left-6 top-10 z-10 text-[color:var(--cream)]"
                 size={54}
-              />
+              />    
 
               <img
-                src="/src/assets/ammara-hero.gif"
+                src="/src/assets/ammara-profile.png"
                 alt="Animated social media graphic featuring Ammara Hoosen"
                 className="h-auto w-full object-contain"
               />
@@ -373,8 +376,8 @@ function About() {
             <ChalkStar className="pointer-events-none absolute -right-4 bottom-10 z-10 text-[color:var(--star)] rotate-[18deg]" size={44} />
             {/* Cream torn-paper mat behind the image for editorial weight */}
             <img
-              src="/src/assets/ammara-profile.png"
-              alt="Portrait of Ammara Hoosen"
+              src="/src/assets/ammara-hero.gif"
+              alt="Portrait of Ammara Hoosen"              
               width={1200}
               height={1500}
               loading="lazy"
