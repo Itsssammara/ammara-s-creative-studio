@@ -1,7 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
 import ammaraImg from "@/assets/ammara-outline.png";
-import ammaraLaptopAsset from "@/assets/ammara-laptop.png.asset.json";
 
 /* ---------- Animation helpers ---------- */
 
@@ -224,7 +223,6 @@ function Nav() {
     ["Work", "#work"],
     ["Logos", "#logofolio"],
     ["Social", "#social"],
-    ["Process", "#process"],
     ["Packages", "#packages"],
     ["Contact", "#contact"],
   ];
@@ -326,20 +324,26 @@ function Hero() {
           </div>
         </Reveal>
 
-        {/* Portrait cutout with white outline */}
-        <Reveal className="lg:col-span-4" delay={0.15}>
-          <div className="relative mx-auto max-w-xs lg:max-w-none">
-            <ChalkStar className="pointer-events-none absolute -left-6 top-10 z-10 text-[color:var(--cream)]" size={54} />
-            <img
-              src={ammaraImg}
-              alt="Portrait of Ammara Hoosen"
-              width={800}
-              height={1000}
-              className="cutout aspect-[4/5] w-full object-contain"
-            />
-            <ChalkStar className="pointer-events-none absolute -bottom-4 -right-4 text-[color:var(--cream)] rotate-[18deg]" size={70} />
-          </div>
-        </Reveal>
+{/* Animated hero graphic */}
+          <Reveal className="lg:col-span-4" delay={0.15}>
+            <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
+              <ChalkStar
+                className="pointer-events-none absolute -left-6 top-10 z-10 text-[color:var(--cream)]"
+                size={54}
+              />
+
+              <img
+                src="/src/assets/ammara-hero.gif"
+                alt="Animated social media graphic featuring Ammara Hoosen"
+                className="h-auto w-full object-contain"
+              />
+
+              <ChalkStar
+                className="pointer-events-none absolute -bottom-4 -right-4 text-[color:var(--cream)] rotate-[18deg]"
+                size={70}
+              />
+            </div>
+          </Reveal>
       </div>
 
       <Reveal delay={0.35}>
@@ -914,44 +918,8 @@ const steps = [
   ["06", "Monthly improvements", "Iterate on what works, cut what doesn't."],
 ];
 
-function Process() {
-  return (
-    <section id="process" className="relative px-5 py-24">
-      <div className="mx-auto max-w-6xl">
-        <Reveal>
-          <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--star)]">how we work</span>
-            <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
-              A simple, repeatable process.
-            </h2>
-          </div>
-        </Reveal>
 
-        <div className="relative mt-14">
-          <div className="absolute left-6 top-2 bottom-2 hidden w-px border-l-2 border-dashed border-[color:var(--cream)]/25 md:block" />
-          <StaggerGroup className="grid gap-5">
-            {steps.map(([n, t, d]) => (
-              <motion.div key={n} variants={fadeUp} className="relative md:pl-16">
-                <div className="absolute left-0 top-0 hidden h-12 w-12 place-items-center rounded-full bg-[color:var(--cream)] font-display text-sm text-[color:var(--burgundy)] md:grid">
-                  {n}
-                </div>
-                <PaperCard rotate={-0.3} className="p-5">
-                  <div className="flex items-center gap-4">
-                    <span className="handwritten text-2xl text-[color:var(--accent)] md:hidden">{n}</span>
-                    <div>
-                      <h3 className="font-display text-xl font-semibold text-[color:var(--burgundy)]">{t}</h3>
-                      <p className="mt-1 text-sm text-[color:var(--ink)]/75">{d}</p>
-                    </div>
-                  </div>
-                </PaperCard>
-              </motion.div>
-            ))}
-          </StaggerGroup>
-        </div>
-      </div>
-    </section>
-  );
-}
+
 
 const packages = [
   {
