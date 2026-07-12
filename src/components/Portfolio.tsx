@@ -1075,27 +1075,83 @@ function Keyboard() {
       }}
     >
       <div className="grid grid-cols-3 gap-2 sm:gap-3">
-        <Keycap label="Ae" color="oklch(0.35 0.12 300)" />
-        <Keycap label="Ai" color="oklch(0.55 0.19 40)" />
-        <Keycap label="Ps" color="oklch(0.45 0.14 240)" />
-        <Keycap
-          label={<span style={{ color: "oklch(0.55 0.18 240)" }}>Canva</span>}
-          italic
-        />
+        {/* Meta Business Suite */}
         <Keycap
           label={
-            <span className="flex gap-0.5">
-              <span style={{ color: "oklch(0.65 0.2 25)" }}>■</span>
-              <span style={{ color: "oklch(0.65 0.18 300)" }}>■</span>
-              <span style={{ color: "oklch(0.6 0.2 240)" }}>■</span>
-            </span>
+            <svg viewBox="0 0 32 32" className="h-6 w-6 sm:h-8 sm:w-8" aria-hidden>
+              <path
+                d="M16 4C10 4 6 9 6 13c0 2.5 1.5 5 3 6.5 1.5 1.5 4 2.5 7 2.5s5.5-1 7-2.5c1.5-1.5 3-4 3-6.5 0-4-4-9-10-9z"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.5}
+                strokeLinecap="round"
+              />
+              <circle cx="16" cy="13" r="2.5" fill="currentColor" />
+            </svg>
           }
-          bg="oklch(0.22 0.03 80)"
+          color="oklch(0.55 0.14 250)"
+        />
+        {/* Meta Ads Manager */}
+        <Keycap
+          label={
+            <svg viewBox="0 0 32 32" className="h-6 w-6 sm:h-8 sm:w-8" aria-hidden>
+              <path d="M5 24v-6h4v6H5z" fill="currentColor" />
+              <path d="M12 24v-10h4v10H12z" fill="currentColor" opacity="0.85" />
+              <path d="M19 24V8h4v16H19z" fill="currentColor" opacity="0.7" />
+              <path d="M26 24v-12h4v12H26z" fill="currentColor" opacity="0.55" />
+            </svg>
+          }
+          color="oklch(0.55 0.14 250)"
+        />
+        {/* Canva */}
+        <Keycap
+          label={
+            <svg viewBox="0 0 32 32" className="h-6 w-6 sm:h-8 sm:w-8" aria-hidden>
+              <path d="M23 5h-3c-2 0-4 1.5-4 4.5S17.5 13 20 13h3V5z" fill="#7D3C98" />
+              <path d="M9 5c-1.5 0-3 1.5-3 3.5v7c0 2 1.5 3.5 3 3.5s3-1.5 3-3.5v-7C12 6.5 10.5 5 9 5z" fill="#00C4CC" />
+              <path d="M16 12c-2 0-3.5 1.5-3.5 3.5S14 19 16 19s3.5-1.5 3.5-3.5S18 12 16 12z" fill="#00C4CC" />
+              <path d="M23 13v3.5c0 2 1.5 3.5 3 3.5s3-1.5 3-3.5V13h-6z" fill="#7D3C98" />
+            </svg>
+          }
+          bg="oklch(0.97 0.01 80)"
+        />
+        {/* CapCut */}
+        <Keycap
+          label={
+            <svg viewBox="0 0 32 32" className="h-6 w-6 sm:h-8 sm:w-8" aria-hidden>
+              <rect x="4" y="12" width="24" height="8" rx="4" fill="currentColor" />
+              <circle cx="10" cy="16" r="2" fill="oklch(0.2 0.05 22)" />
+              <circle cx="22" cy="16" r="2" fill="oklch(0.2 0.05 22)" />
+              <path d="M26 10l4 6-4 6" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          }
+          bg="oklch(0.2 0.03 80)"
           textColor="oklch(0.98 0.01 80)"
         />
+        {/* WordPress */}
         <Keycap
-          label={<span style={{ fontFamily: "var(--font-heavy)", letterSpacing: "-0.1em" }}>✂</span>}
-          textColor="oklch(0.2 0.05 22)"
+          label={
+            <svg viewBox="0 0 32 32" className="h-6 w-6 sm:h-8 sm:w-8" aria-hidden>
+              <circle cx="16" cy="16" r="13" fill="#21759b" />
+              <path
+                d="M16 6c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10S21.5 6 16 6zm-6.5 16.5L16 8.5l6.5 14c-1.8 1.2-4 2-6.5 2s-4.7-.8-6.5-2z"
+                fill="#fff"
+                opacity="0.95"
+              />
+            </svg>
+          }
+          bg="oklch(0.97 0.01 80)"
+        />
+        {/* Elementor */}
+        <Keycap
+          label={
+            <svg viewBox="0 0 32 32" className="h-6 w-6 sm:h-8 sm:w-8" aria-hidden>
+              <rect x="5" y="5" width="22" height="22" rx="4" fill="#92003B" />
+              <rect x="10" y="10" width="4" height="12" rx="1" fill="#fff" />
+              <rect x="18" y="10" width="4" height="12" rx="1" fill="#fff" opacity="0.55" />
+            </svg>
+          }
+          bg="oklch(0.97 0.01 80)"
         />
       </div>
     </div>
