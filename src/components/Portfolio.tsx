@@ -1355,7 +1355,6 @@ export default function Portfolio() {
       <Hero />
       <About />
       <Background />
-      <Why />
       <Logofolio />
       <SocialProjects />
       <Results />
