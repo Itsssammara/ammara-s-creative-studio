@@ -365,19 +365,12 @@ function About() {
         <Reveal className="lg:col-span-6">
           <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
             {/* Scrapbook tape accents */}
-            <div className="pointer-events-none absolute -top-3 left-8 z-20 h-6 w-24 rotate-[-8deg] bg-[color:var(--cream)]/80 shadow-md" />
-            <div className="pointer-events-none absolute -top-2 right-10 z-20 h-6 w-20 rotate-[6deg] bg-[color:var(--star)]/70 shadow-md" />
             <ChalkStar className="pointer-events-none absolute -left-6 top-1/3 z-10 text-[color:var(--cream)] rotate-[-15deg]" size={64} />
             <ChalkStar className="pointer-events-none absolute -right-4 bottom-10 z-10 text-[color:var(--star)] rotate-[18deg]" size={44} />
             {/* Cream torn-paper mat behind the image for editorial weight */}
-            <div
-              className="absolute inset-0 -m-3 sm:-m-5 bg-[color:var(--cream)] shadow-2xl"
-              style={{ clipPath: "polygon(2% 1%, 98% 0%, 100% 97%, 3% 100%)" }}
-              aria-hidden="true"
-            />
             <img
-              src={ammaraLaptopAsset.url}
-              alt="Ammara Hoosen portrait framed inside a laptop with a floral wallpaper"
+              src="/src/assets/ammara-profile.png"
+              alt="Portrait of Ammara Hoosen"
               width={1200}
               height={1500}
               loading="lazy"
