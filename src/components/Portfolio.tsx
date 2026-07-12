@@ -427,21 +427,6 @@ function About() {
               </p>
             </Reveal>
           </div>
-
-          {/* Info card */}
-          <Reveal delay={0.4}>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <div className="relative bg-[color:var(--cream)] px-6 py-3 text-[color:var(--burgundy)] shadow-lg" style={{ clipPath: "polygon(2% 0%, 100% 4%, 98% 100%, 0% 96%)" }}>
-                <div className="text-sm">
-                  <div className="font-semibold">📩 hello@ammara.studio</div>
-                  <div className="text-[color:var(--ink)]/70">Cape Town · ZA</div>
-                </div>
-              </div>
-              <div className="heavy rounded-md bg-[color:var(--burgundy-darker)] px-4 py-3 text-sm uppercase tracking-wider text-[color:var(--cream)]">
-                Info
-              </div>
-            </div>
-          </Reveal>
         </div>
       </div>
     </section>
