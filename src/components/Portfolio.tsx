@@ -1186,51 +1186,49 @@ function Background() {
           </div>
         </Reveal>
 
+        {/* Upper row: Career (left) | Education (right) */}
         <div className="mt-14 grid gap-12 lg:grid-cols-2">
-          {/* Left column: Career */}
           <Reveal>
             <TimelineList title="Career Experiences" items={experiences} />
           </Reveal>
-
-          {/* Right column: Education + Tools */}
-          <div className="space-y-10">
-            <Reveal delay={0.1}>
-              <TimelineList title="Education" items={educationList} />
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <div>
-                <h3 className="font-display text-3xl italic text-[color:var(--cream)] sm:text-4xl">
-                  Tools I use
-                </h3>
-                <div className="mt-5 max-w-sm">
-                  <Keyboard />
-                </div>
-              </div>
-            </Reveal>
-          </div>
+          <Reveal delay={0.1}>
+            <TimelineList title="Education" items={educationList} />
+          </Reveal>
         </div>
 
-        {/* Skills row */}
-        <Reveal delay={0.15}>
-          <div className="mt-14">
-            <h3 className="font-display text-3xl italic text-[color:var(--cream)] sm:text-4xl">
-              Skills
-            </h3>
-            <StaggerGroup className="mt-5 flex flex-wrap gap-2 sm:gap-3">
-              {skillTags.map((s) => (
-                <motion.span
-                  key={s.t}
-                  variants={fadeUp}
-                  className="rounded-full px-4 py-2 text-xs font-semibold text-[color:var(--cream)] shadow-md sm:text-sm"
-                  style={{ background: s.c }}
-                >
-                  {s.t}
-                </motion.span>
-              ))}
-            </StaggerGroup>
-          </div>
-        </Reveal>
+        {/* Lower row: Skills (left) | Tools I Use (right) */}
+        <div className="mt-14 grid gap-12 lg:grid-cols-2">
+          <Reveal delay={0.15}>
+            <div>
+              <h3 className="font-display text-3xl italic text-[color:var(--cream)] sm:text-4xl">
+                Skills
+              </h3>
+              <StaggerGroup className="mt-5 flex flex-wrap gap-2 sm:gap-3">
+                {skillTags.map((s) => (
+                  <motion.span
+                    key={s.t}
+                    variants={fadeUp}
+                    className="rounded-full px-4 py-2 text-xs font-semibold text-[color:var(--cream)] shadow-md sm:text-sm"
+                    style={{ background: s.c }}
+                  >
+                    {s.t}
+                  </motion.span>
+                ))}
+              </StaggerGroup>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div>
+              <h3 className="font-display text-3xl italic text-[color:var(--cream)] sm:text-4xl">
+                Tools I use
+              </h3>
+              <div className="mt-5 max-w-sm">
+                <Keyboard />
+              </div>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
