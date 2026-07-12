@@ -477,13 +477,6 @@ function Services() {
   );
 }
 
-const whyItems = [
-  { t: "Web development background", d: "I actually understand websites and landing pages — not just posts." },
-  { t: "A real design eye", d: "Content that looks polished, on-brand, and worth stopping the scroll for." },
-  { t: "Strategy-first approach", d: "Every post has a purpose. No content-just-to-post-something." },
-  { t: "Paid ads support", d: "Great content reaches the right audience — not just your existing followers." },
-  { t: "Clear reporting", d: "You'll always know what worked, what didn't, and what we're trying next." },
-];
 
 // Why section removed per request.
 
