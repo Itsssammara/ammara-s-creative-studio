@@ -1,7 +1,15 @@
+/* eslint-disable prettier/prettier */
 import { motion, type Variants } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
-import ammaraImg from "@/assets/ammara-outline.png";
+import { useState } from "react";
+import canvaLogo from "@/assets/ammaras-tool-icon-canva.svg";
+import capcutLogo from "@/assets/ammaras-tool-icon-capcut.svg";
+import metaLogo from "@/assets/ammaras-tool-icon-meta-business-suite.svg";
+import metricoolLogo from "@/assets/ammaras-tool-icon-metricool.svg";
+import elementorLogo from "@/assets/ammaras-tool-icon-elementor.svg";
+import wordpressLogo from "@/assets/ammaras-tool-icon-wordpress.svg";
 
+ 
 /* ---------- Animation helpers ---------- */
 
 const fadeUp: Variants = {
@@ -72,7 +80,14 @@ function Star({ className, size = 28 }: { className?: string; size?: number }) {
 
 function Squiggle({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 120 20" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
+    <svg
+      className={className}
+      viewBox="0 0 120 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+    >
       <path d="M2 10 Q 15 0, 30 10 T 60 10 T 90 10 T 118 10" />
     </svg>
   );
@@ -81,7 +96,14 @@ function Squiggle({ className }: { className?: string }) {
 /* Chalky brush-style doodles inspired by the reference */
 function ChalkStar({ className, size = 90 }: { className?: string; size?: number }) {
   return (
-    <svg className={className} width={size} height={size} viewBox="0 0 100 100" fill="none" aria-hidden>
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      fill="none"
+      aria-hidden
+    >
       <path
         d="M50 6 C 52 28, 58 40, 82 44 C 60 50, 54 58, 50 92 C 46 60, 40 52, 14 46 C 42 40, 48 30, 50 6 Z"
         fill="currentColor"
@@ -111,7 +133,11 @@ function ChalkSpiral({ className, size = 130 }: { className?: string; size?: num
       <path d="M44 70 A26 26 0 0 1 96 70" opacity="0.95" />
       <path d="M56 70 A14 14 0 0 1 84 70" opacity="0.95" />
       {/* little tulip on top */}
-      <path d="M70 22 C 64 30, 64 40, 70 44 C 76 40, 76 30, 70 22 Z" fill="currentColor" opacity="0.95" />
+      <path
+        d="M70 22 C 64 30, 64 40, 70 44 C 76 40, 76 30, 70 22 Z"
+        fill="currentColor"
+        opacity="0.95"
+      />
       <path d="M62 34 C 58 40, 58 46, 64 48" opacity="0.9" />
       <path d="M78 34 C 82 40, 82 46, 76 48" opacity="0.9" />
       {/* stem */}
@@ -122,21 +148,52 @@ function ChalkSpiral({ className, size = 130 }: { className?: string; size?: num
 
 function ChalkSwirl({ className, size = 150 }: { className?: string; size?: number }) {
   return (
-    <svg className={className} width={size} height={size} viewBox="0 0 160 80" fill="none" stroke="currentColor" strokeWidth={8} strokeLinecap="round" aria-hidden>
-      <path d="M10 60 C 20 20, 50 20, 60 50 C 65 68, 45 72, 40 55 C 35 35, 70 20, 95 40 C 125 62, 145 30, 150 15" opacity="0.9" />
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 160 80"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={8}
+      strokeLinecap="round"
+      aria-hidden
+    >
+      <path
+        d="M10 60 C 20 20, 50 20, 60 50 C 65 68, 45 72, 40 55 C 35 35, 70 20, 95 40 C 125 62, 145 30, 150 15"
+        opacity="0.9"
+      />
     </svg>
   );
 }
 
 function ChalkScribble({ className, size = 120 }: { className?: string; size?: number }) {
   return (
-    <svg className={className} width={size} height={size} viewBox="0 0 140 80" fill="none" stroke="currentColor" strokeWidth={9} strokeLinecap="round" aria-hidden>
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 140 80"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={9}
+      strokeLinecap="round"
+      aria-hidden
+    >
       <path d="M10 50 Q 30 10, 50 45 T 90 45 Q 110 20, 130 50" opacity="0.9" />
     </svg>
   );
 }
 
-function Tape({ className, style, rotate = -4 }: { className?: string; style?: CSSProperties; rotate?: number }) {
+function Tape({
+  className,
+  style,
+  rotate = -4,
+}: {
+  className?: string;
+  style?: CSSProperties;
+  rotate?: number;
+}) {
   return (
     <div
       className={`tape absolute h-6 w-24 ${className ?? ""}`}
@@ -162,9 +219,7 @@ function PaperCard({
       className={`paper-card crumpled relative rounded-[6px] ${className ?? ""}`}
       style={{ transform: `rotate(${rotate}deg)` }}
     >
-      {withTape && (
-        <Tape className="-top-3 left-1/2 -translate-x-1/2" rotate={-3} />
-      )}
+      {withTape && <Tape className="-top-3 left-1/2 -translate-x-1/2" rotate={-3} />}
       {children}
     </div>
   );
@@ -192,9 +247,9 @@ function BinderBoard({
             <div
               className="h-6 w-6 rounded-full sm:h-7 sm:w-7"
               style={{
-                background: "radial-gradient(circle at 40% 35%, oklch(0.14 0.05 22) 0%, oklch(0.22 0.07 22) 55%, oklch(0.32 0.13 20) 100%)",
-                boxShadow:
-                  "inset 0 2px 3px oklch(0 0 0 / 0.55), 0 1px 0 oklch(1 0 0 / 0.4)",
+                background:
+                  "radial-gradient(circle at 40% 35%, oklch(0.14 0.05 22) 0%, oklch(0.22 0.07 22) 55%, oklch(0.32 0.13 20) 100%)",
+                boxShadow: "inset 0 2px 3px oklch(0 0 0 / 0.55), 0 1px 0 oklch(1 0 0 / 0.4)",
               }}
             />
             {/* metal ring */}
@@ -218,42 +273,128 @@ function BinderBoard({
 /* ---------- Sections ---------- */
 
 function Nav() {
-  const links = [
-    ["About", "#about"],
-    ["Logos", "#logofolio"],
-    ["Social", "#social"],
-    ["Packages", "#packages"],
-    ["Contact", "#contact"],
-  ];
+  const [menuOpen, setMenuOpen] = useState(false);
+
+const links = [
+  ["About", "#about"],
+  ["Logos", "#logofolio"],
+  ["Social", "#social"],
+  ["Reviews", "#testimonials"],
+  ["Packages", "#packages"],
+  ["Contact", "#contact"],
+];
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-[color:var(--cream)]/10 bg-[color:var(--burgundy-deep)]/80 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <a href="#top" className="flex items-baseline gap-2">
-          <span className="font-display text-xl font-semibold tracking-tight text-[color:var(--cream)]">
-            Ammara Hoosen
-          </span>
-          <span className="handwritten hidden text-lg text-[color:var(--star)] sm:inline">
-            — studio
-          </span>
-        </a>
-        <ul className="hidden gap-6 text-sm md:flex">
-          {links.map(([label, href]) => (
-            <li key={href}>
-              <a
-                href={href}
-                className="text-[color:var(--cream)]/70 transition hover:text-[color:var(--cream)]"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <a
-          href="#contact"
-          className="rounded-full bg-[color:var(--cream)] px-4 py-2 text-xs font-medium text-[color:var(--burgundy)] transition hover:bg-[color:var(--star)]"
+    <header className="sticky top-0 z-40 border-b border-[color:var(--cream)]/10 bg-[color:var(--burgundy-deep)]/90 backdrop-blur">
+      <nav className="mx-auto max-w-6xl px-5">
+        <div className="flex items-center justify-between py-4">
+          {/* Logo */}
+          <a
+            href="#top"
+            onClick={closeMenu}
+            className="flex items-baseline gap-2"
+          >
+            <span className="font-display text-xl font-semibold tracking-tight text-[color:var(--cream)]">
+              Ammara Hoosen
+            </span>
+
+            <span className="handwritten hidden text-lg text-[color:var(--star)] sm:inline">
+              — studio
+            </span>
+          </a>
+
+          {/* Desktop navigation */}
+          <ul className="hidden gap-6 text-sm md:flex">
+            {links.map(([label, href]) => (
+              <li key={href}>
+                <a
+                  href={href}
+                  className="text-[color:var(--cream)]/70 transition hover:text-[color:var(--cream)]"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex items-center gap-3">
+            {/* Desktop CTA */}
+            <a
+              href="#contact"
+              className="hidden rounded-full bg-[color:var(--cream)] px-4 py-2 text-xs font-medium text-[color:var(--burgundy)] transition hover:bg-[color:var(--star)] sm:inline-flex"
+            >
+              Work with me
+            </a>
+
+            {/* Mobile menu button */}
+            <button
+              type="button"
+              onClick={() => setMenuOpen((current) => !current)}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
+              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--cream)]/30 text-[color:var(--cream)] transition hover:bg-[color:var(--cream)]/10 md:hidden"
+            >
+              <span className="sr-only">
+                {menuOpen ? "Close menu" : "Open menu"}
+              </span>
+
+              <div className="relative h-5 w-5">
+                <span
+                  className={`absolute left-0 top-1 block h-0.5 w-5 bg-current transition ${
+                    menuOpen ? "translate-y-1.5 rotate-45" : ""
+                  }`}
+                />
+
+                <span
+                  className={`absolute left-0 top-2.5 block h-0.5 w-5 bg-current transition ${
+                    menuOpen ? "opacity-0" : ""
+                  }`}
+                />
+
+                <span
+                  className={`absolute left-0 top-4 block h-0.5 w-5 bg-current transition ${
+                    menuOpen ? "-translate-y-1.5 -rotate-45" : ""
+                  }`}
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile dropdown */}
+        <div
+          id="mobile-navigation"
+          className={`overflow-hidden transition-all duration-300 md:hidden ${
+            menuOpen
+              ? "max-h-[500px] border-t border-[color:var(--cream)]/10 pb-5 pt-4 opacity-100"
+              : "max-h-0 opacity-0"
+          }`}
         >
-          Work with me
-        </a>
+          <ul className="flex flex-col gap-1">
+            {links.map(([label, href]) => (
+              <li key={href}>
+                <a
+                  href={href}
+                  onClick={closeMenu}
+                  className="block rounded-xl px-4 py-3 text-sm text-[color:var(--cream)]/80 transition hover:bg-[color:var(--cream)]/10 hover:text-[color:var(--cream)]"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="#contact"
+            onClick={closeMenu}
+            className="mt-4 flex w-full items-center justify-center rounded-full bg-[color:var(--cream)] px-4 py-3 text-sm font-medium text-[color:var(--burgundy)] transition hover:bg-[color:var(--star)]"
+          >
+            Work with me
+          </a>
+        </div>
       </nav>
     </header>
   );
@@ -263,12 +404,30 @@ function Hero() {
   return (
     <section id="top" className="relative overflow-hidden px-5 pb-24 pt-14 sm:pt-20">
       {/* Chalk doodles scattered across the burgundy corduroy */}
-      <ChalkStar className="pointer-events-none absolute left-[4%] top-16 text-[color:var(--cream)]/90 rotate-[-15deg]" size={70} />
-      <ChalkStar className="pointer-events-none absolute right-[6%] top-8 text-[color:var(--cream)]/85 rotate-[20deg]" size={95} />
-      <ChalkSpiral className="pointer-events-none absolute right-[36%] top-6 hidden text-[color:var(--cream)]/80 sm:block" size={120} />
-      <ChalkSwirl className="pointer-events-none absolute left-[2%] bottom-24 text-[color:var(--cream)]/85 rotate-[-8deg]" size={170} />
-      <ChalkScribble className="pointer-events-none absolute right-[3%] bottom-20 text-[color:var(--cream)]/85 rotate-[12deg]" size={140} />
-      <ChalkStar className="pointer-events-none absolute left-[46%] bottom-10 text-[color:var(--cream)]/90 rotate-[8deg]" size={58} />
+      <ChalkStar
+        className="pointer-events-none absolute left-[4%] top-16 text-[color:var(--cream)]/90 rotate-[-15deg]"
+        size={70}
+      />
+      <ChalkStar
+        className="pointer-events-none absolute right-[6%] top-8 text-[color:var(--cream)]/85 rotate-[20deg]"
+        size={95}
+      />
+      <ChalkSpiral
+        className="pointer-events-none absolute right-[36%] top-6 hidden text-[color:var(--cream)]/80 sm:block"
+        size={120}
+      />
+      <ChalkSwirl
+        className="pointer-events-none absolute left-[2%] bottom-24 text-[color:var(--cream)]/85 rotate-[-8deg]"
+        size={170}
+      />
+      <ChalkScribble
+        className="pointer-events-none absolute right-[3%] bottom-20 text-[color:var(--cream)]/85 rotate-[12deg]"
+        size={140}
+      />
+      <ChalkStar
+        className="pointer-events-none absolute left-[46%] bottom-10 text-[color:var(--cream)]/90 rotate-[8deg]"
+        size={58}
+      />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-12">
         {/* Torn paper hero card */}
@@ -292,8 +451,8 @@ function Hero() {
                   </div>
                 </div>
                 <p className="mt-6 max-w-lg text-[color:var(--ink)]/80">
-                  Cape Town–based creative helping small businesses turn content
-                  into <em>clicks, conversations, and customers.</em>
+                  Cape Town–based creative helping small businesses turn content into{" "}
+                  <em>clicks, conversations, and customers.</em>
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <a
@@ -313,40 +472,39 @@ function Hero() {
             </div>
 
             {/* Speech bubble callout */}
-            <Reveal delay={0.25} 
-            className="absolute right-3 top-3 z-30 sm:right-0 sm:top-20 lg:-right-10">
+            <Reveal
+              delay={0.25}
+              className="absolute right-3 top-3 z-30 sm:right-0 sm:top-20 lg:-right-10"
+            >
               <div className="w-44 rotate-[-2deg] border-2 border-[color:var(--cream)] bg-[color:var(--accent)] px-3 py-2 text-center shadow-lg sm:w-64 sm:px-5 sm:py-4">
-                    <div className="heavy text-sm uppercase text-[color:var(--cream)] sm:text-lg">
+                <div className="heavy text-sm uppercase text-[color:var(--cream)] sm:text-lg">
                   2+ Years of Experience
                 </div>
-            </div>
+              </div>
             </Reveal>
           </div>
         </Reveal>
 
-          {/* hero graphic */}
-          <Reveal
-            className="order-1 relative z-20 lg:order-2 lg:col-span-4"
-            delay={0.15}
-            >            
-              <div className="relative mx-auto w-full max-w-[380px] sm:max-w-[460px] lg:-ml-40 lg:w-[160%] lg:max-w-none">
-              <ChalkStar
-                className="pointer-events-none absolute -left-6 top-10 z-10 text-[color:var(--cream)]"
-                size={54}
-              />    
+        {/* hero graphic */}
+        <Reveal className="order-1 relative z-20 lg:order-2 lg:col-span-4" delay={0.15}>
+          <div className="relative mx-auto w-full max-w-[380px] sm:max-w-[460px] lg:-ml-40 lg:w-[160%] lg:max-w-none">
+            <ChalkStar
+              className="pointer-events-none absolute -left-6 top-10 z-10 text-[color:var(--cream)]"
+              size={54}
+            />
 
-              <img
-                src="/src/assets/ammara-profile.png"
-                alt="Animated social media graphic featuring Ammara Hoosen"
-                className="h-auto w-full object-contain"
-              />
+            <img
+              src="/src/assets/ammara-profile.png"
+              alt="Animated social media graphic featuring Ammara Hoosen"
+              className="h-auto w-full object-contain"
+            />
 
-              <ChalkStar
-                className="pointer-events-none absolute -bottom-4 -right-4 text-[color:var(--cream)] rotate-[18deg]"
-                size={70}
-              />
-            </div>
-          </Reveal>
+            <ChalkStar
+              className="pointer-events-none absolute -bottom-4 -right-4 text-[color:var(--cream)] rotate-[18deg]"
+              size={70}
+            />
+          </div>
+        </Reveal>
       </div>
 
       <Reveal delay={0.35}>
@@ -362,22 +520,40 @@ function About() {
   return (
     <section id="about" className="relative overflow-hidden px-5 py-24">
       {/* Chalk doodles */}
-      <ChalkStar className="pointer-events-none absolute left-[4%] top-14 text-[color:var(--cream)] rotate-[-12deg]" size={80} />
-      <ChalkSpiral className="pointer-events-none absolute left-[24%] top-10 hidden text-[color:var(--cream)]/85 sm:block" size={150} />
-      <ChalkStar className="pointer-events-none absolute right-[8%] top-24 text-[color:var(--cream)] rotate-[15deg]" size={54} />
-      <ChalkSwirl className="pointer-events-none absolute right-[4%] bottom-32 text-[color:var(--cream)]/80 rotate-[8deg]" size={130} />
+      <ChalkStar
+        className="pointer-events-none absolute left-[4%] top-14 text-[color:var(--cream)] rotate-[-12deg]"
+        size={80}
+      />
+      <ChalkSpiral
+        className="pointer-events-none absolute left-[24%] top-10 hidden text-[color:var(--cream)]/85 sm:block"
+        size={150}
+      />
+      <ChalkStar
+        className="pointer-events-none absolute right-[8%] top-24 text-[color:var(--cream)] rotate-[15deg]"
+        size={54}
+      />
+      <ChalkSwirl
+        className="pointer-events-none absolute right-[4%] bottom-32 text-[color:var(--cream)]/80 rotate-[8deg]"
+        size={130}
+      />
 
       <div className="relative mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-12">
         {/* Photo cutout with white outline */}
         <Reveal className="lg:col-span-6">
           <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
             {/* Scrapbook tape accents */}
-            <ChalkStar className="pointer-events-none absolute -left-6 top-1/3 z-10 text-[color:var(--cream)] rotate-[-15deg]" size={64} />
-            <ChalkStar className="pointer-events-none absolute -right-4 bottom-10 z-10 text-[color:var(--star)] rotate-[18deg]" size={44} />
+            <ChalkStar
+              className="pointer-events-none absolute -left-6 top-1/3 z-10 text-[color:var(--cream)] rotate-[-15deg]"
+              size={64}
+            />
+            <ChalkStar
+              className="pointer-events-none absolute -right-4 bottom-10 z-10 text-[color:var(--star)] rotate-[18deg]"
+              size={44}
+            />
             {/* Cream torn-paper mat behind the image for editorial weight */}
             <img
               src="/src/assets/ammara-hero.gif"
-              alt="Portrait of Ammara Hoosen"              
+              alt="Portrait of Ammara Hoosen"
               width={1200}
               height={1500}
               loading="lazy"
@@ -390,24 +566,23 @@ function About() {
         <div className="relative lg:col-span-6">
           <Reveal>
             <h2 className="heavy text-6xl uppercase text-[color:var(--cream)] sm:text-7xl lg:text-8xl">
-              About Me
+              About Me.
             </h2>
           </Reveal>
 
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-[color:var(--cream)]/90 sm:text-lg">
-              Hi, call me Ammara. I'm a Cape Town–based creative with a background
-              in web development, social media management, graphic design and
-              paid ads. My path wasn't a straight line — it was a convergence.
+              Hi, call me Ammara. I'm a Cape Town–based creative with a background in web
+              development, social media management, graphic design and paid ads. My path wasn't a
+              straight line — it was a convergence.
             </p>
           </Reveal>
 
           <Reveal delay={0.2}>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-[color:var(--cream)]/85 sm:text-lg">
-              If you look at my resume, you see a marketer. If you look at my
-              camera roll, you see a storyteller. I help brands show up online
-              with content that looks good, makes sense and supports real
-              business goals.
+              If you look at my resume, you see a marketer. If you look at my camera roll, you see a
+              storyteller. I help brands show up online with content that looks good, makes sense
+              and supports real business goals.
             </p>
           </Reveal>
 
@@ -420,10 +595,9 @@ function About() {
             </Reveal>
             <Reveal delay={0.32}>
               <p className="max-w-xl text-base leading-relaxed text-[color:var(--cream)]/90 sm:text-lg">
-                Because I care about clean visuals, clear strategy, and content
-                that does more than just <em>"look cute."</em> I sit at the
-                intersection of design, strategy, and code — which means your
-                content, ads, and website all pull in the same direction.
+                Because I care about clean visuals, clear strategy, and content that does more than
+                just <em>"look cute."</em> I sit at the intersection of design, strategy, and code —
+                which means your content, ads, and website all pull in the same direction.
               </p>
             </Reveal>
           </div>
@@ -434,45 +608,81 @@ function About() {
 }
 
 const services = [
-  { t: "Social Media Management", d: "End-to-end management of your Instagram & Facebook — posted, planned, on-brand.", i: "◐" },
-  { t: "Meta Ads Campaigns", d: "Campaigns built to actually convert — from creative to targeting to reporting.", i: "◈" },
-  { t: "Content Strategy", d: "Monthly content pillars, hooks, and calendars mapped to real business goals.", i: "✦" },
-  { t: "Instagram & Facebook Content", d: "Static posts, stories, and captions written to sound like you (not AI).", i: "✧" },
-  { t: "Carousel Design", d: "Scroll-stopping carousels that educate, convert, or make people save the post.", i: "❋" },
-  { t: "Reels & TikTok Editing", d: "Short-form video edits with hooks, captions, and platform-native pacing.", i: "▶" },
-  { t: "Monthly Reporting", d: "Plain-English reports so you always know what's working and what to try next.", i: "◍" },
-  { t: "Website & Landing Pages", d: "Landing page builds and updates in WordPress, Elementor, and WooCommerce.", i: "◒" },
+  {
+    t: "Social Media Management",
+    d: "End-to-end management of your Instagram & Facebook — posted, planned, on-brand.",
+    i: "◐",
+  },
+  {
+    t: "Meta Ads Campaigns",
+    d: "Campaigns built to actually convert — from creative to targeting to reporting.",
+    i: "◈",
+  },
+  {
+    t: "Content Strategy",
+    d: "Monthly content pillars, hooks, and calendars mapped to real business goals.",
+    i: "✦",
+  },
+  {
+    t: "Instagram & Facebook Content",
+    d: "Static posts, stories, and captions written to sound like you (not AI).",
+    i: "✧",
+  },
+  {
+    t: "Carousel Design",
+    d: "Scroll-stopping carousels that educate, convert, or make people save the post.",
+    i: "❋",
+  },
+  {
+    t: "Reels & TikTok Editing",
+    d: "Short-form video edits with hooks, captions, and platform-native pacing.",
+    i: "▶",
+  },
+  {
+    t: "Monthly Reporting",
+    d: "Plain-English reports so you always know what's working and what to try next.",
+    i: "◍",
+  },
+  {
+    t: "Website & Landing Pages",
+    d: "Landing page builds and updates in WordPress, Elementor, and WooCommerce.",
+    i: "◒",
+  },
 ];
 
-function Services() {
-  return (
-    <section id="services" className="relative px-5 py-24">
-      <div className="mx-auto max-w-6xl">
-        <Reveal>
-          <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--star)]">what I help with</span>
-            <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
-              A studio-sized skillset — <em className="font-display normal-case text-[color:var(--star)]">without the agency price tag.</em>
-            </h2>
-          </div>
-        </Reveal>
+// function Services() {
+//   return (
+//     <section id="services" className="relative px-5 py-24">
+//       <div className="mx-auto max-w-6xl">
+//         <Reveal>
+//           <div className="max-w-2xl">
+//             <span className="handwritten text-2xl text-[color:var(--star)]">what I help with</span>
+//             <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
+//               A studio-sized skillset —{" "}
+//               <em className="font-display normal-case text-[color:var(--star)]">
+//                 without the agency price tag.
+//               </em>
+//             </h2>
+//           </div>
+//         </Reveal>
 
-        <StaggerGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((s, i) => (
-            <motion.div key={s.t} variants={fadeUp}>
-              <PaperCard rotate={i % 2 === 0 ? -1 : 1} className="h-full p-6">
-                <div className="text-3xl text-[color:var(--accent)]">{s.i}</div>
-                <h3 className="mt-4 font-display text-xl font-semibold text-[color:var(--burgundy)]">{s.t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[color:var(--ink)]/75">{s.d}</p>
-              </PaperCard>
-            </motion.div>
-          ))}
-        </StaggerGroup>
-      </div>
-    </section>
-  );
-}
-
+//         <StaggerGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+//           {services.map((s, i) => (
+//             <motion.div key={s.t} variants={fadeUp}>
+//               <PaperCard rotate={i % 2 === 0 ? -1 : 1} className="h-full p-6">
+//                 <div className="text-3xl text-[color:var(--accent)]">{s.i}</div>
+//                 <h3 className="mt-4 font-display text-xl font-semibold text-[color:var(--burgundy)]">
+//                   {s.t}
+//                 </h3>
+//                 <p className="mt-2 text-sm leading-relaxed text-[color:var(--ink)]/75">{s.d}</p>
+//               </PaperCard>
+//             </motion.div>
+//           ))}
+//         </StaggerGroup>
+//       </div>
+//     </section>
+//   );
+// }
 
 // Why section removed per request.
 
@@ -522,41 +732,44 @@ function Projects() {
 
         <BinderBoard className="mt-14" holes={7}>
           <StaggerGroup className="grid gap-8 md:grid-cols-2">
-          {projects.map((p, i) => (
-            <motion.div key={p.name} variants={fadeUp}>
-              <PaperCard rotate={i % 2 === 0 ? -0.6 : 0.8} className="h-full p-8">
-                <Tape className="-top-3 left-8" rotate={i % 2 === 0 ? -6 : 5} />
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <div className="text-xs uppercase tracking-[0.2em] text-[color:var(--accent)]">
-                      {p.tag}
+            {projects.map((p, i) => (
+              <motion.div key={p.name} variants={fadeUp}>
+                <PaperCard rotate={i % 2 === 0 ? -0.6 : 0.8} className="h-full p-8">
+                  <Tape className="-top-3 left-8" rotate={i % 2 === 0 ? -6 : 5} />
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="text-xs uppercase tracking-[0.2em] text-[color:var(--accent)]">
+                        {p.tag}
+                      </div>
+                      <h3 className="mt-2 font-display text-2xl font-semibold text-[color:var(--burgundy)]">
+                        {p.name}
+                      </h3>
                     </div>
-                    <h3 className="mt-2 font-display text-2xl font-semibold text-[color:var(--burgundy)]">
-                      {p.name}
-                    </h3>
+                    <div className="text-4xl">{p.accent}</div>
                   </div>
-                  <div className="text-4xl">{p.accent}</div>
-                </div>
-                <div className="mt-5 space-y-3 text-sm text-[color:var(--ink)]/80">
-                  <p>
-                    <span className="font-semibold text-[color:var(--burgundy)]">Work: </span>
-                    {p.work}
-                  </p>
-                  <p>
-                    <span className="font-semibold text-[color:var(--burgundy)]">Goal: </span>
-                    {p.goal}
-                  </p>
-                </div>
-                <div className="mt-6 flex gap-2">
-                  {["Strategy", "Design", "Ads"].map((t) => (
-                    <span key={t} className="rounded-full border border-[color:var(--burgundy)]/20 px-3 py-1 text-[10px] uppercase tracking-widest text-[color:var(--burgundy)]/80">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </PaperCard>
-            </motion.div>
-          ))}
+                  <div className="mt-5 space-y-3 text-sm text-[color:var(--ink)]/80">
+                    <p>
+                      <span className="font-semibold text-[color:var(--burgundy)]">Work: </span>
+                      {p.work}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-[color:var(--burgundy)]">Goal: </span>
+                      {p.goal}
+                    </p>
+                  </div>
+                  <div className="mt-6 flex gap-2">
+                    {["Strategy", "Design", "Ads"].map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full border border-[color:var(--burgundy)]/20 px-3 py-1 text-[10px] uppercase tracking-widest text-[color:var(--burgundy)]/80"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </PaperCard>
+              </motion.div>
+            ))}
           </StaggerGroup>
         </BinderBoard>
       </div>
@@ -574,23 +787,23 @@ type LogoMark = {
 const logofolio: LogoMark[] = [
   {
     name: "African Flag Removal",
-    image: "/logos/marketing-portfolio-logo-1.png",
+    image: "/logos/ammara-portfolio-logo-1.png",
   },
   {
-    name: "Logo 2",
-    image: "/logos/marketing-portfolio-logo-1.png",
+    name: "Dr Imthiaz Hoosen",
+    image: "/logos/ammara-portfolio-logo-3.png",
+  },
+    {
+    name: "AH",
+    image: "/logos/ammara-portfolio-logo-4.png",
   },
   {
-    name: "Logo 3",
-    image: "/logos/marketing-portfolio-logo-1.png",
+    name: "Hydrotech Innovations",
+    image: "/logos/ammara-portfolio-logo-5.png",
   },
   {
-    name: "Logo 4",
-    image: "/logos/marketing-portfolio-logo-1.png",
-  },
-  {
-    name: "Logo 5",
-    image: "/logos/marketing-portfolio-logo-1.png",
+    name: "Shabana Ismail",
+    image: "/logos/ammara-portfolio-logo-2.png",
   },
 ];
 
@@ -613,22 +826,22 @@ function Logofolio() {
         <Reveal>
           <div className="flex items-end justify-between gap-6">
             <div>
-              <span className="handwritten text-2xl text-[color:var(--star)]">
-                01 logofolio
-              </span>
+              <span className="handwritten text-2xl text-[color:var(--star)]">branding</span>
 
               <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
-                Marks &{" "}
+                Logo{" "}
                 <em className="font-display normal-case italic text-[color:var(--star)]">
-                  monograms.
+                  folio.
                 </em>
               </h2>
+              <p className="handwritten mt-5 max-w-xl text-2xl leading-relaxed text-[color:var(--cream)]/75">
+                  A collection of logos created for businesses across different industries.              </p>
             </div>
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="torn-paper-logo mt-12 px-6 py-14 sm:px-14 sm:py-20">
+          <div className="torn-paper-logo mt-6 px-6 pt-6 pb-12 sm:px-14 sm:pt-8 sm:pb-16">
             <StaggerGroup className="grid grid-cols-2 gap-x-6 gap-y-14 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
               {logofolio.map((logo) => (
                 <motion.div
@@ -686,12 +899,51 @@ const socialProjects: SocialProject[] = [
     swatches: ["oklch(0.55 0.19 40)", "oklch(0.72 0.16 65)", "oklch(0.92 0.05 80)"],
     note: "product posts that convert!",
     tiles: [
-      { bg: "oklch(0.55 0.18 40)", fg: "oklch(0.97 0.02 80)", label: "2 DAYS", sub: "TO GO", variant: "big", emoji: "🐾" },
-      { bg: "oklch(0.92 0.03 80)", fg: "oklch(0.35 0.13 40)", label: "New Arrivals", sub: "R120", emoji: "🦴" },
-      { bg: "oklch(0.86 0.09 70)", fg: "oklch(0.30 0.12 40)", label: "Weekend Sale", sub: "up to 30% off", emoji: "🐶" },
-      { bg: "oklch(0.35 0.13 40)", fg: "oklch(0.96 0.03 80)", label: "TREAT", sub: "of the week", variant: "big", emoji: "🐕" },
-      { bg: "oklch(0.94 0.02 80)", fg: "oklch(0.35 0.13 40)", label: "Vet-Approved", sub: "food & care", emoji: "🐱" },
-      { bg: "oklch(0.66 0.16 45)", fg: "oklch(0.97 0.02 80)", label: "3 DAYS", sub: "TO GO", variant: "repeat", emoji: "🐟" },
+      {
+        bg: "oklch(0.55 0.18 40)",
+        fg: "oklch(0.97 0.02 80)",
+        label: "2 DAYS",
+        sub: "TO GO",
+        variant: "big",
+        emoji: "🐾",
+      },
+      {
+        bg: "oklch(0.92 0.03 80)",
+        fg: "oklch(0.35 0.13 40)",
+        label: "New Arrivals",
+        sub: "R120",
+        emoji: "🦴",
+      },
+      {
+        bg: "oklch(0.86 0.09 70)",
+        fg: "oklch(0.30 0.12 40)",
+        label: "Weekend Sale",
+        sub: "up to 30% off",
+        emoji: "🐶",
+      },
+      {
+        bg: "oklch(0.35 0.13 40)",
+        fg: "oklch(0.96 0.03 80)",
+        label: "TREAT",
+        sub: "of the week",
+        variant: "big",
+        emoji: "🐕",
+      },
+      {
+        bg: "oklch(0.94 0.02 80)",
+        fg: "oklch(0.35 0.13 40)",
+        label: "Vet-Approved",
+        sub: "food & care",
+        emoji: "🐱",
+      },
+      {
+        bg: "oklch(0.66 0.16 45)",
+        fg: "oklch(0.97 0.02 80)",
+        label: "3 DAYS",
+        sub: "TO GO",
+        variant: "repeat",
+        emoji: "🐟",
+      },
     ],
   },
   {
@@ -702,12 +954,51 @@ const socialProjects: SocialProject[] = [
     swatches: ["oklch(0.55 0.14 145)", "oklch(0.78 0.09 130)", "oklch(0.95 0.03 100)"],
     note: "wellness that actually explains itself.",
     tiles: [
-      { bg: "oklch(0.55 0.14 145)", fg: "oklch(0.97 0.02 100)", label: "GLOW", sub: "from within", variant: "big", emoji: "🌿" },
-      { bg: "oklch(0.94 0.03 100)", fg: "oklch(0.35 0.12 145)", label: "Ingredient", sub: "spotlight", emoji: "🌱" },
-      { bg: "oklch(0.78 0.09 130)", fg: "oklch(0.28 0.12 145)", label: "3 Reasons", sub: "to switch", emoji: "🍃" },
-      { bg: "oklch(0.28 0.09 145)", fg: "oklch(0.95 0.03 100)", label: "NEW", sub: "drops Friday", variant: "big", emoji: "✨" },
-      { bg: "oklch(0.9 0.05 90)", fg: "oklch(0.35 0.12 145)", label: "How to use", sub: "morning routine", emoji: "🧴" },
-      { bg: "oklch(0.65 0.13 130)", fg: "oklch(0.97 0.02 100)", label: "SAVE", sub: "for later", variant: "repeat", emoji: "💚" },
+      {
+        bg: "oklch(0.55 0.14 145)",
+        fg: "oklch(0.97 0.02 100)",
+        label: "GLOW",
+        sub: "from within",
+        variant: "big",
+        emoji: "🌿",
+      },
+      {
+        bg: "oklch(0.94 0.03 100)",
+        fg: "oklch(0.35 0.12 145)",
+        label: "Ingredient",
+        sub: "spotlight",
+        emoji: "🌱",
+      },
+      {
+        bg: "oklch(0.78 0.09 130)",
+        fg: "oklch(0.28 0.12 145)",
+        label: "3 Reasons",
+        sub: "to switch",
+        emoji: "🍃",
+      },
+      {
+        bg: "oklch(0.28 0.09 145)",
+        fg: "oklch(0.95 0.03 100)",
+        label: "NEW",
+        sub: "drops Friday",
+        variant: "big",
+        emoji: "✨",
+      },
+      {
+        bg: "oklch(0.9 0.05 90)",
+        fg: "oklch(0.35 0.12 145)",
+        label: "How to use",
+        sub: "morning routine",
+        emoji: "🧴",
+      },
+      {
+        bg: "oklch(0.65 0.13 130)",
+        fg: "oklch(0.97 0.02 100)",
+        label: "SAVE",
+        sub: "for later",
+        variant: "repeat",
+        emoji: "💚",
+      },
     ],
   },
   {
@@ -718,12 +1009,35 @@ const socialProjects: SocialProject[] = [
     swatches: ["oklch(0.32 0.13 20)", "oklch(0.72 0.16 45)", "oklch(0.94 0.02 80)"],
     note: "content-led, results-first.",
     tiles: [
-      { bg: "oklch(0.32 0.13 20)", fg: "oklch(0.96 0.03 80)", label: "BOOK A", sub: "STRATEGY CALL", variant: "big" },
+      {
+        bg: "oklch(0.32 0.13 20)",
+        fg: "oklch(0.96 0.03 80)",
+        label: "BOOK A",
+        sub: "STRATEGY CALL",
+        variant: "big",
+      },
       { bg: "oklch(0.94 0.02 80)", fg: "oklch(0.32 0.13 20)", label: "Case Study", sub: "01" },
-      { bg: "oklch(0.72 0.16 45)", fg: "oklch(0.97 0.02 80)", label: "Client Win", sub: "+218% reach" },
-      { bg: "oklch(0.22 0.09 22)", fg: "oklch(0.96 0.03 80)", label: "TIPS", sub: "for founders", variant: "big" },
+      {
+        bg: "oklch(0.72 0.16 45)",
+        fg: "oklch(0.97 0.02 80)",
+        label: "Client Win",
+        sub: "+218% reach",
+      },
+      {
+        bg: "oklch(0.22 0.09 22)",
+        fg: "oklch(0.96 0.03 80)",
+        label: "TIPS",
+        sub: "for founders",
+        variant: "big",
+      },
       { bg: "oklch(0.86 0.05 60)", fg: "oklch(0.32 0.13 20)", label: "Behind", sub: "the scenes" },
-      { bg: "oklch(0.55 0.15 25)", fg: "oklch(0.96 0.03 80)", label: "GROW", sub: "with us", variant: "repeat" },
+      {
+        bg: "oklch(0.55 0.15 25)",
+        fg: "oklch(0.96 0.03 80)",
+        label: "GROW",
+        sub: "with us",
+        variant: "repeat",
+      },
     ],
   },
 ];
@@ -776,13 +1090,7 @@ function SocialTileCard({ tile }: { tile: SocialTile }) {
   );
 }
 
-function SocialProjectRow({
-  project,
-  reverse,
-}: {
-  project: SocialProject;
-  reverse?: boolean;
-}) {
+function SocialProjectRow({ project, reverse }: { project: SocialProject; reverse?: boolean }) {
   return (
     <Reveal>
       <div
@@ -829,15 +1137,26 @@ function SocialProjectRow({
 function SocialProjects() {
   return (
     <section id="social" className="relative px-5 py-24">
-      <ChalkStar className="pointer-events-none absolute left-[6%] top-12 text-[color:var(--cream)]/70 rotate-[10deg]" size={54} />
-      <ChalkSwirl className="pointer-events-none absolute right-[4%] top-16 hidden text-[color:var(--cream)]/70 lg:block" size={130} />
+      <ChalkStar
+        className="pointer-events-none absolute left-[6%] top-12 text-[color:var(--cream)]/70 rotate-[10deg]"
+        size={54}
+      />
+      <ChalkSwirl
+        className="pointer-events-none absolute right-[4%] top-16 hidden text-[color:var(--cream)]/70 lg:block"
+        size={130}
+      />
 
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--star)]">02 social media projects</span>
+            <span className="handwritten text-2xl text-[color:var(--star)]">
+              social media
+            </span>
             <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
-              Feeds that <em className="font-display normal-case italic text-[color:var(--star)]">actually do work.</em>
+              CONTENT THAT{" "}
+              <em className="font-display normal-case italic text-[color:var(--star)]">
+                earns attention.
+              </em>
             </h2>
           </div>
         </Reveal>
@@ -854,11 +1173,12 @@ function SocialProjects() {
   );
 }
 
+// sample results section
 const metrics = [
-  { v: "43K", l: "views on product-style short-form content", note: "single reel" },
-  { v: "31K", l: "views on educational TikTok-style content", note: "series avg." },
-  { v: "R800", l: "ad budget planning example", note: "Meta ads setup" },
-  { v: "1:1", l: "carousel campaigns with individual product links", note: "shoppable" },
+  { v: "10+", l: "brands across web, design & social media", note: "CLIENTS" },
+  { v: "43K", l: "highest organic facebook reel", note: "TOP REEL" },
+  { v: "R2000", l: "example ad budget managed", note: "META ADS" },
+  { v: "3", l: "social media • Meta Ads • web ", note: "SERVICES" },
 ];
 
 function Results() {
@@ -867,9 +1187,9 @@ function Results() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--star)]">sample results</span>
+            <span className="handwritten text-2xl text-[color:var(--star)]">expertise</span>
             <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
-              Numbers from real campaigns.
+              RESULTS FROM CLIENT WORK.
             </h2>
           </div>
         </Reveal>
@@ -879,8 +1199,12 @@ function Results() {
             <motion.div key={m.l} variants={fadeUp}>
               <PaperCard rotate={[-2, 1.5, -1, 2][i]} className="p-6">
                 <Tape className="-top-3 left-6" rotate={-8 + i * 4} />
-                <div className="text-[10px] uppercase tracking-widest text-[color:var(--accent)]">{m.note}</div>
-                <div className="mt-2 font-display text-5xl font-semibold text-[color:var(--burgundy)]">{m.v}</div>
+                <div className="text-[10px] uppercase tracking-widest text-[color:var(--accent)]">
+                  {m.note}
+                </div>
+                <div className="mt-2 font-display text-5xl font-semibold text-[color:var(--burgundy)]">
+                  {m.v}
+                </div>
                 <div className="mt-2 text-sm text-[color:var(--ink)]/75">{m.l}</div>
               </PaperCard>
             </motion.div>
@@ -906,9 +1230,6 @@ const steps = [
   ["06", "Monthly improvements", "Iterate on what works, cut what doesn't."],
 ];
 
-
-
-
 const packages = [
   {
     name: "Starter Social",
@@ -931,7 +1252,13 @@ const packages = [
     price: "Custom",
     per: "quote",
     tag: "For businesses that want paid campaigns.",
-    features: ["Campaign setup", "Targeting", "Ad copy", "Creative direction", "Basic performance review"],
+    features: [
+      "Campaign setup",
+      "Targeting",
+      "Ad copy",
+      "Creative direction",
+      "Basic performance review",
+    ],
     note: "Ad spend excluded.",
     highlight: false,
   },
@@ -943,7 +1270,9 @@ function Packages() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--star)]">services & packages</span>
+            <span className="handwritten text-2xl text-[color:var(--star)]">
+              services & packages
+            </span>
             <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
               Pick a starting point.
             </h2>
@@ -962,9 +1291,13 @@ function Packages() {
                     Most popular
                   </div>
                 )}
-                <h3 className="font-display text-2xl font-semibold text-[color:var(--burgundy)]">{p.name}</h3>
+                <h3 className="font-display text-2xl font-semibold text-[color:var(--burgundy)]">
+                  {p.name}
+                </h3>
                 <div className="mt-2 flex items-baseline gap-1">
-                  <span className="font-display text-4xl font-semibold text-[color:var(--ink)]">{p.price}</span>
+                  <span className="font-display text-4xl font-semibold text-[color:var(--ink)]">
+                    {p.price}
+                  </span>
                   <span className="text-sm text-[color:var(--ink)]/60">{p.per}</span>
                 </div>
                 <p className="mt-3 text-sm text-[color:var(--ink)]/75">{p.tag}</p>
@@ -999,6 +1332,7 @@ function Packages() {
 }
 
 const experiences = [
+    { y: "Present", t: "Freelancing " },
   { y: "Jun 2025 – May 2026", t: "WebXtreme ", p: "Web Developer & Social Media Manager" },
   { y: "Nov 2024 — May 2025", t: "The Three Stars ", p: "Web Designer and Developer" },
   { y: "Apr 2024 — Sept 2024", t: "Life Choices Studio", p: "Technical intern" },
@@ -1044,7 +1378,10 @@ function Keycap({
     >
       <span
         className={`select-none text-2xl font-black leading-none sm:text-3xl ${italic ? "italic" : ""}`}
-        style={{ color: color ? "oklch(0.98 0.01 80)" : textColor, fontFamily: "var(--font-display)" }}
+        style={{
+          color: color ? "oklch(0.98 0.01 80)" : textColor,
+          fontFamily: "var(--font-display)",
+        }}
       >
         {label}
       </span>
@@ -1053,38 +1390,70 @@ function Keycap({
 }
 
 function Keyboard() {
+const tools = [
+  { name: "Canva", logo: canvaLogo },
+  { name: "CapCut", logo: capcutLogo },
+  { name: "Meta", logo: metaLogo },
+  { name: "Metricool", logo: metricoolLogo },
+  { name: "Elementor", logo: elementorLogo },
+  { name: "WordPress", logo: wordpressLogo },
+];
+
   return (
     <div
-      className="relative rounded-2xl p-3 sm:p-4"
+      className="relative rounded-[24px] border border-white/40 p-4 sm:p-5"
       style={{
-        background: "linear-gradient(145deg, oklch(0.86 0.02 80), oklch(0.72 0.02 80))",
+        background:
+          "linear-gradient(145deg, oklch(0.88 0.02 80), oklch(0.68 0.02 80))",
         boxShadow:
-          "inset 0 2px 0 oklch(1 0 0 / 0.5), inset 0 -4px 0 oklch(0 0 0 / 0.25), 0 18px 40px -20px oklch(0 0 0 / 0.55)",
+          "inset 0 3px 0 oklch(1 0 0 / 0.6), inset 0 -6px 0 oklch(0 0 0 / 0.25), 0 20px 35px -18px oklch(0 0 0 / 0.7)",
       }}
     >
-      <div className="grid grid-cols-3 gap-2 sm:gap-3">
-        <Keycap label="Ae" color="oklch(0.35 0.12 300)" />
-        <Keycap label="Ai" color="oklch(0.55 0.19 40)" />
-        <Keycap label="Ps" color="oklch(0.45 0.14 240)" />
-        <Keycap
-          label={<span style={{ color: "oklch(0.55 0.18 240)" }}>Canva</span>}
-          italic
-        />
-        <Keycap
-          label={
-            <span className="flex gap-0.5">
-              <span style={{ color: "oklch(0.65 0.2 25)" }}>■</span>
-              <span style={{ color: "oklch(0.65 0.18 300)" }}>■</span>
-              <span style={{ color: "oklch(0.6 0.2 240)" }}>■</span>
+      <div
+        className="grid grid-cols-3 gap-3 rounded-2xl p-3 sm:gap-4 sm:p-4"
+        style={{
+          background: "oklch(0.55 0.015 80)",
+          boxShadow:
+            "inset 0 4px 8px oklch(0 0 0 / 0.3), inset 0 -1px 0 oklch(1 0 0 / 0.25)",
+        }}
+      >
+        {tools.map((tool) => (
+          <div
+            key={tool.label}
+            className="group relative flex min-h-[92px] cursor-default flex-col items-center justify-center rounded-xl border border-white/60 px-2 text-center transition-transform duration-150 hover:translate-y-[3px] sm:min-h-[108px]"
+            style={{
+              background:
+                "linear-gradient(145deg, oklch(0.99 0.01 80), oklch(0.9 0.015 80))",
+              color: "oklch(0.25 0.06 25)",
+              boxShadow:
+                "inset 0 2px 0 oklch(1 0 0 / 0.9), 0 7px 0 oklch(0.65 0.02 80), 0 10px 12px oklch(0 0 0 / 0.35)",
+            }}
+          >
+            <span className="absolute left-2.5 top-2 text-[9px] font-bold uppercase tracking-[0.12em] opacity-50">
+              {tool.shortcut}
             </span>
-          }
-          bg="oklch(0.22 0.03 80)"
-          textColor="oklch(0.98 0.01 80)"
-        />
-        <Keycap
-          label={<span style={{ fontFamily: "var(--font-heavy)", letterSpacing: "-0.1em" }}>✂</span>}
-          textColor="oklch(0.2 0.05 22)"
-        />
+
+            <img
+              src={tool.logo}
+              alt={tool.name}
+                className="h-24 w-24 object-contain transition-transform duration-200 group-hover:scale-105"
+            />
+
+            <span className="pointer-events-none absolute inset-x-2 top-1.5 h-px bg-white/80" />
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-4 flex items-center justify-between px-2">
+        <div className="flex gap-1.5">
+          <span className="h-2 w-2 rounded-full bg-[oklch(0.48_0.18_25)]" />
+          <span className="h-2 w-2 rounded-full bg-[oklch(0.75_0.14_80)]" />
+          <span className="h-2 w-2 rounded-full bg-[oklch(0.5_0.12_150)]" />
+        </div>
+
+        <span className="text-[9px] font-semibold uppercase tracking-[0.25em] text-black/45">
+          Creative toolkit
+        </span>
       </div>
     </div>
   );
@@ -1132,16 +1501,25 @@ function TimelineList({
 function Background() {
   return (
     <section id="background" className="relative overflow-hidden px-5 py-24">
-      <ChalkStar className="pointer-events-none absolute left-[4%] top-10 text-[color:var(--cream)]/80 rotate-[-12deg]" size={70} />
-      <ChalkSpiral className="pointer-events-none absolute right-[6%] top-14 hidden text-[color:var(--cream)]/70 sm:block" size={120} />
-      <ChalkScribble className="pointer-events-none absolute left-[45%] bottom-8 text-[color:var(--cream)]/70 rotate-[6deg]" size={120} />
+      <ChalkStar
+        className="pointer-events-none absolute left-[4%] top-10 text-[color:var(--cream)]/80 rotate-[-12deg]"
+        size={70}
+      />
+      <ChalkSpiral
+        className="pointer-events-none absolute right-[6%] top-14 hidden text-[color:var(--cream)]/70 sm:block"
+        size={120}
+      />
+      <ChalkScribble
+        className="pointer-events-none absolute left-[45%] bottom-8 text-[color:var(--cream)]/70 rotate-[6deg]"
+        size={120}
+      />
 
       <div className="relative mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
             <span className="handwritten text-2xl text-[color:var(--star)]">background</span>
             <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
-              Experience, education & toolkit.
+              Experience & education.
             </h2>
           </div>
         </Reveal>
@@ -1194,6 +1572,7 @@ function Background() {
   );
 }
 
+// client reviews section
 const testimonials = [
   {
     q: "Ammara is a young, talented and creative professional who brought fresh ideas to the table while remaining attentive to our firm's specific needs and branding. Her support was consistent, her communication was clear and she was always willing to go the extra mile to ensure we were satisfied with the final product.",
@@ -1201,27 +1580,28 @@ const testimonials = [
     r: "Founder & Principal Attorney",
   },
   {
-    q: "She gets strategy, design, and ads — which meant we didn't have to hire three different people. Rare find.",
-    n: "— Client name",
-    r: "Agency partner",
+    q: "I have to say that I am quite chuffed by the work completed thus far and look forward to strengthening the relationship in moving forward.",
+    n: "— Rameez",
+    r: "Founder & Managing Director",
   },
   {
     q: "The reports finally made sense. We knew what was working and what to double down on every month.",
-    n: "— Client name",
-    r: "E-commerce brand",
+    n: "— Irfaan",
+    r: "Business Owner",
   },
 ];
 
 function Testimonials() {
   return (
-    <section className="relative bg-[color:var(--burgundy-darker)] px-5 py-24 text-[color:var(--cream)]">
+    <section
+          id="testimonials"
+          className="relative bg-[color:var(--burgundy-darker)] px-5 py-24 text-[color:var(--cream)]"
+        >
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
-            <span className="handwritten text-2xl text-[color:var(--star)]">kind words</span>
-            <h2 className="heavy mt-2 text-5xl uppercase sm:text-6xl">
-              What clients say.
-            </h2>
+            <span className="handwritten text-2xl text-[color:var(--star)]">reviews</span>
+            <h2 className="heavy mt-2 text-5xl uppercase sm:text-6xl">What clients say.</h2>
           </div>
         </Reveal>
 
@@ -1233,7 +1613,9 @@ function Testimonials() {
                 style={{ transform: `rotate(${[-1.5, 0.8, -0.6][i]}deg)` }}
               >
                 <Tape className="-top-3 left-8" rotate={-6 + i * 5} />
-                <div className="font-display text-5xl leading-none text-[color:var(--accent)]">"</div>
+                <div className="font-display text-5xl leading-none text-[color:var(--accent)]">
+                  "
+                </div>
                 <p className="mt-2 text-sm leading-relaxed text-[color:var(--ink)]/85">{t.q}</p>
                 <div className="mt-5 border-t border-[color:var(--burgundy)]/15 pt-4">
                   <div className="font-semibold text-[color:var(--burgundy)]">{t.n}</div>
@@ -1261,7 +1643,8 @@ function Contact() {
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="heavy mt-3 text-5xl uppercase leading-[0.95] text-[color:var(--cream)] sm:text-7xl">
-            Ready to make your socials <em className="font-display normal-case text-[color:var(--star)]">work harder?</em>
+            Ready to make your socials{" "}
+            <em className="font-display normal-case text-[color:var(--star)]">work harder?</em>
           </h2>
         </Reveal>
 
@@ -1291,9 +1674,7 @@ function Footer() {
     <footer className="border-t border-[color:var(--cream)]/15 px-5 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-[color:var(--cream)]/60 sm:flex-row">
         <div>© {new Date().getFullYear()} Ammara Hoosen · South Africa</div>
-        <div className="handwritten text-lg text-[color:var(--star)]">
-          all rights reserved ✿
-        </div>
+        <div className="handwritten text-lg text-[color:var(--star)]">all rights reserved ✿</div>
       </div>
     </footer>
   );
