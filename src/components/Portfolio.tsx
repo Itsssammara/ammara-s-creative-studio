@@ -436,7 +436,7 @@ function Hero() {
       <div className="relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-12">
         {/* Torn paper hero card */}
         <Reveal
-          className="order-2 relative -mt-12 lg:order-1 lg:col-span-8 lg:mt-0"
+          className="order-2 relative -mt-10 lg:order-1 lg:col-span-8 lg:mt-0"
           y={40}
         >
           <div className="relative">
