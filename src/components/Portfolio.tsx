@@ -403,7 +403,10 @@ const links = [
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden px-5 pb-24 pt-14 sm:pt-20">
+    <section
+      id="top"
+      className="relative overflow-hidden px-5 pb-10 pt-14 sm:pb-24 sm:pt-20"
+    >
       {/* Chalk doodles scattered across the burgundy corduroy */}
       <ChalkStar
         className="pointer-events-none absolute left-[4%] top-16 text-[color:var(--cream)]/90 rotate-[-15deg]"
@@ -426,7 +429,7 @@ function Hero() {
         size={140}
       />
       <ChalkStar
-        className="pointer-events-none absolute left-[46%] bottom-10 text-[color:var(--cream)]/90 rotate-[8deg]"
+        className="pointer-events-none absolute left-[46%] -bottom-4 text-[color:var(--cream)]/90 rotate-[8deg] sm:bottom-10"
         size={58}
       />
 
@@ -508,7 +511,7 @@ function Hero() {
       </div>
 
       <Reveal delay={0.35}>
-        <p className="relative mt-14 text-center text-xs uppercase tracking-[0.35em] text-[color:var(--cream)]/60">
+        <p className="relative z-20 mx-auto mt-6 max-w-[260px] text-center text-[10px] uppercase leading-relaxed tracking-[0.25em] text-[color:var(--cream)]/70 sm:mt-14 sm:max-w-none sm:text-xs sm:tracking-[0.35em]">
           📍 Cape Town, South Africa · Available worldwide
         </p>
       </Reveal>
@@ -532,10 +535,10 @@ function About() {
         className="pointer-events-none absolute right-[8%] top-24 text-[color:var(--cream)] rotate-[15deg]"
         size={54}
       />
-      <ChalkSwirl
-        className="pointer-events-none absolute right-[4%] bottom-32 text-[color:var(--cream)]/80 rotate-[8deg]"
-        size={130}
-      />
+     <ChalkSwirl
+      className="pointer-events-none absolute right-[4%] bottom-6 text-[color:var(--cream)]/80 rotate-[8deg] sm:bottom-32"
+      size={130}
+    />
 
       <div className="relative mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-12">
         {/* Photo cutout with white outline */}
@@ -818,7 +821,7 @@ function Logofolio() {
       />
 
       <ChalkScribble
-        className="pointer-events-none absolute right-[4%] top-10 rotate-[8deg] text-[color:var(--cream)]/70"
+        className="pointer-events-none absolute right-[4%] top-10 hidden rotate-[8deg] text-[color:var(--cream)]/70 lg:block"
         size={110}
       />
 
@@ -1183,7 +1186,7 @@ const metrics = [
 
 function Results() {
   return (
-    <section className="relative px-5 py-24">
+    <section className="relative px-5 pt-10 pb-24 sm:py-24">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
@@ -1286,7 +1289,10 @@ const emailLink = (service: string, price: string) => {
 
 function Packages() {
   return (
-    <section id="packages" className="relative px-5 py-24">
+    <section
+  id="packages"
+  className="relative px-5 pt-6 pb-24 sm:py-24"
+>
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <div className="max-w-2xl">
