@@ -8,7 +8,8 @@ import metaLogo from "@/assets/ammaras-tool-icon-meta-business-suite.svg";
 import metricoolLogo from "@/assets/ammaras-tool-icon-metricool.svg";
 import elementorLogo from "@/assets/ammaras-tool-icon-elementor.svg";
 import wordpressLogo from "@/assets/ammaras-tool-icon-wordpress.svg";
-
+import ammaraHero from "@/assets/ammara-hero.gif";
+import ammaraProfile from "@/assets/ammara-profile.png";
  
 /* ---------- Animation helpers ---------- */
 
@@ -494,8 +495,8 @@ function Hero() {
             />
 
             <img
-              src="/src/assets/ammara-profile.png"
-              alt="Animated social media graphic featuring Ammara Hoosen"
+              src={ammaraProfile}
+              alt="Ammara Hoosen"
               className="h-auto w-full object-contain"
             />
 
@@ -552,7 +553,7 @@ function About() {
             />
             {/* Cream torn-paper mat behind the image for editorial weight */}
             <img
-              src="/src/assets/ammara-hero.gif"
+              src={ammaraHero}
               alt="Portrait of Ammara Hoosen"
               width={1200}
               height={1500}
