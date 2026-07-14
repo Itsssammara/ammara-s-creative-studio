@@ -435,27 +435,26 @@ function Hero() {
         <Reveal className="order-2 relative lg:order-1 lg:col-span-8" y={40}>
           <div className="relative">
             <div className="torn-paper relative px-8 py-14 sm:px-14 sm:py-20">
-              <div className="relative">
-                <span className="handwritten text-2xl text-[color:var(--accent)]">
-                  hi, I'm Ammara —
+              <div className="relative flex flex-col items-center text-center lg:items-start lg:text-left">
+                <span className="handwritten text-2xl text-[color:var(--accent)] text-center lg:text-left">
+                  hi, welcome to my —
                 </span>
-                <h1 className="mt-2 font-display text-6xl italic leading-[0.95] text-[color:var(--ink)] sm:text-7xl lg:text-[7.5rem]">
+                <h1 className="mt-2 font-display text-6xl italic leading-[0.95] text-[color:var(--ink)] text-center sm:text-7xl lg:text-left lg:text-[7.5rem]">
                   Portfolio
                 </h1>
-                <div className="mt-4 space-y-1">
+                <div className="mt-4 space-y-1 text-center lg:text-left">
                   <div className="heavy text-4xl uppercase text-[color:var(--burgundy)] sm:text-5xl lg:text-6xl">
                     Social Media Manager
                   </div>
-                  <div className="heavy flex items-baseline gap-3 text-4xl uppercase text-[color:var(--burgundy-deep)] sm:text-5xl lg:text-6xl">
-                    <span className="font-display text-2xl italic sm:text-3xl">&</span>
+                  <div className="heavy flex flex-col items-center gap-1 text-4xl uppercase text-[color:var(--burgundy-deep)] sm:flex-row sm:justify-center sm:gap-3 lg:justify-start lg:text-[1.9rem]">                    <span className="font-display text-2xl italic sm:text-3xl">&</span>
                     <span>Meta Ads Specialist</span>
                   </div>
                 </div>
-                <p className="mt-6 max-w-lg text-[color:var(--ink)]/80">
+                <p className="mt-6 max-w-lg text-center text-[color:var(--ink)]/80 lg:text-left">
                   Cape Town–based creative helping small businesses turn content into{" "}
                   <em>clicks, conversations, and customers.</em>
                 </p>
-                <div className="mt-7 flex flex-wrap gap-3">
+                <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
                   <a
                     href="#logofolio"
                     className="rounded-full bg-[color:var(--burgundy)] px-6 py-3 text-sm font-medium text-[color:var(--cream)] shadow-lg transition hover:-translate-y-0.5 hover:bg-[color:var(--burgundy-deep)]"
