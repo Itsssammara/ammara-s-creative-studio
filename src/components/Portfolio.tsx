@@ -539,7 +539,7 @@ function About() {
         size={54}
       />
      <ChalkSwirl
-      className="pointer-events-none absolute right-[4%] bottom-6 text-[color:var(--cream)]/80 rotate-[8deg] sm:bottom-32"
+      className="pointer-events-none absolute right-[4%] bottom-4.5 text-[color:var(--cream)]/80 rotate-[8deg] sm:bottom-32"
       size={130}
     />
 
