@@ -436,7 +436,7 @@ function Hero() {
       <div className="relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-12">
         {/* Torn paper hero card */}
         <Reveal
-          className="order-2 relative -mt-10 lg:order-1 lg:col-span-8 lg:mt-0"
+          className="order-2 relative -mt-12 lg:order-1 lg:col-span-8 lg:mt-0"
           y={40}
         >
           <div className="relative">
@@ -450,15 +450,15 @@ function Hero() {
                 </h1>
                 <div className="mt-4 space-y-1 text-center lg:text-left">
                   <div className="heavy text-4xl uppercase text-[color:var(--burgundy)] sm:text-5xl lg:text-6xl">
-                    Social Media Manager
+                    Social Media
                   </div>
                   <div className="heavy flex flex-col items-center gap-1 text-4xl uppercase text-[color:var(--burgundy-deep)] sm:flex-row sm:justify-center sm:gap-3 lg:justify-start lg:text-[1.9rem]">                    <span className="font-display text-2xl italic sm:text-3xl">&</span>
-                    <span>Meta Ads Specialist</span>
+                    <span>Meta Ads Manager</span>
                   </div>
                 </div>
                 <p className="mt-6 max-w-lg text-center text-[color:var(--ink)]/80 lg:text-left">
-                  Cape Town–based creative helping small businesses turn content into{" "}
-                  <em>clicks, conversations, and customers.</em>
+                  Helping brands build a consistent and {" "}
+                  <em>professional online presence.</em>
                 </p>
                 <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
                   <a
@@ -578,17 +578,14 @@ function About() {
 
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-[color:var(--cream)]/90 sm:text-lg">
-              Hi, call me Ammara. I'm a Cape Town–based creative with a background in web
-              development, social media management, graphic design and paid ads. My path wasn't a
-              straight line — it was a convergence.
+              Hi, I'm Ammara, a South Africa–based Social Media Manager with a creative background in web development, U/UX and Meta Ads. 
+
             </p>
           </Reveal>
 
           <Reveal delay={0.2}>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-[color:var(--cream)]/85 sm:text-lg">
-              If you look at my resume, you see a marketer. If you look at my camera roll, you see a
-              storyteller. I help brands show up online with content that looks good, makes sense
-              and supports real business goals.
+            I enjoy creating content, learning new marketing strategies and helping businesses present themselves confidently online.
             </p>
           </Reveal>
 
@@ -601,9 +598,8 @@ function About() {
             </Reveal>
             <Reveal delay={0.32}>
               <p className="max-w-xl text-base leading-relaxed text-[color:var(--cream)]/90 sm:text-lg">
-                Because I care about clean visuals, clear strategy, and content that does more than
-                just <em>"look cute."</em> I sit at the intersection of design, strategy, and code —
-                which means your content, ads, and website all pull in the same direction.
+                             Over the past two years, I've worked with 9+ clients, creating content, running Meta Ads, designing posts & logos and building websites. I believe good work comes from listening, paying attention to the details and being someone clients can rely on.
+
               </p>
             </Reveal>
           </div>
