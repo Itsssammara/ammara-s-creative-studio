@@ -435,7 +435,10 @@ function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-12">
         {/* Torn paper hero card */}
-        <Reveal className="order-2 relative lg:order-1 lg:col-span-8" y={40}>
+        <Reveal
+          className="order-2 relative -mt-10 lg:order-1 lg:col-span-8 lg:mt-0"
+          y={40}
+        >
           <div className="relative">
             <div className="torn-paper relative px-8 py-14 sm:px-14 sm:py-20">
               <div className="relative flex flex-col items-center text-center lg:items-start lg:text-left">
