@@ -456,7 +456,7 @@ function Hero() {
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <a
-                    href="#work"
+                    href="#logofolio"
                     className="rounded-full bg-[color:var(--burgundy)] px-6 py-3 text-sm font-medium text-[color:var(--cream)] shadow-lg transition hover:-translate-y-0.5 hover:bg-[color:var(--burgundy-deep)]"
                   >
                     View My Work →
@@ -1264,6 +1264,26 @@ const packages = [
   },
 ];
 
+const emailLink = (service: string, price: string) => {
+  const subject = encodeURIComponent(`Enquiry about ${service}`);
+
+  const body = encodeURIComponent(`Hi Ammara,
+
+      I'm interested in your ${service} package (${price}).
+
+      Business name:
+      Industry:
+      Website or social media:
+      Current social platforms:
+
+      Please tell me more about this package and the next steps.
+
+      Kind regards,
+      `);
+
+  return `mailto:hoosenammara@gmail.com?subject=${subject}&body=${body}`;
+};
+
 function Packages() {
   return (
     <section id="packages" className="relative px-5 py-24">
@@ -1313,7 +1333,7 @@ function Packages() {
                   <p className="handwritten mt-4 text-lg text-[color:var(--ink)]/55">{p.note}</p>
                 )}
                 <a
-                  href="#contact"
+                  href={emailLink(p.name, `${p.price} ${p.per}`)}
                   className={`mt-8 block rounded-full px-5 py-3 text-center text-sm font-medium transition ${
                     p.highlight
                       ? "bg-[color:var(--burgundy)] text-[color:var(--cream)] hover:bg-[color:var(--burgundy-deep)]"
