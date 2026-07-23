@@ -872,90 +872,167 @@ function Logofolio() {
   );
 }
 
-/* ---------- Social Media Projects ---------- */
+/* ---------- Featured Projects (case studies) ---------- */
 
-type SocialTile = {
+/**
+ * Reusable case-study data. Replace fields with real client info later —
+ * do NOT edit the component layout. All content below is placeholder.
+ */
+
+type PostTile = {
   bg: string;
   fg: string;
-  label?: string;
+  label: string;
   sub?: string;
   emoji?: string;
-  variant?: "text" | "big" | "repeat";
+  variant?: "big" | "text" | "repeat";
+  altText: string;
 };
 
-type SocialProject = {
-  category: string;
-  name: string;
-  description: string;
-  swatches: string[];
-  note: string;
-  tiles: SocialTile[];
+type ReelTile = {
+  bg: string; // can be a gradient
+  fg: string;
+  headline: string;
+  caption?: string;
+  emoji?: string;
+  altText: string;
 };
 
-const socialProjects: SocialProject[] = [
+type Metric = { value: string; label: string };
+
+type CaseStudyData = {
+  id: string;
+  clientName: string;
+  industry: string;
+  projectTitle: string;
+  projectType: string; // small tag e.g. "Social Media Management"
+  accent: string; // oklch color used for tag / accents
+  overview: string;
+  challenge: string;
+  strategy: string;
+  approach: string;
+  execution: string;
+  takeaway: string;
+  services: string[];
+  metrics: Metric[];
+  postImages: PostTile[]; // exactly 4
+  reel: ReelTile;
+  isPlaceholder: true; // marks demo data
+};
+
+const caseStudies: CaseStudyData[] = [
   {
-    category: "Social Media",
-    name: "Gatesville Pet Centre",
-    description:
-      "A playful, product-first content system for a neighbourhood pet store — carousels, promo posts and Reels that turn browsing into buying.",
-    swatches: ["oklch(0.55 0.19 40)", "oklch(0.72 0.16 65)", "oklch(0.92 0.05 80)"],
-    note: "product posts that convert!",
-    tiles: [
+    id: "case-01",
+    clientName: "Placeholder Client A",
+    industry: "Lifestyle & Retail",
+    projectTitle: "Seasonal Launch Campaign",
+    projectType: "Social Media Management",
+    accent: "oklch(0.72 0.16 45)",
+    overview:
+      "Placeholder overview: a full-funnel social launch built to introduce a new seasonal drop, grow the community and drive traffic to product pages through cohesive, editorial content.",
+    challenge:
+      "The brand had strong products but inconsistent visuals and low engagement. They needed a recognisable content system and a clearer story around launches.",
+    strategy:
+      "Built a monthly content pillar mix (hero, hub, help) with a signature grid style, then layered short-form video to introduce products and behind-the-scenes moments.",
+    approach:
+      "Positioned the brand as the friendly expert in its niche — warm tone, editorial visuals, product-first captions with a clear call to action on every post.",
+    execution:
+      "12 static posts, 6 Reels and 20 stories per month. Weekly reporting, community management and quick-turnaround creative for reactive moments.",
+    takeaway:
+      "A repeatable content engine the client can scale — clearer brand voice, better creative and measurable lift in engagement and site clicks.",
+    services: [
+      "Content Strategy",
+      "Social Media Management",
+      "Graphic Design",
+      "Short-Form Video",
+      "Community Management",
+      "Monthly Reporting",
+    ],
+    metrics: [
+      { value: "42K", label: "Video Views" },
+      { value: "+18%", label: "Engagement" },
+      { value: "11K", label: "Accounts Reached" },
+      { value: "320", label: "Link Clicks" },
+    ],
+    postImages: [
       {
         bg: "oklch(0.55 0.18 40)",
         fg: "oklch(0.97 0.02 80)",
-        label: "2 DAYS",
-        sub: "TO GO",
+        label: "NEW",
+        sub: "collection",
         variant: "big",
-        emoji: "🐾",
+        emoji: "✨",
+        altText: "Placeholder social post: seasonal launch announcement",
       },
       {
         bg: "oklch(0.92 0.03 80)",
         fg: "oklch(0.35 0.13 40)",
-        label: "New Arrivals",
-        sub: "R120",
-        emoji: "🦴",
+        label: "Best Sellers",
+        sub: "restocked",
+        emoji: "🛍️",
+        altText: "Placeholder social post: best sellers restocked",
       },
       {
         bg: "oklch(0.86 0.09 70)",
         fg: "oklch(0.30 0.12 40)",
-        label: "Weekend Sale",
-        sub: "up to 30% off",
-        emoji: "🐶",
+        label: "Weekend",
+        sub: "edit",
+        emoji: "🌼",
+        altText: "Placeholder social post: weekend edit carousel",
       },
       {
         bg: "oklch(0.35 0.13 40)",
         fg: "oklch(0.96 0.03 80)",
-        label: "TREAT",
+        label: "PICK",
         sub: "of the week",
         variant: "big",
-        emoji: "🐕",
-      },
-      {
-        bg: "oklch(0.94 0.02 80)",
-        fg: "oklch(0.35 0.13 40)",
-        label: "Vet-Approved",
-        sub: "food & care",
-        emoji: "🐱",
-      },
-      {
-        bg: "oklch(0.66 0.16 45)",
-        fg: "oklch(0.97 0.02 80)",
-        label: "3 DAYS",
-        sub: "TO GO",
-        variant: "repeat",
-        emoji: "🐟",
+        emoji: "💫",
+        altText: "Placeholder social post: pick of the week feature",
       },
     ],
+    reel: {
+      bg: "linear-gradient(160deg, oklch(0.35 0.14 40), oklch(0.62 0.18 45))",
+      fg: "oklch(0.97 0.02 80)",
+      headline: "Behind the launch",
+      caption: "Reel • 00:24",
+      emoji: "🎬",
+      altText: "Placeholder Reel: behind-the-scenes of the seasonal launch",
+    },
+    isPlaceholder: true,
   },
   {
-    category: "Social Media",
-    name: "Nature's Secrets",
-    description:
-      "Short-form video and educational carousels for a wellness brand — soft, botanical, and confidently informative content that makes ingredients easy to trust.",
-    swatches: ["oklch(0.55 0.14 145)", "oklch(0.78 0.09 130)", "oklch(0.95 0.03 100)"],
-    note: "wellness that actually explains itself.",
-    tiles: [
+    id: "case-02",
+    clientName: "Placeholder Client B",
+    industry: "Health & Wellness",
+    projectTitle: "Always-On Content System",
+    projectType: "Organic Content",
+    accent: "oklch(0.6 0.14 145)",
+    overview:
+      "Placeholder overview: educational carousels and short-form video for a wellness brand — soft, botanical visuals paired with clear ingredient storytelling.",
+    challenge:
+      "Audience trusted the products but rarely shared or saved posts. Content felt promotional rather than useful.",
+    strategy:
+      "Shifted the ratio toward educational and save-worthy posts, tightened the visual system and introduced a recurring 'ingredient spotlight' series.",
+    approach:
+      "Every post now teaches something first and sells second — calm palette, generous type and captions written like a knowledgeable friend.",
+    execution:
+      "Weekly Reels, 3 carousels per week, story series for launches, plus a monthly insight report showing which pillars drove saves and shares.",
+    takeaway:
+      "Content that the community actually saves — higher meaningful engagement and a stronger association between the brand and its expertise.",
+    services: [
+      "Content Strategy",
+      "Social Media Management",
+      "Copywriting",
+      "Short-Form Video",
+      "Monthly Reporting",
+    ],
+    metrics: [
+      { value: "68K", label: "Impressions" },
+      { value: "+34%", label: "Saves" },
+      { value: "9.2K", label: "New Followers" },
+      { value: "5m", label: "Avg. Watch" },
+    ],
+    postImages: [
       {
         bg: "oklch(0.55 0.14 145)",
         fg: "oklch(0.97 0.02 100)",
@@ -963,6 +1040,7 @@ const socialProjects: SocialProject[] = [
         sub: "from within",
         variant: "big",
         emoji: "🌿",
+        altText: "Placeholder social post: glow from within hero",
       },
       {
         bg: "oklch(0.94 0.03 100)",
@@ -970,6 +1048,7 @@ const socialProjects: SocialProject[] = [
         label: "Ingredient",
         sub: "spotlight",
         emoji: "🌱",
+        altText: "Placeholder social post: ingredient spotlight",
       },
       {
         bg: "oklch(0.78 0.09 130)",
@@ -977,6 +1056,7 @@ const socialProjects: SocialProject[] = [
         label: "3 Reasons",
         sub: "to switch",
         emoji: "🍃",
+        altText: "Placeholder social post: three reasons carousel",
       },
       {
         bg: "oklch(0.28 0.09 145)",
@@ -984,46 +1064,74 @@ const socialProjects: SocialProject[] = [
         label: "NEW",
         sub: "drops Friday",
         variant: "big",
-        emoji: "✨",
-      },
-      {
-        bg: "oklch(0.9 0.05 90)",
-        fg: "oklch(0.35 0.12 145)",
-        label: "How to use",
-        sub: "morning routine",
         emoji: "🧴",
-      },
-      {
-        bg: "oklch(0.65 0.13 130)",
-        fg: "oklch(0.97 0.02 100)",
-        label: "SAVE",
-        sub: "for later",
-        variant: "repeat",
-        emoji: "💚",
+        altText: "Placeholder social post: new product teaser",
       },
     ],
+    reel: {
+      bg: "linear-gradient(160deg, oklch(0.28 0.09 145), oklch(0.55 0.14 145))",
+      fg: "oklch(0.97 0.02 100)",
+      headline: "Ritual, in 30s",
+      caption: "Reel • 00:31",
+      emoji: "🌿",
+      altText: "Placeholder Reel: 30-second wellness ritual demo",
+    },
+    isPlaceholder: true,
   },
   {
-    category: "Social Media",
-    name: "WebXtreme",
-    description:
-      "Bold, editorial content for an agency — feed grids that look intentional, ad creatives that don't blend in, and stories that turn scrolls into sign-ups.",
-    swatches: ["oklch(0.32 0.13 20)", "oklch(0.72 0.16 45)", "oklch(0.94 0.02 80)"],
-    note: "content-led, results-first.",
-    tiles: [
+    id: "case-03",
+    clientName: "Placeholder Client C",
+    industry: "Professional Services",
+    projectTitle: "Lead-Gen Campaign",
+    projectType: "Meta Ads",
+    accent: "oklch(0.72 0.16 45)",
+    overview:
+      "Placeholder overview: a Meta Ads campaign paired with organic content to turn interest into booked calls — creative testing, tight audience targeting and weekly optimisation.",
+    challenge:
+      "The client was spending on ads with low-quality leads and no clear picture of which creatives were working.",
+    strategy:
+      "Rebuilt the funnel around three offers, launched a structured creative test and set up event tracking so every rand of spend was attributable.",
+    approach:
+      "Editorial ad creatives that look at home in the feed, hooks written for the target buyer, and landing pages that match the ad promise.",
+    execution:
+      "9 ad creatives across 3 audiences, weekly reporting, budget shifted every 5 days based on cost-per-lead and quality of booked calls.",
+    takeaway:
+      "A predictable lead pipeline the client can scale — lower cost-per-lead and a clear playbook of creatives that consistently outperform.",
+    services: [
+      "Meta Ads",
+      "Ad Creative",
+      "Copywriting",
+      "Landing Page Support",
+      "Monthly Reporting",
+    ],
+    metrics: [
+      { value: "128", label: "Qualified Leads" },
+      { value: "-41%", label: "Cost / Lead" },
+      { value: "3.6x", label: "ROAS" },
+      { value: "22K", label: "Reach" },
+    ],
+    postImages: [
       {
         bg: "oklch(0.32 0.13 20)",
         fg: "oklch(0.96 0.03 80)",
         label: "BOOK A",
-        sub: "STRATEGY CALL",
+        sub: "strategy call",
         variant: "big",
+        altText: "Placeholder ad creative: book a strategy call",
       },
-      { bg: "oklch(0.94 0.02 80)", fg: "oklch(0.32 0.13 20)", label: "Case Study", sub: "01" },
+      {
+        bg: "oklch(0.94 0.02 80)",
+        fg: "oklch(0.32 0.13 20)",
+        label: "Case Study",
+        sub: "01",
+        altText: "Placeholder ad creative: case study teaser",
+      },
       {
         bg: "oklch(0.72 0.16 45)",
         fg: "oklch(0.97 0.02 80)",
         label: "Client Win",
         sub: "+218% reach",
+        altText: "Placeholder ad creative: client result",
       },
       {
         bg: "oklch(0.22 0.09 22)",
@@ -1031,110 +1139,338 @@ const socialProjects: SocialProject[] = [
         label: "TIPS",
         sub: "for founders",
         variant: "big",
-      },
-      { bg: "oklch(0.86 0.05 60)", fg: "oklch(0.32 0.13 20)", label: "Behind", sub: "the scenes" },
-      {
-        bg: "oklch(0.55 0.15 25)",
-        fg: "oklch(0.96 0.03 80)",
-        label: "GROW",
-        sub: "with us",
-        variant: "repeat",
+        altText: "Placeholder ad creative: founder tips carousel",
       },
     ],
+    reel: {
+      bg: "linear-gradient(160deg, oklch(0.22 0.09 22), oklch(0.55 0.15 25))",
+      fg: "oklch(0.97 0.02 80)",
+      headline: "How we scaled it",
+      caption: "Reel • 00:22",
+      emoji: "📈",
+      altText: "Placeholder Reel: how we scaled the campaign",
+    },
+    isPlaceholder: true,
   },
 ];
 
-function SocialTileCard({ tile }: { tile: SocialTile }) {
+/* ---------- Sub-components ---------- */
+
+function PostImage({ tile, className = "" }: { tile: PostTile; className?: string }) {
   return (
     <div
-      className="relative aspect-square overflow-hidden rounded-sm shadow-md"
+      role="img"
+      aria-label={tile.altText}
+      className={`relative aspect-square overflow-hidden rounded-md shadow-md ${className}`}
       style={{ background: tile.bg, color: tile.fg }}
     >
-      {tile.variant === "repeat" ? (
-        <div className="absolute inset-0 flex flex-wrap content-start gap-x-2 gap-y-1 p-3 text-[10px] font-black uppercase leading-none opacity-90 sm:text-xs">
-          {Array.from({ length: 18 }).map((_, i) => (
-            <span key={i} className={i % 3 === 0 ? "italic" : ""}>
-              {tile.label} {tile.sub}
-            </span>
-          ))}
-          {tile.emoji && (
-            <div className="absolute inset-0 grid place-items-center text-4xl sm:text-5xl">
-              {tile.emoji}
+      <div className="flex h-full flex-col justify-between p-3 sm:p-4">
+        <div className="flex items-start justify-between">
+          <span className="text-[9px] font-semibold uppercase tracking-[0.2em] opacity-80 sm:text-[10px]">
+            post
+          </span>
+          {tile.emoji && <span className="text-xl sm:text-2xl">{tile.emoji}</span>}
+        </div>
+        <div>
+          <div
+            className={`font-black uppercase leading-none ${
+              tile.variant === "big" ? "text-2xl sm:text-3xl" : "text-lg sm:text-xl"
+            }`}
+            style={{ fontFamily: "var(--font-heavy)" }}
+          >
+            {tile.label}
+          </div>
+          {tile.sub && (
+            <div className="mt-1 text-[10px] font-medium uppercase tracking-wider opacity-90 sm:text-xs">
+              {tile.sub}
             </div>
           )}
         </div>
-      ) : (
-        <div className="flex h-full flex-col justify-between p-3 sm:p-4">
-          <div className="flex items-start justify-between">
-            <span className="text-[9px] font-semibold uppercase tracking-[0.2em] opacity-80 sm:text-[10px]">
-              post
-            </span>
-            {tile.emoji && <span className="text-xl sm:text-2xl">{tile.emoji}</span>}
-          </div>
-          <div>
-            <div
-              className={`font-black uppercase leading-none ${
-                tile.variant === "big" ? "text-2xl sm:text-4xl" : "text-lg sm:text-xl"
-              }`}
-              style={{ fontFamily: "var(--font-heavy)" }}
-            >
-              {tile.label}
-            </div>
-            {tile.sub && (
-              <div className="mt-1 text-[10px] font-medium uppercase tracking-wider opacity-90 sm:text-xs">
-                {tile.sub}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+      </div>
     </div>
   );
 }
 
-function SocialProjectRow({ project, reverse }: { project: SocialProject; reverse?: boolean }) {
+/** Lightweight CSS phone mockup — no external asset needed. */
+function PhoneMockup({ reel, floatIndex = 0 }: { reel: ReelTile; floatIndex?: number }) {
+  return (
+    <motion.div
+      className="relative mx-auto w-[190px] sm:w-[210px] lg:w-[230px]"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <motion.div
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 5 + floatIndex, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div
+          className="relative rounded-[36px] p-[8px] shadow-[0_25px_60px_-20px_oklch(0_0_0/0.6)]"
+          style={{ background: "oklch(0.14 0.05 22)" }}
+        >
+          {/* Screen */}
+          <div
+            className="relative overflow-hidden rounded-[28px]"
+            style={{ aspectRatio: "9 / 19.5", background: reel.bg, color: reel.fg }}
+          >
+            {/* Notch */}
+            <div
+              aria-hidden
+              className="absolute left-1/2 top-2 z-10 h-4 w-20 -translate-x-1/2 rounded-full"
+              style={{ background: "oklch(0.1 0.03 22)" }}
+            />
+            {/* Reel body */}
+            <div className="flex h-full flex-col justify-end p-4">
+              {reel.emoji && (
+                <div className="absolute inset-0 grid place-items-center text-6xl opacity-90">
+                  {reel.emoji}
+                </div>
+              )}
+              <div className="relative z-10">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.25em] opacity-80">
+                  {reel.caption}
+                </div>
+                <div
+                  className="mt-1 text-xl font-black uppercase leading-tight"
+                  style={{ fontFamily: "var(--font-heavy)" }}
+                >
+                  {reel.headline}
+                </div>
+              </div>
+              {/* Play button */}
+              <div
+                aria-hidden
+                className="absolute left-1/2 top-1/2 z-10 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full backdrop-blur"
+                style={{ background: "oklch(1 0 0 / 0.2)" }}
+              >
+                <div
+                  className="ml-1 h-0 w-0"
+                  style={{
+                    borderTop: "10px solid transparent",
+                    borderBottom: "10px solid transparent",
+                    borderLeft: "16px solid currentColor",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+      <span className="sr-only">{reel.altText}</span>
+    </motion.div>
+  );
+}
+
+function MetricCard({ metric }: { metric: Metric }) {
+  return (
+    <div className="rounded-lg border border-[color:var(--burgundy)]/15 bg-[color:var(--cream)]/60 px-4 py-3 text-center shadow-sm">
+      <div
+        className="text-2xl font-black text-[color:var(--burgundy)] sm:text-3xl"
+        style={{ fontFamily: "var(--font-heavy)" }}
+      >
+        {metric.value}
+      </div>
+      <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-[color:var(--ink)]/70">
+        {metric.label}
+      </div>
+    </div>
+  );
+}
+
+/* ---------- Case Study card ---------- */
+
+function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
+  const [open, setOpen] = useState(false);
+  const detailsId = `${data.id}-details`;
+  const rotation = index % 2 === 0 ? "-0.4deg" : "0.5deg";
+
   return (
     <Reveal>
-      <div
-        className={`grid gap-8 lg:gap-14 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] ${
-          reverse ? "lg:[&>*:first-child]:order-2" : ""
-        }`}
+      <article
+        className="relative rounded-2xl bg-[color:var(--paper)] p-6 shadow-[0_25px_60px_-30px_oklch(0_0_0/0.6)] sm:p-10"
+        style={{ transform: `rotate(${rotation})` }}
       >
-        <div className="grid grid-cols-3 gap-3 sm:gap-4">
-          {project.tiles.map((t, i) => (
-            <SocialTileCard key={i} tile={t} />
-          ))}
-        </div>
-        <div className="flex flex-col justify-center">
-          <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--burgundy)]/70">
-            {project.category}
-          </div>
-          <h3 className="mt-3 heavy text-3xl uppercase text-[color:var(--burgundy)] sm:text-4xl">
-            {project.name}
-          </h3>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-[color:var(--ink)]/80 sm:text-base">
-            {project.description}
-          </p>
-          <div className="mt-6 flex items-center gap-4">
-            <div className="flex -space-x-2">
-              {project.swatches.map((c, i) => (
-                <span
-                  key={i}
-                  className="h-7 w-7 rounded-full ring-2 ring-[color:var(--paper)]"
-                  style={{ background: c }}
-                  aria-hidden
-                />
-              ))}
+        {/* Decorative tape */}
+        <span
+          aria-hidden
+          className="tape absolute -top-3 left-8 h-6 w-24 rotate-[-6deg] rounded-sm sm:left-12"
+        />
+        <span
+          aria-hidden
+          className="tape absolute -top-3 right-10 hidden h-6 w-20 rotate-[7deg] rounded-sm sm:block"
+        />
+
+        {/* Header */}
+        <header className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 sm:flex sm:flex-wrap sm:items-end sm:justify-between">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--ink)]/60">
+              <span>{data.clientName}</span>
+              <span aria-hidden>•</span>
+              <span>{data.industry}</span>
             </div>
-            <span className="handwritten text-xl text-[color:var(--ink)]/70 sm:text-2xl">
-              {project.note}
-            </span>
+            <h3
+              className="heavy mt-2 text-3xl uppercase leading-[0.95] text-[color:var(--burgundy)] sm:text-4xl lg:text-5xl"
+              style={{ fontFamily: "var(--font-heavy)" }}
+            >
+              {data.projectTitle}
+            </h3>
+          </div>
+          <span
+            className="shrink-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[color:var(--cream)]"
+            style={{ background: data.accent }}
+          >
+            {data.projectType}
+          </span>
+        </header>
+
+        {/* Main visual collage */}
+        {/* Mobile: phone first, then grid. Desktop: side-by-side. */}
+        <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
+          {/* Phone (mobile order 1, desktop order 2) */}
+          <div className="order-1 lg:order-2 lg:pl-2">
+            <PhoneMockup reel={data.reel} floatIndex={index} />
+          </div>
+
+          {/* 2x2 image grid (mobile order 2, desktop order 1) */}
+          <div className="order-2 lg:order-1">
+            <motion.div
+              className="grid grid-cols-2 gap-3 sm:gap-4"
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.15 }}
+            >
+              {data.postImages.map((tile, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="transition-transform duration-300 hover:scale-[1.02]"
+                >
+                  <PostImage tile={tile} />
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
-      </div>
+
+        {/* Metrics — mobile: come before overview per spec */}
+        <div className="mt-8 lg:hidden">
+          <MetricsRow metrics={data.metrics} />
+        </div>
+
+        {/* Overview */}
+        <div className="mt-8">
+          <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--ink)]/60">
+            Project overview
+          </div>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[color:var(--ink)]/85 sm:text-base">
+            {data.overview}
+          </p>
+        </div>
+
+        {/* Services */}
+        <div className="mt-6">
+          <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--ink)]/60">
+            Services
+          </div>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {data.services.map((s) => (
+              <li
+                key={s}
+                className="rounded-full border border-[color:var(--burgundy)]/20 bg-[color:var(--cream)]/70 px-3 py-1 text-xs font-medium text-[color:var(--burgundy)]"
+              >
+                {s}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Desktop metrics */}
+        <div className="mt-8 hidden lg:block">
+          <MetricsRow metrics={data.metrics} />
+        </div>
+
+        {/* CTA */}
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            aria-expanded={open}
+            aria-controls={detailsId}
+            className="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-[color:var(--burgundy)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-[color:var(--cream)] shadow-md transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]"
+          >
+            {open ? "Close case study" : "View case study"}
+            <span aria-hidden className={`transition-transform ${open ? "rotate-180" : ""}`}>
+              ↓
+            </span>
+          </button>
+          <span className="handwritten text-lg text-[color:var(--ink)]/60 sm:text-xl">
+            placeholder — replace with real results
+          </span>
+        </div>
+
+        {/* Expandable details */}
+        <motion.section
+          id={detailsId}
+          aria-hidden={!open}
+          initial={false}
+          animate={{
+            height: open ? "auto" : 0,
+            opacity: open ? 1 : 0,
+            marginTop: open ? 24 : 0,
+          }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          style={{ overflow: "hidden" }}
+        >
+          <div className="grid gap-6 border-t border-[color:var(--burgundy)]/15 pt-6 sm:grid-cols-2">
+            <DetailBlock title="The challenge" body={data.challenge} />
+            <DetailBlock title="My approach" body={data.approach} />
+            <DetailBlock title="Content strategy" body={data.strategy} />
+            <DetailBlock title="Campaign execution" body={data.execution} />
+            <DetailBlock title="Key takeaway" body={data.takeaway} className="sm:col-span-2" />
+          </div>
+        </motion.section>
+      </article>
     </Reveal>
   );
 }
+
+function MetricsRow({ metrics }: { metrics: Metric[] }) {
+  return (
+    <div>
+      <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--ink)]/60">
+        Results <span className="normal-case tracking-normal opacity-60">(placeholder)</span>
+      </div>
+      <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {metrics.map((m) => (
+          <MetricCard key={m.label} metric={m} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DetailBlock({
+  title,
+  body,
+  className = "",
+}: {
+  title: string;
+  body: string;
+  className?: string;
+}) {
+  return (
+    <div className={className}>
+      <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--burgundy)]/80">
+        {title}
+      </div>
+      <p className="mt-2 text-sm leading-relaxed text-[color:var(--ink)]/85 sm:text-base">{body}</p>
+    </div>
+  );
+}
+
+/* ---------- Section wrapper (kept as SocialProjects for existing render call) ---------- */
 
 function SocialProjects() {
   return (
@@ -1152,23 +1488,25 @@ function SocialProjects() {
         <Reveal>
           <div className="max-w-2xl">
             <span className="handwritten text-2xl text-[color:var(--star)]">
-              social media
+              featured projects
             </span>
             <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
-              CONTENT THAT{" "}
+              CASE{" "}
               <em className="font-display normal-case italic text-[color:var(--star)]">
-                earns attention.
+                studies.
               </em>
             </h2>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-[color:var(--cream)]/80">
+              A closer look at selected social media, content and campaign work. The three
+              projects below are placeholders — real client case studies coming soon.
+            </p>
           </div>
         </Reveal>
 
-        <div className="mt-14 torn-paper px-5 py-14 sm:px-12 sm:py-20">
-          <div className="space-y-16 sm:space-y-24">
-            {socialProjects.map((p, i) => (
-              <SocialProjectRow key={p.name} project={p} reverse={i % 2 === 1} />
-            ))}
-          </div>
+        <div className="mt-14 space-y-14 sm:space-y-20">
+          {caseStudies.map((c, i) => (
+            <CaseStudy key={c.id} data={c} index={i} />
+          ))}
         </div>
       </div>
     </section>
@@ -1444,7 +1782,7 @@ const tools = [
       >
         {tools.map((tool) => (
           <div
-            key={tool.label}
+            key={tool.name}
             className="group relative flex min-h-[92px] cursor-default flex-col items-center justify-center rounded-xl border border-white/60 px-2 text-center transition-transform duration-150 hover:translate-y-[3px] sm:min-h-[108px]"
             style={{
               background:
@@ -1454,10 +1792,6 @@ const tools = [
                 "inset 0 2px 0 oklch(1 0 0 / 0.9), 0 7px 0 oklch(0.65 0.02 80), 0 10px 12px oklch(0 0 0 / 0.35)",
             }}
           >
-            <span className="absolute left-2.5 top-2 text-[9px] font-bold uppercase tracking-[0.12em] opacity-50">
-              {tool.shortcut}
-            </span>
-
             <img
               src={tool.logo}
               alt={tool.name}
@@ -1489,7 +1823,7 @@ function TimelineList({
   items,
 }: {
   title: string;
-  items: { y: string; t: string; p: string }[];
+  items: { y: string; t: string; p?: string }[];
 }) {
   return (
     <div>
