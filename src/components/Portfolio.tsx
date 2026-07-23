@@ -1823,7 +1823,7 @@ function TimelineList({
   items,
 }: {
   title: string;
-  items: { y: string; t: string; p: string }[];
+  items: { y: string; t: string; p?: string }[];
 }) {
   return (
     <div>
