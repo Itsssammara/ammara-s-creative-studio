@@ -1782,7 +1782,7 @@ const tools = [
       >
         {tools.map((tool) => (
           <div
-            key={tool.label}
+            key={tool.name}
             className="group relative flex min-h-[92px] cursor-default flex-col items-center justify-center rounded-xl border border-white/60 px-2 text-center transition-transform duration-150 hover:translate-y-[3px] sm:min-h-[108px]"
             style={{
               background:
@@ -1792,10 +1792,6 @@ const tools = [
                 "inset 0 2px 0 oklch(1 0 0 / 0.9), 0 7px 0 oklch(0.65 0.02 80), 0 10px 12px oklch(0 0 0 / 0.35)",
             }}
           >
-            <span className="absolute left-2.5 top-2 text-[9px] font-bold uppercase tracking-[0.12em] opacity-50">
-              {tool.shortcut}
-            </span>
-
             <img
               src={tool.logo}
               alt={tool.name}
