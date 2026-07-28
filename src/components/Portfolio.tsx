@@ -933,37 +933,30 @@ type CaseStudyData = {
 const caseStudies: CaseStudyData[] = [
   {
     id: "case-01",
-    clientName: "Gatesville Pet Centre",
+    clientName: "The Gatesville Pet Centre",
     industry: "Pet Retail",
-    projectTitle: "Always-On Product Campaigns",
+    projectTitle: "Monthly Product Promotions",
     projectType: "Social Media + Meta Ads",
     accent: "oklch(0.72 0.16 45)",
     overview:
-      "Placeholder overview: a full-funnel social launch built to introduce a new seasonal drop, grow the community and drive traffic to product pages through cohesive, editorial content.",
+      "Managed the monthly social media marketing for The Gatesville Pet Centre by creating four promotional posts and one short-form Reel each month. The goal was to increase brand awareness, attract new customers and drive both in-store and online sales across Cape Town and the rest of South Africa.",
     challenge:
-      "The brand had strong products but inconsistent visuals and low engagement. They needed a recognisable content system and a clearer story around launches.",
+      "The challenge was creating promotional content that stood out in busy social media feeds while marketing a wide variety of pet products. Each campaign needed to grab attention quickly, encourage engagement and persuade customers to visit the store or website.",
     strategy:
-      "Built a monthly content pillar mix (hero, hub, help) with a signature grid style, then layered short-form video to introduce products and behind-the-scenes moments.",
+      "Created a monthly content plan centred around promotional campaigns, product launches and seasonal offers. Refined future content by testing what visuals and messaging resonated most with the audience.",    
     approach:
-      "Positioned the brand as the friendly expert in its niche — warm tone, editorial visuals, product-first captions with a clear call to action on every post.",
+      "I experimented with different layouts, colours, headlines and product presentations to learn what attracted the most attention. Through testing, I found that posts featuring pets as the main focus consistently performed better, as they created an emotional connection before introducing the product.",
     execution:
-      "12 static posts, 6 Reels and 20 stories per month. Weekly reporting, community management and quick-turnaround creative for reactive moments.",
+      "Created four promotional social media posts and one short-form Reel each month, designed around current products, specials and seasonal campaigns. Managed the creative process from concept and design through to publishing, while monitoring performance to refine future content.",
     takeaway:
-      "A repeatable content engine the client can scale — clearer brand voice, better creative and measurable lift in engagement and site clicks.",
-    services: [
-      "Content Strategy",
-      "Social Media Management",
-      "Graphic Design",
-      "Short-Form Video",
-      "Community Management",
-      "Monthly Reporting",
-    ],
-    metrics: [
-      { value: "42K", label: "Video Views" },
-      { value: "+18%", label: "Engagement" },
-      { value: "11K", label: "Accounts Reached" },
-      { value: "320", label: "Link Clicks" },
-    ],
+      "Consistent testing showed that emotionally engaging visuals, particularly posts featuring animals, generated stronger engagement and more interest than product-only creatives. These insights helped shape future campaigns and improve the overall content strategy.",
+
+    // metrics: [
+    //   { value: "42K", label: "Video Views" },
+    //   { value: "+18%", label: "Engagement" },
+    //   { value: "11K", label: "Accounts Reached" },
+    //   { value: "320", label: "Link Clicks" },
+    // ],
     postImages: [
       {
         bg: "oklch(0.55 0.18 40)",
@@ -1003,7 +996,7 @@ const caseStudies: CaseStudyData[] = [
     reel: {
       bg: "linear-gradient(160deg, oklch(0.35 0.14 40), oklch(0.62 0.18 45))",
       fg: "oklch(0.97 0.02 80)",
-      headline: "Behind the launch",
+      headline: "Coming Soon!",
       caption: "Reel • 00:24",
       emoji: "🎬",
       altText: "Placeholder Reel: behind-the-scenes of the seasonal launch",
@@ -1410,10 +1403,7 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
           </div>
         )}
 
-        {/* Metrics — mobile: come before overview per spec */}
-        <div className="mt-8 lg:hidden">
-          <MetricsRow metrics={data.metrics} />
-        </div>
+
 
         {/* Overview */}
         <div className="mt-8">
@@ -1425,27 +1415,9 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
           </p>
         </div>
 
-        {/* Services */}
-        <div className="mt-6">
-          <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--ink)]/60">
-            Services
-          </div>
-          <ul className="mt-3 flex flex-wrap gap-2">
-            {data.services.map((s) => (
-              <li
-                key={s}
-                className="rounded-full border border-[color:var(--burgundy)]/20 bg-[color:var(--cream)]/70 px-3 py-1 text-xs font-medium text-[color:var(--burgundy)]"
-              >
-                {s}
-              </li>
-            ))}
-          </ul>
-        </div>
 
-        {/* Desktop metrics */}
-        <div className="mt-8 hidden lg:block">
-          <MetricsRow metrics={data.metrics} />
-        </div>
+
+
 
         {/* CTA */}
         <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -1461,9 +1433,6 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
               ↓
             </span>
           </button>
-          <span className="handwritten text-lg text-[color:var(--ink)]/60 sm:text-xl">
-            placeholder — replace with real results
-          </span>
         </div>
 
         {/* Expandable details */}
@@ -1761,8 +1730,8 @@ function SocialProjects() {
               </em>
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-[color:var(--cream)]/80">
-              A closer look at selected social media, content and campaign work. The three
-              projects below are placeholders — real client case studies coming soon.
+              Every brand is different, so every strategy should be too. These case studies offer a closer look at how I combine creativity, 
+              thoughtful planning and a little experimentation to create content that people actually stop and engage with.
             </p>
           </div>
         </Reveal>
