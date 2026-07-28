@@ -922,6 +922,12 @@ type CaseStudyData = {
   postImages: PostTile[]; // exactly 4
   reel: ReelTile;
   isPlaceholder: true; // marks demo data
+  /** When present, replaces the phone + 2x2 grid with an editorial showcase using real images. */
+  showcase?: {
+    tagline: string;
+    badges: { icon: string; label: string }[];
+    images: { src: string; alt: string }[]; // first is hero
+  };
 };
 
 const caseStudies: CaseStudyData[] = [
