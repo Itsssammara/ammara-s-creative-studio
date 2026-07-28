@@ -1350,21 +1350,17 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
 
         {/* Main visual collage */}
         {/* Mobile: phone first, then grid. Desktop: side-by-side. */}
-        {data.showcase ? (
-          <CreativeShowcase
-            showcase={data.showcase}
-            clientName={data.clientName}
-            tagline={data.showcase.tagline}
-          />
-        ) : (
-          <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
-            {/* Phone (mobile order 1, desktop order 2) */}
-            <div className="order-1 lg:order-2 lg:pl-2">
-              <PhoneMockup reel={data.reel} floatIndex={index} />
-            </div>
+        <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
+          {/* Phone (mobile order 1, desktop order 2) */}
+          <div className="order-1 lg:order-2 lg:pl-2">
+            <PhoneMockup reel={data.reel} floatIndex={index} />
+          </div>
 
-            {/* 2x2 image grid (mobile order 2, desktop order 1) */}
-            <div className="order-2 lg:order-1">
+          {/* 2x2 image grid (mobile order 2, desktop order 1) */}
+          <div className="order-2 lg:order-1">
+            {data.showcase ? (
+              <ShowcaseGrid showcase={data.showcase} />
+            ) : (
               <motion.div
                 className="grid grid-cols-2 gap-3 sm:gap-4"
                 variants={stagger}
@@ -1382,7 +1378,26 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
                   </motion.div>
                 ))}
               </motion.div>
-            </div>
+            )}
+          </div>
+        </div>
+
+        {data.showcase && (
+          <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+            <p className="text-sm font-medium tracking-wide text-[color:var(--ink)]/70 sm:text-base">
+              {data.showcase.tagline}
+            </p>
+            <ul className="flex flex-wrap gap-2 sm:justify-end">
+              {data.showcase.badges.map((b) => (
+                <li
+                  key={b.label}
+                  className="inline-flex items-center gap-2 rounded-full border border-[color:var(--accent)]/40 bg-[color:var(--accent)]/10 px-3 py-1.5 text-xs font-semibold text-[color:var(--burgundy)] sm:text-[13px]"
+                >
+                  <span aria-hidden className="text-base leading-none">{b.icon}</span>
+                  <span>{b.label}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
 
@@ -1545,6 +1560,51 @@ function CreativeShowcase({
         onIndex={setLightbox}
       />
     </div>
+  );
+}
+
+function ShowcaseGrid({
+  showcase,
+}: {
+  showcase: NonNullable<CaseStudyData["showcase"]>;
+}) {
+  const [lightbox, setLightbox] = useState<number | null>(null);
+  const tileClass =
+    "group relative block w-full aspect-square overflow-hidden rounded-2xl bg-[color:var(--cream)] shadow-[0_18px_40px_-24px_oklch(0_0_0/0.55)] ring-1 ring-[color:var(--burgundy)]/10 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_oklch(0_0_0/0.6)] hover:ring-[color:var(--accent)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]";
+  return (
+    <>
+      <motion.div
+        className="grid grid-cols-2 gap-3 sm:gap-4"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.15 }}
+      >
+        {showcase.images.map((img, i) => (
+          <motion.button
+            key={img.src}
+            type="button"
+            onClick={() => setLightbox(i)}
+            variants={fadeUp}
+            className={tileClass}
+            aria-label={`Open ${img.alt}`}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
+              className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+          </motion.button>
+        ))}
+      </motion.div>
+      <Lightbox
+        images={showcase.images}
+        index={lightbox}
+        onClose={() => setLightbox(null)}
+        onIndex={setLightbox}
+      />
+    </>
   );
 }
 
