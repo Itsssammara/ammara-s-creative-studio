@@ -10,6 +10,10 @@ import elementorLogo from "@/assets/ammaras-tool-icon-elementor.svg";
 import wordpressLogo from "@/assets/ammaras-tool-icon-wordpress.svg";
 import ammaraHero from "@/assets/ammara-hero.gif";
 import ammaraProfile from "@/assets/ammara-profile.png";
+import gatesville1 from "@/assets/gatesville-1.jpg.asset.json";
+import gatesville2 from "@/assets/gatesville-2.jpg.asset.json";
+import gatesville3 from "@/assets/gatesville-3.jpg.asset.json";
+import gatesville4 from "@/assets/gatesville-4.jpg.asset.json";
  
 /* ---------- Animation helpers ---------- */
 
