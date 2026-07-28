@@ -1350,33 +1350,41 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
 
         {/* Main visual collage */}
         {/* Mobile: phone first, then grid. Desktop: side-by-side. */}
-        <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
-          {/* Phone (mobile order 1, desktop order 2) */}
-          <div className="order-1 lg:order-2 lg:pl-2">
-            <PhoneMockup reel={data.reel} floatIndex={index} />
-          </div>
+        {data.showcase ? (
+          <CreativeShowcase
+            showcase={data.showcase}
+            clientName={data.clientName}
+            tagline={data.showcase.tagline}
+          />
+        ) : (
+          <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
+            {/* Phone (mobile order 1, desktop order 2) */}
+            <div className="order-1 lg:order-2 lg:pl-2">
+              <PhoneMockup reel={data.reel} floatIndex={index} />
+            </div>
 
-          {/* 2x2 image grid (mobile order 2, desktop order 1) */}
-          <div className="order-2 lg:order-1">
-            <motion.div
-              className="grid grid-cols-2 gap-3 sm:gap-4"
-              variants={stagger}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: false, amount: 0.15 }}
-            >
-              {data.postImages.map((tile, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeUp}
-                  className="transition-transform duration-300 hover:scale-[1.02]"
-                >
-                  <PostImage tile={tile} />
-                </motion.div>
-              ))}
-            </motion.div>
+            {/* 2x2 image grid (mobile order 2, desktop order 1) */}
+            <div className="order-2 lg:order-1">
+              <motion.div
+                className="grid grid-cols-2 gap-3 sm:gap-4"
+                variants={stagger}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.15 }}
+              >
+                {data.postImages.map((tile, i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeUp}
+                    className="transition-transform duration-300 hover:scale-[1.02]"
+                  >
+                    <PostImage tile={tile} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Metrics — mobile: come before overview per spec */}
         <div className="mt-8 lg:hidden">
