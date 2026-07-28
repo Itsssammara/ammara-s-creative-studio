@@ -10,10 +10,10 @@ import elementorLogo from "@/assets/ammaras-tool-icon-elementor.svg";
 import wordpressLogo from "@/assets/ammaras-tool-icon-wordpress.svg";
 import ammaraHero from "@/assets/ammara-hero.gif";
 import ammaraProfile from "@/assets/ammara-profile.png";
-import gatesville1 from "@/assets/gatesville-1.jpg.asset.json";
-import gatesville2 from "@/assets/gatesville-2.jpg.asset.json";
-import gatesville3 from "@/assets/gatesville-3.jpg.asset.json";
-import gatesville4 from "@/assets/gatesville-4.jpg.asset.json";
+import gatesville1 from "../assets/ammara-social-media-gatesville-petcentre-1.jpg";
+import gatesville2 from "../assets/ammara-social-media-gatesville-petcentre-2.jpg";
+import gatesville3 from "../assets/ammara-social-media-gatesville-petcentre-3.jpg";
+import gatesville4 from "../assets/ammara-social-media-gatesville-petcentre-4.jpg";
  
 /* ---------- Animation helpers ---------- */
 
@@ -1010,18 +1010,27 @@ const caseStudies: CaseStudyData[] = [
     },
     isPlaceholder: true,
     showcase: {
-      tagline: "Social Media Marketing · Graphic Design · Meta Ads",
       badges: [
-        { icon: "🐾", label: "Designed 100+ promotional creatives" },
-        { icon: "📈", label: "Managed organic content & paid campaigns" },
-        { icon: "🎯", label: "Increased reach through strategic Meta advertising" },
+        
       ],
       images: [
-        { src: gatesville1.url, alt: "Montego Classic Adult dog food promo — R599 for 25kg" },
-        { src: gatesville2.url, alt: "Seachem Stability aquarium supplement promo — R199 for 325ml" },
-        { src: gatesville3.url, alt: "Ultrum Original flea & tick shampoo promo — R95" },
-        { src: gatesville4.url, alt: "Montego Monty & Me adult cat food promo — R206 / R355" },
-      ],
+      {
+        src: gatesville1,
+        alt: "Montego Classic Adult dog food promotion",
+      },
+      {
+        src: gatesville2,
+        alt: "Seachem Stability aquarium supplement promotion",
+      },
+      {
+        src: gatesville3,
+        alt: "Ultrum Original Shampoo promotion",
+      },
+      {
+        src: gatesville4,
+        alt: "Montego Monty & Me Adult Cat promotion",
+      },
+    ],
     },
   },
   {
@@ -1743,7 +1752,7 @@ function SocialProjects() {
         <Reveal>
           <div className="max-w-2xl">
             <span className="handwritten text-2xl text-[color:var(--star)]">
-              featured projects
+              selected work
             </span>
             <h2 className="heavy mt-2 text-5xl uppercase text-[color:var(--cream)] sm:text-6xl">
               CASE{" "}
