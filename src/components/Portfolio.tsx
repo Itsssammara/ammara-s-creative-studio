@@ -1563,6 +1563,51 @@ function CreativeShowcase({
   );
 }
 
+function ShowcaseGrid({
+  showcase,
+}: {
+  showcase: NonNullable<CaseStudyData["showcase"]>;
+}) {
+  const [lightbox, setLightbox] = useState<number | null>(null);
+  const tileClass =
+    "group relative block w-full aspect-square overflow-hidden rounded-2xl bg-[color:var(--cream)] shadow-[0_18px_40px_-24px_oklch(0_0_0/0.55)] ring-1 ring-[color:var(--burgundy)]/10 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_oklch(0_0_0/0.6)] hover:ring-[color:var(--accent)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]";
+  return (
+    <>
+      <motion.div
+        className="grid grid-cols-2 gap-3 sm:gap-4"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.15 }}
+      >
+        {showcase.images.map((img, i) => (
+          <motion.button
+            key={img.src}
+            type="button"
+            onClick={() => setLightbox(i)}
+            variants={fadeUp}
+            className={tileClass}
+            aria-label={`Open ${img.alt}`}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
+              className="block h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+          </motion.button>
+        ))}
+      </motion.div>
+      <Lightbox
+        images={showcase.images}
+        index={lightbox}
+        onClose={() => setLightbox(null)}
+        onIndex={setLightbox}
+      />
+    </>
+  );
+}
+
 function Lightbox({
   images,
   index,
