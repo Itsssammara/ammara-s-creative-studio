@@ -1593,7 +1593,7 @@ function ShowcaseGrid({
               src={img.src}
               alt={img.alt}
               loading="lazy"
-              className="block h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
             />
           </motion.button>
         ))}
