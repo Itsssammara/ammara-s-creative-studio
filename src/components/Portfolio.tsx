@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { motion, type Variants } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import canvaLogo from "@/assets/ammaras-tool-icon-canva.svg";
 import capcutLogo from "@/assets/ammaras-tool-icon-capcut.svg";
 import metaLogo from "@/assets/ammaras-tool-icon-meta-business-suite.svg";
@@ -10,6 +10,10 @@ import elementorLogo from "@/assets/ammaras-tool-icon-elementor.svg";
 import wordpressLogo from "@/assets/ammaras-tool-icon-wordpress.svg";
 import ammaraHero from "@/assets/ammara-hero.gif";
 import ammaraProfile from "@/assets/ammara-profile.png";
+import gatesville1 from "@/assets/gatesville-1.jpg.asset.json";
+import gatesville2 from "@/assets/gatesville-2.jpg.asset.json";
+import gatesville3 from "@/assets/gatesville-3.jpg.asset.json";
+import gatesville4 from "@/assets/gatesville-4.jpg.asset.json";
  
 /* ---------- Animation helpers ---------- */
 
@@ -918,15 +922,21 @@ type CaseStudyData = {
   postImages: PostTile[]; // exactly 4
   reel: ReelTile;
   isPlaceholder: true; // marks demo data
+  /** When present, replaces the phone + 2x2 grid with an editorial showcase using real images. */
+  showcase?: {
+    tagline: string;
+    badges: { icon: string; label: string }[];
+    images: { src: string; alt: string }[]; // first is hero
+  };
 };
 
 const caseStudies: CaseStudyData[] = [
   {
     id: "case-01",
-    clientName: "Placeholder Client A",
-    industry: "Lifestyle & Retail",
-    projectTitle: "Seasonal Launch Campaign",
-    projectType: "Social Media Management",
+    clientName: "Gatesville Pet Centre",
+    industry: "Pet Retail",
+    projectTitle: "Always-On Product Campaigns",
+    projectType: "Social Media + Meta Ads",
     accent: "oklch(0.72 0.16 45)",
     overview:
       "Placeholder overview: a full-funnel social launch built to introduce a new seasonal drop, grow the community and drive traffic to product pages through cohesive, editorial content.",
@@ -999,6 +1009,20 @@ const caseStudies: CaseStudyData[] = [
       altText: "Placeholder Reel: behind-the-scenes of the seasonal launch",
     },
     isPlaceholder: true,
+    showcase: {
+      tagline: "Social Media Marketing · Graphic Design · Meta Ads",
+      badges: [
+        { icon: "🐾", label: "Designed 100+ promotional creatives" },
+        { icon: "📈", label: "Managed organic content & paid campaigns" },
+        { icon: "🎯", label: "Increased reach through strategic Meta advertising" },
+      ],
+      images: [
+        { src: gatesville1.url, alt: "Montego Classic Adult dog food promo — R599 for 25kg" },
+        { src: gatesville2.url, alt: "Seachem Stability aquarium supplement promo — R199 for 325ml" },
+        { src: gatesville3.url, alt: "Ultrum Original flea & tick shampoo promo — R95" },
+        { src: gatesville4.url, alt: "Montego Monty & Me adult cat food promo — R206 / R355" },
+      ],
+    },
   },
   {
     id: "case-02",
@@ -1326,33 +1350,41 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
 
         {/* Main visual collage */}
         {/* Mobile: phone first, then grid. Desktop: side-by-side. */}
-        <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
-          {/* Phone (mobile order 1, desktop order 2) */}
-          <div className="order-1 lg:order-2 lg:pl-2">
-            <PhoneMockup reel={data.reel} floatIndex={index} />
-          </div>
+        {data.showcase ? (
+          <CreativeShowcase
+            showcase={data.showcase}
+            clientName={data.clientName}
+            tagline={data.showcase.tagline}
+          />
+        ) : (
+          <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
+            {/* Phone (mobile order 1, desktop order 2) */}
+            <div className="order-1 lg:order-2 lg:pl-2">
+              <PhoneMockup reel={data.reel} floatIndex={index} />
+            </div>
 
-          {/* 2x2 image grid (mobile order 2, desktop order 1) */}
-          <div className="order-2 lg:order-1">
-            <motion.div
-              className="grid grid-cols-2 gap-3 sm:gap-4"
-              variants={stagger}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: false, amount: 0.15 }}
-            >
-              {data.postImages.map((tile, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeUp}
-                  className="transition-transform duration-300 hover:scale-[1.02]"
-                >
-                  <PostImage tile={tile} />
-                </motion.div>
-              ))}
-            </motion.div>
+            {/* 2x2 image grid (mobile order 2, desktop order 1) */}
+            <div className="order-2 lg:order-1">
+              <motion.div
+                className="grid grid-cols-2 gap-3 sm:gap-4"
+                variants={stagger}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.15 }}
+              >
+                {data.postImages.map((tile, i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeUp}
+                    className="transition-transform duration-300 hover:scale-[1.02]"
+                  >
+                    <PostImage tile={tile} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Metrics — mobile: come before overview per spec */}
         <div className="mt-8 lg:hidden">
@@ -1433,6 +1465,205 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
         </motion.section>
       </article>
     </Reveal>
+  );
+}
+
+function CreativeShowcase({
+  showcase,
+  clientName,
+  tagline,
+}: {
+  showcase: NonNullable<CaseStudyData["showcase"]>;
+  clientName: string;
+  tagline: string;
+}) {
+  const [lightbox, setLightbox] = useState<number | null>(null);
+  const [hero, ...others] = showcase.images;
+
+  const tileClass =
+    "group relative block w-full overflow-hidden rounded-2xl bg-[color:var(--cream)] shadow-[0_18px_40px_-24px_oklch(0_0_0/0.55)] ring-1 ring-[color:var(--burgundy)]/10 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_oklch(0_0_0/0.6)] hover:ring-[color:var(--accent)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]";
+
+  return (
+    <div className="mt-8">
+      <motion.div
+        className="grid gap-4 sm:gap-5 lg:grid-cols-12 lg:gap-6"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.15 }}
+      >
+        {/* Hero */}
+        <motion.button
+          type="button"
+          onClick={() => setLightbox(0)}
+          variants={fadeUp}
+          className={`${tileClass} lg:col-span-7 lg:row-span-2`}
+          aria-label={`Open ${hero.alt}`}
+        >
+          <img
+            src={hero.src}
+            alt={hero.alt}
+            loading="lazy"
+            className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        </motion.button>
+
+        {/* Two stacked on the right */}
+        {others.slice(0, 2).map((img, i) => (
+          <motion.button
+            key={img.src}
+            type="button"
+            onClick={() => setLightbox(i + 1)}
+            variants={fadeUp}
+            className={`${tileClass} lg:col-span-5`}
+            aria-label={`Open ${img.alt}`}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
+              className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </motion.button>
+        ))}
+
+        {/* Wide third across the bottom */}
+        {others[2] && (
+          <motion.button
+            type="button"
+            onClick={() => setLightbox(3)}
+            variants={fadeUp}
+            className={`${tileClass} lg:col-span-12`}
+            aria-label={`Open ${others[2].alt}`}
+          >
+            <img
+              src={others[2].src}
+              alt={others[2].alt}
+              loading="lazy"
+              className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </motion.button>
+        )}
+      </motion.div>
+
+      {/* Description + badges */}
+      <div className="mt-8 flex flex-col gap-4 border-t border-[color:var(--burgundy)]/10 pt-6 sm:mt-10 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+        <div className="min-w-0">
+          <div
+            className="heavy text-2xl uppercase leading-tight text-[color:var(--burgundy)] sm:text-3xl"
+            style={{ fontFamily: "var(--font-heavy)" }}
+          >
+            {clientName}
+          </div>
+          <p className="mt-1 text-sm font-medium tracking-wide text-[color:var(--ink)]/70 sm:text-base">
+            {tagline}
+          </p>
+        </div>
+        <ul className="flex flex-wrap gap-2 sm:justify-end">
+          {showcase.badges.map((b) => (
+            <li
+              key={b.label}
+              className="inline-flex items-center gap-2 rounded-full border border-[color:var(--accent)]/40 bg-[color:var(--accent)]/10 px-3 py-1.5 text-xs font-semibold text-[color:var(--burgundy)] sm:text-[13px]"
+            >
+              <span aria-hidden className="text-base leading-none">
+                {b.icon}
+              </span>
+              <span>{b.label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <Lightbox
+        images={showcase.images}
+        index={lightbox}
+        onClose={() => setLightbox(null)}
+        onIndex={setLightbox}
+      />
+    </div>
+  );
+}
+
+function Lightbox({
+  images,
+  index,
+  onClose,
+  onIndex,
+}: {
+  images: { src: string; alt: string }[];
+  index: number | null;
+  onClose: () => void;
+  onIndex: (i: number) => void;
+}) {
+  const open = index !== null;
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") onIndex(((index as number) + 1) % images.length);
+      if (e.key === "ArrowLeft") onIndex(((index as number) - 1 + images.length) % images.length);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open, index, images.length, onClose, onIndex]);
+
+  if (!open) return null;
+  const current = images[index as number];
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={current.alt}
+      className="fixed inset-0 z-[80] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm animate-fade-in"
+      onClick={onClose}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Close"
+        className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-[color:var(--cream)] text-xl font-bold text-[color:var(--burgundy)] shadow-lg transition-transform hover:scale-105"
+      >
+        ×
+      </button>
+      {images.length > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onIndex(((index as number) - 1 + images.length) % images.length);
+            }}
+            aria-label="Previous image"
+            className="absolute left-3 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--cream)]/90 text-2xl text-[color:var(--burgundy)] shadow-lg transition-transform hover:scale-105 sm:left-6"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onIndex(((index as number) + 1) % images.length);
+            }}
+            aria-label="Next image"
+            className="absolute right-3 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--cream)]/90 text-2xl text-[color:var(--burgundy)] shadow-lg transition-transform hover:scale-105 sm:right-6"
+          >
+            ›
+          </button>
+        </>
+      )}
+      <img
+        src={current.src}
+        alt={current.alt}
+        onClick={(e) => e.stopPropagation()}
+        className="max-h-[90vh] max-w-[92vw] rounded-xl object-contain shadow-2xl animate-scale-in"
+      />
+    </div>
   );
 }
 
