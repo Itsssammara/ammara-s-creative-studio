@@ -1468,6 +1468,205 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
   );
 }
 
+function CreativeShowcase({
+  showcase,
+  clientName,
+  tagline,
+}: {
+  showcase: NonNullable<CaseStudyData["showcase"]>;
+  clientName: string;
+  tagline: string;
+}) {
+  const [lightbox, setLightbox] = useState<number | null>(null);
+  const [hero, ...others] = showcase.images;
+
+  const tileClass =
+    "group relative block w-full overflow-hidden rounded-2xl bg-[color:var(--cream)] shadow-[0_18px_40px_-24px_oklch(0_0_0/0.55)] ring-1 ring-[color:var(--burgundy)]/10 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_oklch(0_0_0/0.6)] hover:ring-[color:var(--accent)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]";
+
+  return (
+    <div className="mt-8">
+      <motion.div
+        className="grid gap-4 sm:gap-5 lg:grid-cols-12 lg:gap-6"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.15 }}
+      >
+        {/* Hero */}
+        <motion.button
+          type="button"
+          onClick={() => setLightbox(0)}
+          variants={fadeUp}
+          className={`${tileClass} lg:col-span-7 lg:row-span-2`}
+          aria-label={`Open ${hero.alt}`}
+        >
+          <img
+            src={hero.src}
+            alt={hero.alt}
+            loading="lazy"
+            className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        </motion.button>
+
+        {/* Two stacked on the right */}
+        {others.slice(0, 2).map((img, i) => (
+          <motion.button
+            key={img.src}
+            type="button"
+            onClick={() => setLightbox(i + 1)}
+            variants={fadeUp}
+            className={`${tileClass} lg:col-span-5`}
+            aria-label={`Open ${img.alt}`}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
+              className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </motion.button>
+        ))}
+
+        {/* Wide third across the bottom */}
+        {others[2] && (
+          <motion.button
+            type="button"
+            onClick={() => setLightbox(3)}
+            variants={fadeUp}
+            className={`${tileClass} lg:col-span-12`}
+            aria-label={`Open ${others[2].alt}`}
+          >
+            <img
+              src={others[2].src}
+              alt={others[2].alt}
+              loading="lazy"
+              className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </motion.button>
+        )}
+      </motion.div>
+
+      {/* Description + badges */}
+      <div className="mt-8 flex flex-col gap-4 border-t border-[color:var(--burgundy)]/10 pt-6 sm:mt-10 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+        <div className="min-w-0">
+          <div
+            className="heavy text-2xl uppercase leading-tight text-[color:var(--burgundy)] sm:text-3xl"
+            style={{ fontFamily: "var(--font-heavy)" }}
+          >
+            {clientName}
+          </div>
+          <p className="mt-1 text-sm font-medium tracking-wide text-[color:var(--ink)]/70 sm:text-base">
+            {tagline}
+          </p>
+        </div>
+        <ul className="flex flex-wrap gap-2 sm:justify-end">
+          {showcase.badges.map((b) => (
+            <li
+              key={b.label}
+              className="inline-flex items-center gap-2 rounded-full border border-[color:var(--accent)]/40 bg-[color:var(--accent)]/10 px-3 py-1.5 text-xs font-semibold text-[color:var(--burgundy)] sm:text-[13px]"
+            >
+              <span aria-hidden className="text-base leading-none">
+                {b.icon}
+              </span>
+              <span>{b.label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <Lightbox
+        images={showcase.images}
+        index={lightbox}
+        onClose={() => setLightbox(null)}
+        onIndex={setLightbox}
+      />
+    </div>
+  );
+}
+
+function Lightbox({
+  images,
+  index,
+  onClose,
+  onIndex,
+}: {
+  images: { src: string; alt: string }[];
+  index: number | null;
+  onClose: () => void;
+  onIndex: (i: number) => void;
+}) {
+  const open = index !== null;
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") onIndex(((index as number) + 1) % images.length);
+      if (e.key === "ArrowLeft") onIndex(((index as number) - 1 + images.length) % images.length);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open, index, images.length, onClose, onIndex]);
+
+  if (!open) return null;
+  const current = images[index as number];
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={current.alt}
+      className="fixed inset-0 z-[80] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm animate-fade-in"
+      onClick={onClose}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Close"
+        className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-[color:var(--cream)] text-xl font-bold text-[color:var(--burgundy)] shadow-lg transition-transform hover:scale-105"
+      >
+        ×
+      </button>
+      {images.length > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onIndex(((index as number) - 1 + images.length) % images.length);
+            }}
+            aria-label="Previous image"
+            className="absolute left-3 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--cream)]/90 text-2xl text-[color:var(--burgundy)] shadow-lg transition-transform hover:scale-105 sm:left-6"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onIndex(((index as number) + 1) % images.length);
+            }}
+            aria-label="Next image"
+            className="absolute right-3 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--cream)]/90 text-2xl text-[color:var(--burgundy)] shadow-lg transition-transform hover:scale-105 sm:right-6"
+          >
+            ›
+          </button>
+        </>
+      )}
+      <img
+        src={current.src}
+        alt={current.alt}
+        onClick={(e) => e.stopPropagation()}
+        className="max-h-[90vh] max-w-[92vw] rounded-xl object-contain shadow-2xl animate-scale-in"
+      />
+    </div>
+  );
+}
+
 function MetricsRow({ metrics }: { metrics: Metric[] }) {
   return (
     <div>
