@@ -933,10 +933,10 @@ type CaseStudyData = {
 const caseStudies: CaseStudyData[] = [
   {
     id: "case-01",
-    clientName: "Placeholder Client A",
-    industry: "Lifestyle & Retail",
-    projectTitle: "Seasonal Launch Campaign",
-    projectType: "Social Media Management",
+    clientName: "Gatesville Pet Centre",
+    industry: "Pet Retail",
+    projectTitle: "Always-On Product Campaigns",
+    projectType: "Social Media + Meta Ads",
     accent: "oklch(0.72 0.16 45)",
     overview:
       "Placeholder overview: a full-funnel social launch built to introduce a new seasonal drop, grow the community and drive traffic to product pages through cohesive, editorial content.",
@@ -1009,6 +1009,20 @@ const caseStudies: CaseStudyData[] = [
       altText: "Placeholder Reel: behind-the-scenes of the seasonal launch",
     },
     isPlaceholder: true,
+    showcase: {
+      tagline: "Social Media Marketing · Graphic Design · Meta Ads",
+      badges: [
+        { icon: "🐾", label: "Designed 100+ promotional creatives" },
+        { icon: "📈", label: "Managed organic content & paid campaigns" },
+        { icon: "🎯", label: "Increased reach through strategic Meta advertising" },
+      ],
+      images: [
+        { src: gatesville1.url, alt: "Montego Classic Adult dog food promo — R599 for 25kg" },
+        { src: gatesville2.url, alt: "Seachem Stability aquarium supplement promo — R199 for 325ml" },
+        { src: gatesville3.url, alt: "Ultrum Original flea & tick shampoo promo — R95" },
+        { src: gatesville4.url, alt: "Montego Monty & Me adult cat food promo — R206 / R355" },
+      ],
+    },
   },
   {
     id: "case-02",
