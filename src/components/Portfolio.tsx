@@ -1478,7 +1478,6 @@ function CreativeShowcase({
   tagline: string;
 }) {
   const [lightbox, setLightbox] = useState<number | null>(null);
-  const [hero, ...others] = showcase.images;
 
   const tileClass =
     "group relative block w-full overflow-hidden rounded-2xl bg-[color:var(--cream)] shadow-[0_18px_40px_-24px_oklch(0_0_0/0.55)] ring-1 ring-[color:var(--burgundy)]/10 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_oklch(0_0_0/0.6)] hover:ring-[color:var(--accent)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]";
@@ -1486,36 +1485,19 @@ function CreativeShowcase({
   return (
     <div className="mt-8">
       <motion.div
-        className="grid gap-4 sm:gap-5 lg:grid-cols-12 lg:gap-6"
+        className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:gap-6"
         variants={stagger}
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.15 }}
       >
-        {/* Hero */}
-        <motion.button
-          type="button"
-          onClick={() => setLightbox(0)}
-          variants={fadeUp}
-          className={`${tileClass} lg:col-span-7 lg:row-span-2`}
-          aria-label={`Open ${hero.alt}`}
-        >
-          <img
-            src={hero.src}
-            alt={hero.alt}
-            loading="lazy"
-            className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
-          />
-        </motion.button>
-
-        {/* Two stacked on the right */}
-        {others.slice(0, 2).map((img, i) => (
+        {showcase.images.map((img, i) => (
           <motion.button
             key={img.src}
             type="button"
-            onClick={() => setLightbox(i + 1)}
+            onClick={() => setLightbox(i)}
             variants={fadeUp}
-            className={`${tileClass} lg:col-span-5`}
+            className={tileClass}
             aria-label={`Open ${img.alt}`}
           >
             <img
@@ -1526,24 +1508,6 @@ function CreativeShowcase({
             />
           </motion.button>
         ))}
-
-        {/* Wide third across the bottom */}
-        {others[2] && (
-          <motion.button
-            type="button"
-            onClick={() => setLightbox(3)}
-            variants={fadeUp}
-            className={`${tileClass} lg:col-span-12`}
-            aria-label={`Open ${others[2].alt}`}
-          >
-            <img
-              src={others[2].src}
-              alt={others[2].alt}
-              loading="lazy"
-              className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
-            />
-          </motion.button>
-        )}
       </motion.div>
 
       {/* Description + badges */}
