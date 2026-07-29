@@ -960,7 +960,14 @@ const caseStudies: CaseStudyData[] = [
       "Created four promotional social media posts and one short-form Reel each month, designed around current products, specials and seasonal campaigns. Managed the creative process from concept and design through to publishing, while monitoring performance to refine future content.",
     takeaway:
       "Consistent testing showed that emotionally engaging visuals, particularly posts featuring animals, generated stronger engagement and more interest than product-only creatives. These insights helped shape future campaigns and improve the overall content strategy.",
-
+    services: [
+      "Social Media Management",
+      "Graphic Design",
+      "Content Strategy",
+      "Meta Ads",
+      "Monthly Reporting",
+    ],
+    metrics: [],
     // metrics: [
     //   { value: "42K", label: "Video Views" },
     //   { value: "+18%", label: "Engagement" },
