@@ -1212,14 +1212,14 @@ function PostImage({ tile, className = "" }: { tile: PostTile; className?: strin
   if (tile.src) {
     return (
       <div
-        className={`relative aspect-square overflow-hidden rounded-md shadow-md ${className}`}
+        className={`relative aspect-[4/5] overflow-hidden rounded-md shadow-md ${className}`}
         style={{ background: tile.bg }}
       >
         <img
           src={tile.src}
           alt={tile.altText}
           loading="lazy"
-          className="block h-full w-full object-cover"
+          className="block h-full w-full object-contain"
         />
       </div>
     );
