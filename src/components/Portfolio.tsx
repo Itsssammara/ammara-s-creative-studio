@@ -1201,6 +1201,21 @@ const caseStudies: CaseStudyData[] = [
 /* ---------- Sub-components ---------- */
 
 function PostImage({ tile, className = "" }: { tile: PostTile; className?: string }) {
+  if (tile.src) {
+    return (
+      <div
+        className={`relative aspect-square overflow-hidden rounded-md shadow-md ${className}`}
+        style={{ background: tile.bg }}
+      >
+        <img
+          src={tile.src}
+          alt={tile.altText}
+          loading="lazy"
+          className="block h-full w-full object-cover"
+        />
+      </div>
+    );
+  }
   return (
     <div
       role="img"
