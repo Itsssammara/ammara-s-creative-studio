@@ -1013,6 +1013,7 @@ const caseStudies: CaseStudyData[] = [
     },
     isPlaceholder: true,
     showcase: {
+      tagline: "Social Media Marketing • Graphic Design • Meta Ads",
       badges: [
         
       ],
