@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { motion, type Variants } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import canvaLogo from "@/assets/ammaras-tool-icon-canva.svg";
 import capcutLogo from "@/assets/ammaras-tool-icon-capcut.svg";
 import metaLogo from "@/assets/ammaras-tool-icon-meta-business-suite.svg";
@@ -1605,88 +1605,6 @@ function ShowcaseGrid({
   );
 }
 
-function Lightbox({
-  images,
-  index,
-  onClose,
-  onIndex,
-}: {
-  images: { src: string; alt: string }[];
-  index: number | null;
-  onClose: () => void;
-  onIndex: (i: number) => void;
-}) {
-  const open = index !== null;
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") onIndex(((index as number) + 1) % images.length);
-      if (e.key === "ArrowLeft") onIndex(((index as number) - 1 + images.length) % images.length);
-    };
-    document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [open, index, images.length, onClose, onIndex]);
-
-  if (!open) return null;
-  const current = images[index as number];
-
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={current.alt}
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm animate-fade-in"
-      onClick={onClose}
-    >
-      <button
-        type="button"
-        onClick={onClose}
-        aria-label="Close"
-        className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-[color:var(--cream)] text-xl font-bold text-[color:var(--burgundy)] shadow-lg transition-transform hover:scale-105"
-      >
-        ×
-      </button>
-      {images.length > 1 && (
-        <>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              onIndex(((index as number) - 1 + images.length) % images.length);
-            }}
-            aria-label="Previous image"
-            className="absolute left-3 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--cream)]/90 text-2xl text-[color:var(--burgundy)] shadow-lg transition-transform hover:scale-105 sm:left-6"
-          >
-            ‹
-          </button>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              onIndex(((index as number) + 1) % images.length);
-            }}
-            aria-label="Next image"
-            className="absolute right-3 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--cream)]/90 text-2xl text-[color:var(--burgundy)] shadow-lg transition-transform hover:scale-105 sm:right-6"
-          >
-            ›
-          </button>
-        </>
-      )}
-      <img
-        src={current.src}
-        alt={current.alt}
-        onClick={(e) => e.stopPropagation()}
-        className="max-h-[90vh] max-w-[92vw] rounded-xl object-contain shadow-2xl animate-scale-in"
-      />
-    </div>
-  );
-}
 
 function MetricsRow({ metrics }: { metrics: Metric[] }) {
   return (
