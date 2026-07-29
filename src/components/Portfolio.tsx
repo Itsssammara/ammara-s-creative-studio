@@ -14,6 +14,14 @@ import gatesville1 from "../assets/ammara-social-media-gatesville-petcentre-1.jp
 import gatesville2 from "../assets/ammara-social-media-gatesville-petcentre-2.jpg";
 import gatesville3 from "../assets/ammara-social-media-gatesville-petcentre-3.jpg";
 import gatesville4 from "../assets/ammara-social-media-gatesville-petcentre-4.jpg";
+import oceanCorner1 from "../assets/ammara-social-media-ocean-corner-1.jpg";
+import oceanCorner2 from "../assets/ammara-social-media-ocean-corner-2.jpg";
+import oceanCorner3 from "../assets/ammara-social-media-ocean-corner-3.jpg";
+import oceanCorner4 from "../assets/ammara-social-media-ocean-corner-4.jpg";
+import hardwareStation1 from "../assets/ammara-social-media-hardware-station-1.jpg";
+import hardwareStation2 from "../assets/ammara-social-media-hardware-station-2.jpg";
+import hardwareStation4 from "../assets/ammara-social-media-hardware-station-4.jpg";
+import hardwareStation5 from "../assets/ammara-social-media-hardware-station-5.jpg";
  
 /* ---------- Animation helpers ---------- */
 
