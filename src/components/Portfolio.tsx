@@ -1084,7 +1084,8 @@ const caseStudies: CaseStudyData[] = [
         sub: "from within",
         variant: "big",
         emoji: "🌿",
-        altText: "Placeholder social post: glow from within hero",
+        altText: "Ocean Corner: Beef Burger & Chips R45 promo",
+        src: oceanCorner1,
       },
       {
         bg: "oklch(0.94 0.03 100)",
@@ -1092,7 +1093,8 @@ const caseStudies: CaseStudyData[] = [
         label: "Ingredient",
         sub: "spotlight",
         emoji: "🌱",
-        altText: "Placeholder social post: ingredient spotlight",
+        altText: "Ocean Corner: Full House Steak Gatsby R199 promo",
+        src: oceanCorner2,
       },
       {
         bg: "oklch(0.78 0.09 130)",
@@ -1100,7 +1102,8 @@ const caseStudies: CaseStudyData[] = [
         label: "3 Reasons",
         sub: "to switch",
         emoji: "🍃",
-        altText: "Placeholder social post: three reasons carousel",
+        altText: "Ocean Corner: 1pc Snoek & Chips + 2 Russians R50 promo",
+        src: oceanCorner3,
       },
       {
         bg: "oklch(0.28 0.09 145)",
@@ -1109,7 +1112,8 @@ const caseStudies: CaseStudyData[] = [
         sub: "drops Friday",
         variant: "big",
         emoji: "🧴",
-        altText: "Placeholder social post: new product teaser",
+        altText: "Ocean Corner: Chicken Burger & Chips R40 promo",
+        src: oceanCorner4,
       },
     ],
     reel: {
