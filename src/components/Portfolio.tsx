@@ -899,6 +899,8 @@ type PostTile = {
   emoji?: string;
   variant?: "big" | "text" | "repeat";
   altText: string;
+  /** When present, tile renders this image instead of the styled placeholder. */
+  src?: string;
 };
 
 type ReelTile = {
