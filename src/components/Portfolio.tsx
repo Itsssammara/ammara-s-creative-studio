@@ -14,6 +14,14 @@ import gatesville1 from "../assets/ammara-social-media-gatesville-petcentre-1.jp
 import gatesville2 from "../assets/ammara-social-media-gatesville-petcentre-2.jpg";
 import gatesville3 from "../assets/ammara-social-media-gatesville-petcentre-3.jpg";
 import gatesville4 from "../assets/ammara-social-media-gatesville-petcentre-4.jpg";
+import oceanCorner1 from "../assets/ammara-social-media-ocean-corner-1.jpg";
+import oceanCorner2 from "../assets/ammara-social-media-ocean-corner-2.jpg";
+import oceanCorner3 from "../assets/ammara-social-media-ocean-corner-3.jpg";
+import oceanCorner4 from "../assets/ammara-social-media-ocean-corner-4.jpg";
+import hardwareStation1 from "../assets/ammara-social-media-hardware-station-1.jpg";
+import hardwareStation2 from "../assets/ammara-social-media-hardware-station-2.jpg";
+import hardwareStation4 from "../assets/ammara-social-media-hardware-station-4.jpg";
+import hardwareStation5 from "../assets/ammara-social-media-hardware-station-5.jpg";
  
 /* ---------- Animation helpers ---------- */
 
@@ -891,6 +899,8 @@ type PostTile = {
   emoji?: string;
   variant?: "big" | "text" | "repeat";
   altText: string;
+  /** When present, tile renders this image instead of the styled placeholder. */
+  src?: string;
 };
 
 type ReelTile = {
@@ -950,7 +960,14 @@ const caseStudies: CaseStudyData[] = [
       "Created four promotional social media posts and one short-form Reel each month, designed around current products, specials and seasonal campaigns. Managed the creative process from concept and design through to publishing, while monitoring performance to refine future content.",
     takeaway:
       "Consistent testing showed that emotionally engaging visuals, particularly posts featuring animals, generated stronger engagement and more interest than product-only creatives. These insights helped shape future campaigns and improve the overall content strategy.",
-
+    services: [
+      "Social Media Management",
+      "Graphic Design",
+      "Content Strategy",
+      "Meta Ads",
+      "Monthly Reporting",
+    ],
+    metrics: [],
     // metrics: [
     //   { value: "42K", label: "Video Views" },
     //   { value: "+18%", label: "Engagement" },
@@ -1003,6 +1020,7 @@ const caseStudies: CaseStudyData[] = [
     },
     isPlaceholder: true,
     showcase: {
+      tagline: "Social Media Marketing • Graphic Design • Meta Ads",
       badges: [
         
       ],
@@ -1066,7 +1084,8 @@ const caseStudies: CaseStudyData[] = [
         sub: "from within",
         variant: "big",
         emoji: "🌿",
-        altText: "Placeholder social post: glow from within hero",
+        altText: "Ocean Corner: Beef Burger & Chips R45 promo",
+        src: oceanCorner1,
       },
       {
         bg: "oklch(0.94 0.03 100)",
@@ -1074,7 +1093,8 @@ const caseStudies: CaseStudyData[] = [
         label: "Ingredient",
         sub: "spotlight",
         emoji: "🌱",
-        altText: "Placeholder social post: ingredient spotlight",
+        altText: "Ocean Corner: Full House Steak Gatsby R199 promo",
+        src: oceanCorner2,
       },
       {
         bg: "oklch(0.78 0.09 130)",
@@ -1082,7 +1102,8 @@ const caseStudies: CaseStudyData[] = [
         label: "3 Reasons",
         sub: "to switch",
         emoji: "🍃",
-        altText: "Placeholder social post: three reasons carousel",
+        altText: "Ocean Corner: 1pc Snoek & Chips + 2 Russians R50 promo",
+        src: oceanCorner3,
       },
       {
         bg: "oklch(0.28 0.09 145)",
@@ -1091,7 +1112,8 @@ const caseStudies: CaseStudyData[] = [
         sub: "drops Friday",
         variant: "big",
         emoji: "🧴",
-        altText: "Placeholder social post: new product teaser",
+        altText: "Ocean Corner: Chicken Burger & Chips R40 promo",
+        src: oceanCorner4,
       },
     ],
     reel: {
@@ -1143,21 +1165,24 @@ const caseStudies: CaseStudyData[] = [
         label: "BOOK A",
         sub: "strategy call",
         variant: "big",
-        altText: "Placeholder ad creative: book a strategy call",
+        altText: "Hardware Station: New store opening 24 April in Bonnievale",
+        src: hardwareStation1,
       },
       {
         bg: "oklch(0.94 0.02 80)",
         fg: "oklch(0.32 0.13 20)",
         label: "Case Study",
         sub: "01",
-        altText: "Placeholder ad creative: case study teaser",
+        altText: "Hardware Station: Grand Opening Specials flyer",
+        src: hardwareStation2,
       },
       {
         bg: "oklch(0.72 0.16 45)",
         fg: "oklch(0.97 0.02 80)",
         label: "Client Win",
         sub: "+218% reach",
-        altText: "Placeholder ad creative: client result",
+        altText: "Hardware Station: Freedom Day 27 April celebration post",
+        src: hardwareStation4,
       },
       {
         bg: "oklch(0.22 0.09 22)",
@@ -1165,7 +1190,8 @@ const caseStudies: CaseStudyData[] = [
         label: "TIPS",
         sub: "for founders",
         variant: "big",
-        altText: "Placeholder ad creative: founder tips carousel",
+        altText: "Hardware Station: Eid ul-Fitr Mubarak greeting post",
+        src: hardwareStation5,
       },
     ],
     reel: {
@@ -1183,6 +1209,21 @@ const caseStudies: CaseStudyData[] = [
 /* ---------- Sub-components ---------- */
 
 function PostImage({ tile, className = "" }: { tile: PostTile; className?: string }) {
+  if (tile.src) {
+    return (
+      <div
+        className={`relative aspect-square overflow-hidden rounded-md shadow-md ${className}`}
+        style={{ background: tile.bg }}
+      >
+        <img
+          src={tile.src}
+          alt={tile.altText}
+          loading="lazy"
+          className="block h-full w-full object-cover"
+        />
+      </div>
+    );
+  }
   return (
     <div
       role="img"
