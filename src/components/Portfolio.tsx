@@ -1854,7 +1854,7 @@ const emailLink = (service: string, price: string) => {
       Kind regards,
       `);
 
-  return `mailto:hoosenammara@gmail.com?subject=${subject}&body=${body}`;
+  return `mailto:ahdesigns.za@gmail.com?subject=${subject}&body=${body}`;
 };
 
 function Packages() {
@@ -2243,16 +2243,16 @@ function Contact() {
         <Reveal delay={0.25}>
           <div className="mt-10 flex flex-col items-center gap-4">
             <a
-              href="mailto:hoosenammara@gmail.com"
+              href="mailto:ahdesigns.za@gmail.com"
               className="rounded-full bg-[color:var(--cream)] px-8 py-4 text-base font-medium text-[color:var(--burgundy)] shadow-lg transition hover:-translate-y-0.5 hover:bg-[color:var(--star)]"
             >
               Let's work together →
             </a>
             <a
-              href="mailto:hoosenammara@gmail.com"
+              href="mailto:ahdesigns.za@gmail.com"
               className="text-sm text-[color:var(--cream)]/60 underline-offset-4 hover:underline"
             >
-              hoosenammara@gmail.com
+              ahdesigns.za@gmail.com
             </a>
           </div>
         </Reveal>
