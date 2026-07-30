@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { motion, type Variants } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import canvaLogo from "@/assets/ammaras-tool-icon-canva.svg";
 import capcutLogo from "@/assets/ammaras-tool-icon-capcut.svg";
 import metaLogo from "@/assets/ammaras-tool-icon-meta-business-suite.svg";
@@ -14,6 +14,14 @@ import gatesville1 from "../assets/ammara-social-media-gatesville-petcentre-1.jp
 import gatesville2 from "../assets/ammara-social-media-gatesville-petcentre-2.jpg";
 import gatesville3 from "../assets/ammara-social-media-gatesville-petcentre-3.jpg";
 import gatesville4 from "../assets/ammara-social-media-gatesville-petcentre-4.jpg";
+import oceanCorner1 from "../assets/ammara-social-media-ocean-corner-1.jpg";
+import oceanCorner2 from "../assets/ammara-social-media-ocean-corner-2.jpg";
+import oceanCorner3 from "../assets/ammara-social-media-ocean-corner-3.jpg";
+import oceanCorner4 from "../assets/ammara-social-media-ocean-corner-4.jpg";
+import hardwareStation1 from "../assets/ammara-social-media-hardware-station-1.jpg";
+import hardwareStation2 from "../assets/ammara-social-media-hardware-station-2.jpg";
+import hardwareStation4 from "../assets/ammara-social-media-hardware-station-4.jpg";
+import hardwareStation5 from "../assets/ammara-social-media-hardware-station-5.jpg";
  
 /* ---------- Animation helpers ---------- */
 
@@ -891,6 +899,8 @@ type PostTile = {
   emoji?: string;
   variant?: "big" | "text" | "repeat";
   altText: string;
+  /** When present, tile renders this image instead of the styled placeholder. */
+  src?: string;
 };
 
 type ReelTile = {
@@ -950,7 +960,14 @@ const caseStudies: CaseStudyData[] = [
       "Created four promotional social media posts and one short-form Reel each month, designed around current products, specials and seasonal campaigns. Managed the creative process from concept and design through to publishing, while monitoring performance to refine future content.",
     takeaway:
       "Consistent testing showed that emotionally engaging visuals, particularly posts featuring animals, generated stronger engagement and more interest than product-only creatives. These insights helped shape future campaigns and improve the overall content strategy.",
-
+    services: [
+      "Social Media Management",
+      "Graphic Design",
+      "Content Strategy",
+      "Meta Ads",
+      "Monthly Reporting",
+    ],
+    metrics: [],
     // metrics: [
     //   { value: "42K", label: "Video Views" },
     //   { value: "+18%", label: "Engagement" },
@@ -1003,6 +1020,7 @@ const caseStudies: CaseStudyData[] = [
     },
     isPlaceholder: true,
     showcase: {
+      tagline: "Social Media Marketing • Graphic Design • Meta Ads",
       badges: [
         
       ],
@@ -1066,7 +1084,8 @@ const caseStudies: CaseStudyData[] = [
         sub: "from within",
         variant: "big",
         emoji: "🌿",
-        altText: "Placeholder social post: glow from within hero",
+        altText: "Ocean Corner: Beef Burger & Chips R45 promo",
+        src: oceanCorner1,
       },
       {
         bg: "oklch(0.94 0.03 100)",
@@ -1074,7 +1093,8 @@ const caseStudies: CaseStudyData[] = [
         label: "Ingredient",
         sub: "spotlight",
         emoji: "🌱",
-        altText: "Placeholder social post: ingredient spotlight",
+        altText: "Ocean Corner: Full House Steak Gatsby R199 promo",
+        src: oceanCorner2,
       },
       {
         bg: "oklch(0.78 0.09 130)",
@@ -1082,7 +1102,8 @@ const caseStudies: CaseStudyData[] = [
         label: "3 Reasons",
         sub: "to switch",
         emoji: "🍃",
-        altText: "Placeholder social post: three reasons carousel",
+        altText: "Ocean Corner: 1pc Snoek & Chips + 2 Russians R50 promo",
+        src: oceanCorner3,
       },
       {
         bg: "oklch(0.28 0.09 145)",
@@ -1091,7 +1112,8 @@ const caseStudies: CaseStudyData[] = [
         sub: "drops Friday",
         variant: "big",
         emoji: "🧴",
-        altText: "Placeholder social post: new product teaser",
+        altText: "Ocean Corner: Chicken Burger & Chips R40 promo",
+        src: oceanCorner4,
       },
     ],
     reel: {
@@ -1143,21 +1165,24 @@ const caseStudies: CaseStudyData[] = [
         label: "BOOK A",
         sub: "strategy call",
         variant: "big",
-        altText: "Placeholder ad creative: book a strategy call",
+        altText: "Hardware Station: New store opening 24 April in Bonnievale",
+        src: hardwareStation1,
       },
       {
         bg: "oklch(0.94 0.02 80)",
         fg: "oklch(0.32 0.13 20)",
         label: "Case Study",
         sub: "01",
-        altText: "Placeholder ad creative: case study teaser",
+        altText: "Hardware Station: Grand Opening Specials flyer",
+        src: hardwareStation2,
       },
       {
         bg: "oklch(0.72 0.16 45)",
         fg: "oklch(0.97 0.02 80)",
         label: "Client Win",
         sub: "+218% reach",
-        altText: "Placeholder ad creative: client result",
+        altText: "Hardware Station: Freedom Day 27 April celebration post",
+        src: hardwareStation4,
       },
       {
         bg: "oklch(0.22 0.09 22)",
@@ -1165,7 +1190,8 @@ const caseStudies: CaseStudyData[] = [
         label: "TIPS",
         sub: "for founders",
         variant: "big",
-        altText: "Placeholder ad creative: founder tips carousel",
+        altText: "Hardware Station: Eid ul-Fitr Mubarak greeting post",
+        src: hardwareStation5,
       },
     ],
     reel: {
@@ -1183,6 +1209,21 @@ const caseStudies: CaseStudyData[] = [
 /* ---------- Sub-components ---------- */
 
 function PostImage({ tile, className = "" }: { tile: PostTile; className?: string }) {
+  if (tile.src) {
+    return (
+      <div
+        className={`relative aspect-[4/5] overflow-hidden rounded-md shadow-md ${className}`}
+        style={{ background: tile.bg }}
+      >
+        <img
+          src={tile.src}
+          alt={tile.altText}
+          loading="lazy"
+          className="block h-full w-full object-contain"
+        />
+      </div>
+    );
+  }
   return (
     <div
       role="img"
@@ -1470,10 +1511,8 @@ function CreativeShowcase({
   clientName: string;
   tagline: string;
 }) {
-  const [lightbox, setLightbox] = useState<number | null>(null);
-
   const tileClass =
-    "group relative block w-full overflow-hidden rounded-2xl bg-[color:var(--cream)] shadow-[0_18px_40px_-24px_oklch(0_0_0/0.55)] ring-1 ring-[color:var(--burgundy)]/10 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_oklch(0_0_0/0.6)] hover:ring-[color:var(--accent)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]";
+    "group relative block w-full overflow-hidden rounded-2xl bg-[color:var(--cream)] shadow-[0_18px_40px_-24px_oklch(0_0_0/0.55)] ring-1 ring-[color:var(--burgundy)]/10 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_oklch(0_0_0/0.6)] hover:ring-[color:var(--accent)]/40";
 
   return (
     <div className="mt-8">
@@ -1485,13 +1524,10 @@ function CreativeShowcase({
         viewport={{ once: false, amount: 0.15 }}
       >
         {showcase.images.map((img, i) => (
-          <motion.button
+          <motion.div
             key={img.src}
-            type="button"
-            onClick={() => setLightbox(i)}
             variants={fadeUp}
             className={tileClass}
-            aria-label={`Open ${img.alt}`}
           >
             <img
               src={img.src}
@@ -1499,7 +1535,7 @@ function CreativeShowcase({
               loading="lazy"
               className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
             />
-          </motion.button>
+          </motion.div>
         ))}
       </motion.div>
 
@@ -1530,13 +1566,6 @@ function CreativeShowcase({
           ))}
         </ul>
       </div>
-
-      <Lightbox
-        images={showcase.images}
-        index={lightbox}
-        onClose={() => setLightbox(null)}
-        onIndex={setLightbox}
-      />
     </div>
   );
 }
@@ -1546,9 +1575,8 @@ function ShowcaseGrid({
 }: {
   showcase: NonNullable<CaseStudyData["showcase"]>;
 }) {
-  const [lightbox, setLightbox] = useState<number | null>(null);
   const tileClass =
-    "group relative block w-full aspect-square overflow-hidden rounded-2xl bg-[color:var(--cream)] shadow-[0_18px_40px_-24px_oklch(0_0_0/0.55)] ring-1 ring-[color:var(--burgundy)]/10 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_oklch(0_0_0/0.6)] hover:ring-[color:var(--accent)]/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]";
+    "group relative block w-full aspect-square overflow-hidden rounded-2xl bg-[color:var(--cream)] shadow-[0_18px_40px_-24px_oklch(0_0_0/0.55)] ring-1 ring-[color:var(--burgundy)]/10 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_oklch(0_0_0/0.6)] hover:ring-[color:var(--accent)]/40";
   return (
     <>
       <motion.div
@@ -1559,13 +1587,10 @@ function ShowcaseGrid({
         viewport={{ once: false, amount: 0.15 }}
       >
         {showcase.images.map((img, i) => (
-          <motion.button
+          <motion.div
             key={img.src}
-            type="button"
-            onClick={() => setLightbox(i)}
             variants={fadeUp}
             className={tileClass}
-            aria-label={`Open ${img.alt}`}
           >
             <img
               src={img.src}
@@ -1573,101 +1598,13 @@ function ShowcaseGrid({
               loading="lazy"
               className="block h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
             />
-          </motion.button>
+          </motion.div>
         ))}
       </motion.div>
-      <Lightbox
-        images={showcase.images}
-        index={lightbox}
-        onClose={() => setLightbox(null)}
-        onIndex={setLightbox}
-      />
     </>
   );
 }
 
-function Lightbox({
-  images,
-  index,
-  onClose,
-  onIndex,
-}: {
-  images: { src: string; alt: string }[];
-  index: number | null;
-  onClose: () => void;
-  onIndex: (i: number) => void;
-}) {
-  const open = index !== null;
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") onIndex(((index as number) + 1) % images.length);
-      if (e.key === "ArrowLeft") onIndex(((index as number) - 1 + images.length) % images.length);
-    };
-    document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [open, index, images.length, onClose, onIndex]);
-
-  if (!open) return null;
-  const current = images[index as number];
-
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label={current.alt}
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm animate-fade-in"
-      onClick={onClose}
-    >
-      <button
-        type="button"
-        onClick={onClose}
-        aria-label="Close"
-        className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-[color:var(--cream)] text-xl font-bold text-[color:var(--burgundy)] shadow-lg transition-transform hover:scale-105"
-      >
-        ×
-      </button>
-      {images.length > 1 && (
-        <>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              onIndex(((index as number) - 1 + images.length) % images.length);
-            }}
-            aria-label="Previous image"
-            className="absolute left-3 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--cream)]/90 text-2xl text-[color:var(--burgundy)] shadow-lg transition-transform hover:scale-105 sm:left-6"
-          >
-            ‹
-          </button>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              onIndex(((index as number) + 1) % images.length);
-            }}
-            aria-label="Next image"
-            className="absolute right-3 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--cream)]/90 text-2xl text-[color:var(--burgundy)] shadow-lg transition-transform hover:scale-105 sm:right-6"
-          >
-            ›
-          </button>
-        </>
-      )}
-      <img
-        src={current.src}
-        alt={current.alt}
-        onClick={(e) => e.stopPropagation()}
-        className="max-h-[90vh] max-w-[92vw] rounded-xl object-contain shadow-2xl animate-scale-in"
-      />
-    </div>
-  );
-}
 
 function MetricsRow({ metrics }: { metrics: Metric[] }) {
   return (
