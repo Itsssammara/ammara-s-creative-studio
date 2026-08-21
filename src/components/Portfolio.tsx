@@ -1258,76 +1258,8 @@ function PostImage({ tile, className = "" }: { tile: PostTile; className?: strin
   );
 }
 
-/** Lightweight CSS phone mockup — no external asset needed. */
-function PhoneMockup({ reel, floatIndex = 0 }: { reel: ReelTile; floatIndex?: number }) {
-  return (
-    <motion.div
-      className="relative mx-auto w-[190px] sm:w-[210px] lg:w-[230px]"
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <motion.div
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 5 + floatIndex, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div
-          className="relative rounded-[36px] p-[8px] shadow-[0_25px_60px_-20px_oklch(0_0_0/0.6)]"
-          style={{ background: "oklch(0.14 0.05 22)" }}
-        >
-          {/* Screen */}
-          <div
-            className="relative overflow-hidden rounded-[28px]"
-            style={{ aspectRatio: "9 / 19.5", background: reel.bg, color: reel.fg }}
-          >
-            {/* Notch */}
-            <div
-              aria-hidden
-              className="absolute left-1/2 top-2 z-10 h-4 w-20 -translate-x-1/2 rounded-full"
-              style={{ background: "oklch(0.1 0.03 22)" }}
-            />
-            {/* Reel body */}
-            <div className="flex h-full flex-col justify-end p-4">
-              {reel.emoji && (
-                <div className="absolute inset-0 grid place-items-center text-6xl opacity-90">
-                  {reel.emoji}
-                </div>
-              )}
-              <div className="relative z-10">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.25em] opacity-80">
-                  {reel.caption}
-                </div>
-                <div
-                  className="mt-1 text-xl font-black uppercase leading-tight"
-                  style={{ fontFamily: "var(--font-heavy)" }}
-                >
-                  {reel.headline}
-                </div>
-              </div>
-              {/* Play button */}
-              <div
-                aria-hidden
-                className="absolute left-1/2 top-1/2 z-10 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full backdrop-blur"
-                style={{ background: "oklch(1 0 0 / 0.2)" }}
-              >
-                <div
-                  className="ml-1 h-0 w-0"
-                  style={{
-                    borderTop: "10px solid transparent",
-                    borderBottom: "10px solid transparent",
-                    borderLeft: "16px solid currentColor",
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-      <span className="sr-only">{reel.altText}</span>
-    </motion.div>
-  );
-}
+
+
 
 function MetricCard({ metric }: { metric: Metric }) {
   return (
