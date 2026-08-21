@@ -1712,7 +1712,7 @@ function Packages() {
   return (
     <section
   id="packages"
-  className="relative px-5 pt-6 pb-24 sm:py-24"
+  className="relative hidden px-5 pt-6 pb-24 sm:py-24"
 >
       <div className="mx-auto max-w-6xl">
         <Reveal>
