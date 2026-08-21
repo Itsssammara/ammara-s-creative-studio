@@ -1258,76 +1258,8 @@ function PostImage({ tile, className = "" }: { tile: PostTile; className?: strin
   );
 }
 
-/** Lightweight CSS phone mockup — no external asset needed. */
-function PhoneMockup({ reel, floatIndex = 0 }: { reel: ReelTile; floatIndex?: number }) {
-  return (
-    <motion.div
-      className="relative mx-auto w-[190px] sm:w-[210px] lg:w-[230px]"
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <motion.div
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 5 + floatIndex, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div
-          className="relative rounded-[36px] p-[8px] shadow-[0_25px_60px_-20px_oklch(0_0_0/0.6)]"
-          style={{ background: "oklch(0.14 0.05 22)" }}
-        >
-          {/* Screen */}
-          <div
-            className="relative overflow-hidden rounded-[28px]"
-            style={{ aspectRatio: "9 / 19.5", background: reel.bg, color: reel.fg }}
-          >
-            {/* Notch */}
-            <div
-              aria-hidden
-              className="absolute left-1/2 top-2 z-10 h-4 w-20 -translate-x-1/2 rounded-full"
-              style={{ background: "oklch(0.1 0.03 22)" }}
-            />
-            {/* Reel body */}
-            <div className="flex h-full flex-col justify-end p-4">
-              {reel.emoji && (
-                <div className="absolute inset-0 grid place-items-center text-6xl opacity-90">
-                  {reel.emoji}
-                </div>
-              )}
-              <div className="relative z-10">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.25em] opacity-80">
-                  {reel.caption}
-                </div>
-                <div
-                  className="mt-1 text-xl font-black uppercase leading-tight"
-                  style={{ fontFamily: "var(--font-heavy)" }}
-                >
-                  {reel.headline}
-                </div>
-              </div>
-              {/* Play button */}
-              <div
-                aria-hidden
-                className="absolute left-1/2 top-1/2 z-10 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full backdrop-blur"
-                style={{ background: "oklch(1 0 0 / 0.2)" }}
-              >
-                <div
-                  className="ml-1 h-0 w-0"
-                  style={{
-                    borderTop: "10px solid transparent",
-                    borderBottom: "10px solid transparent",
-                    borderLeft: "16px solid currentColor",
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-      <span className="sr-only">{reel.altText}</span>
-    </motion.div>
-  );
-}
+
+
 
 function MetricCard({ metric }: { metric: Metric }) {
   return (
@@ -1368,23 +1300,23 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
           className="tape absolute -top-3 right-10 hidden h-6 w-20 rotate-[7deg] rounded-sm sm:block"
         />
 
-        {/* Header */}
-        <header className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 sm:flex sm:flex-wrap sm:items-end sm:justify-between">
-          <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--ink)]/60">
+        {/* Header — centred on mobile, original layout from sm: up */}
+        <header className="flex flex-col items-center gap-3 text-center sm:flex sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-4 sm:text-left">
+          <div className="min-w-0 sm:order-1">
+            <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--ink)]/60 sm:justify-start">
               <span>{data.clientName}</span>
               <span aria-hidden>•</span>
               <span>{data.industry}</span>
             </div>
             <h3
-              className="heavy mt-2 text-3xl uppercase leading-[0.95] text-[color:var(--burgundy)] sm:text-4xl lg:text-5xl"
+              className="heavy mt-4 text-balance text-[clamp(1.9rem,8.5vw,2.4rem)] uppercase leading-[0.95] text-[color:var(--burgundy)] sm:mt-2 sm:text-4xl lg:text-5xl"
               style={{ fontFamily: "var(--font-heavy)" }}
             >
               {data.projectTitle}
             </h3>
           </div>
           <span
-            className="shrink-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[color:var(--cream)]"
+            className="order-first shrink-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[color:var(--cream)] sm:order-2"
             style={{ background: data.accent }}
           >
             {data.projectType}
@@ -1392,38 +1324,30 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
         </header>
 
         {/* Main visual collage */}
-        {/* Mobile: phone first, then grid. Desktop: side-by-side. */}
-        <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
-          {/* Phone (mobile order 1, desktop order 2) */}
-          <div className="order-1 lg:order-2 lg:pl-2">
-            <PhoneMockup reel={data.reel} floatIndex={index} />
-          </div>
-
-          {/* 2x2 image grid (mobile order 2, desktop order 1) */}
-          <div className="order-2 lg:order-1">
-            {data.showcase ? (
-              <ShowcaseGrid showcase={data.showcase} />
-            ) : (
-              <motion.div
-                className="grid grid-cols-2 gap-3 sm:gap-4"
-                variants={stagger}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: false, amount: 0.15 }}
-              >
-                {data.postImages.map((tile, i) => (
-                  <motion.div
-                    key={i}
-                    variants={fadeUp}
-                    className="transition-transform duration-300 hover:scale-[1.02]"
-                  >
-                    <PostImage tile={tile} />
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
-          </div>
+        <div className="mx-auto mt-8 max-w-3xl lg:max-w-none">
+          {data.showcase ? (
+            <ShowcaseGrid showcase={data.showcase} />
+          ) : (
+            <motion.div
+              className="grid grid-cols-2 gap-3 sm:gap-4"
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.15 }}
+            >
+              {data.postImages.map((tile, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="transition-transform duration-300 hover:scale-[1.02]"
+                >
+                  <PostImage tile={tile} />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
         </div>
+
 
         {data.showcase && (
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
