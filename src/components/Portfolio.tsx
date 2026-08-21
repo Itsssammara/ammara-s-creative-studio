@@ -1368,23 +1368,23 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
           className="tape absolute -top-3 right-10 hidden h-6 w-20 rotate-[7deg] rounded-sm sm:block"
         />
 
-        {/* Header */}
-        <header className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 sm:flex sm:flex-wrap sm:items-end sm:justify-between">
-          <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--ink)]/60">
+        {/* Header — centred on mobile, original layout from sm: up */}
+        <header className="flex flex-col items-center gap-3 text-center sm:flex sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-4 sm:text-left">
+          <div className="min-w-0 sm:order-1">
+            <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--ink)]/60 sm:justify-start">
               <span>{data.clientName}</span>
               <span aria-hidden>•</span>
               <span>{data.industry}</span>
             </div>
             <h3
-              className="heavy mt-2 text-3xl uppercase leading-[0.95] text-[color:var(--burgundy)] sm:text-4xl lg:text-5xl"
+              className="heavy mt-4 text-balance text-[clamp(1.9rem,8.5vw,2.4rem)] uppercase leading-[0.95] text-[color:var(--burgundy)] sm:mt-2 sm:text-4xl lg:text-5xl"
               style={{ fontFamily: "var(--font-heavy)" }}
             >
               {data.projectTitle}
             </h3>
           </div>
           <span
-            className="shrink-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[color:var(--cream)]"
+            className="order-first shrink-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[color:var(--cream)] sm:order-2"
             style={{ background: data.accent }}
           >
             {data.projectType}
@@ -1392,38 +1392,30 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
         </header>
 
         {/* Main visual collage */}
-        {/* Mobile: phone first, then grid. Desktop: side-by-side. */}
-        <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
-          {/* Phone (mobile order 1, desktop order 2) */}
-          <div className="order-1 lg:order-2 lg:pl-2">
-            <PhoneMockup reel={data.reel} floatIndex={index} />
-          </div>
-
-          {/* 2x2 image grid (mobile order 2, desktop order 1) */}
-          <div className="order-2 lg:order-1">
-            {data.showcase ? (
-              <ShowcaseGrid showcase={data.showcase} />
-            ) : (
-              <motion.div
-                className="grid grid-cols-2 gap-3 sm:gap-4"
-                variants={stagger}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: false, amount: 0.15 }}
-              >
-                {data.postImages.map((tile, i) => (
-                  <motion.div
-                    key={i}
-                    variants={fadeUp}
-                    className="transition-transform duration-300 hover:scale-[1.02]"
-                  >
-                    <PostImage tile={tile} />
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
-          </div>
+        <div className="mx-auto mt-8 max-w-3xl lg:max-w-none">
+          {data.showcase ? (
+            <ShowcaseGrid showcase={data.showcase} />
+          ) : (
+            <motion.div
+              className="grid grid-cols-2 gap-3 sm:gap-4"
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.15 }}
+            >
+              {data.postImages.map((tile, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="transition-transform duration-300 hover:scale-[1.02]"
+                >
+                  <PostImage tile={tile} />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
         </div>
+
 
         {data.showcase && (
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
