@@ -1123,36 +1123,31 @@ const caseStudies: CaseStudyData[] = [
   },
   {
     id: "case-03",
-    clientName: "Placeholder Client C",
-    industry: "Professional Services",
-    projectTitle: "Lead-Gen Campaign",
-    projectType: "Meta Ads",
+    clientName: "Hardware Station",
+    industry: "Hardware Retail",
+    projectTitle: "Retail Content System",
+    projectType: "Social Media Management",
     accent: "oklch(0.72 0.16 45)",
     overview:
-      "Placeholder overview: a Meta Ads campaign paired with organic content to turn interest into booked calls — creative testing, tight audience targeting and weekly optimisation.",
+      "Hardware Station is a South African hardware retailer with multiple branches. My role was to maintain a consistent social media presence while promoting new store openings, monthly specials, seasonal campaigns, and public holiday content across the brand's social channels.",
     challenge:
-      "The client was spending on ads with low-quality leads and no clear picture of which creatives were working.",
-    strategy:
-      "Rebuilt the funnel around three offers, launched a structured creative test and set up event tracking so every rand of spend was attributable.",
+      "Keep the brand active online, promote monthly offers and new branch launches, and ensure every post reflected a consistent visual identity across multiple locations.",
     approach:
-      "Editorial ad creatives that look at home in the feed, hooks written for the target buyer, and landing pages that match the ad promise.",
+      "Created clean, branded promotional graphics tailored to each campaign while maintaining a consistent look and feel. Every design was built to clearly communicate specials, announcements, and key information in an easy-to-read format.",
+    strategy:
+      "Produce 4 branded social media posts each month, create new store opening announcements and monthly promotional flyers, share public holiday and seasonal content, and deliver 1 short-form Reel per month using client-supplied video footage.",
     execution:
-      "9 ad creatives across 3 audiences, weekly reporting, budget shifted every 5 days based on cost-per-lead and quality of booked calls.",
+      "Designed promotional graphics in Canva, adapted content for different campaigns throughout the month, and incorporated client-provided video footage into engaging short-form Reels for Facebook and Instagram.",
     takeaway:
-      "A predictable lead pipeline the client can scale — lower cost-per-lead and a clear playbook of creatives that consistently outperform.",
+      "Delivered a consistent stream of branded content that kept customers informed of new locations, monthly promotions, and seasonal campaigns while maintaining a professional and recognizable online presence.",
     services: [
-      "Meta Ads",
-      "Ad Creative",
-      "Copywriting",
-      "Landing Page Support",
+      "Social Media Management",
+      "Graphic Design",
+      "Content Strategy",
+      "Short-Form Video",
       "Monthly Reporting",
     ],
-    metrics: [
-      { value: "128", label: "Qualified Leads" },
-      { value: "-41%", label: "Cost / Lead" },
-      { value: "3.6x", label: "ROAS" },
-      { value: "22K", label: "Reach" },
-    ],
+    metrics: [],
     postImages: [
       {
         bg: "oklch(0.32 0.13 20)",
@@ -1160,7 +1155,7 @@ const caseStudies: CaseStudyData[] = [
         label: "BOOK A",
         sub: "strategy call",
         variant: "big",
-        altText: "Hardware Station: New store opening 24 April in Bonnievale",
+        altText: "Hardware Station promotional post 1",
         src: hardwareStation1,
       },
       {
@@ -1168,7 +1163,7 @@ const caseStudies: CaseStudyData[] = [
         fg: "oklch(0.32 0.13 20)",
         label: "Case Study",
         sub: "01",
-        altText: "Hardware Station: Grand Opening Specials flyer",
+        altText: "Hardware Station promotional post 2",
         src: hardwareStation2,
       },
       {
@@ -1176,7 +1171,7 @@ const caseStudies: CaseStudyData[] = [
         fg: "oklch(0.97 0.02 80)",
         label: "Client Win",
         sub: "+218% reach",
-        altText: "Hardware Station: Freedom Day 27 April celebration post",
+        altText: "Hardware Station promotional post 3",
         src: hardwareStation4,
       },
       {
@@ -1185,17 +1180,17 @@ const caseStudies: CaseStudyData[] = [
         label: "TIPS",
         sub: "for founders",
         variant: "big",
-        altText: "Hardware Station: Eid ul-Fitr Mubarak greeting post",
+        altText: "Hardware Station promotional post 4",
         src: hardwareStation5,
       },
     ],
     reel: {
       bg: "linear-gradient(160deg, oklch(0.22 0.09 22), oklch(0.55 0.15 25))",
       fg: "oklch(0.97 0.02 80)",
-      headline: "How we scaled it",
-      caption: "Reel • 00:22",
+      headline: "New Arrivals Reel",
+      caption: "Reel • 00:24",
       emoji: "📈",
-      altText: "Placeholder Reel: how we scaled the campaign",
+      altText: "Hardware Station short-form Reel showcasing new arrivals",
     },
     isPlaceholder: true,
   },
