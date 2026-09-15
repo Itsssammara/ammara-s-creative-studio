@@ -22,12 +22,12 @@ import hardwareStation1 from "../assets/ammara-social-media-hardware-station-1.j
 import hardwareStation2 from "../assets/ammara-social-media-hardware-station-2.jpg";
 import hardwareStation4 from "../assets/ammara-social-media-hardware-station-4.jpg";
 import hardwareStation5 from "../assets/ammara-social-media-hardware-station-5.jpg";
-import proSlide1Asset from "@/assets/pro-preowned-slide-1.png.asset.json";
-import proSlide2Asset from "@/assets/pro-preowned-slide-2.png.asset.json";
-import proSlide3Asset from "@/assets/pro-preowned-slide-3.png.asset.json";
-import proSlide4Asset from "@/assets/pro-preowned-slide-4.png.asset.json";
-import proSlide5Asset from "@/assets/pro-preowned-slide-5.png.asset.json";
-import proSlide6Asset from "@/assets/pro-preowned-slide-6.png.asset.json";
+import proSlide1Asset from "../assets/pro-preowned-slide-1.jpeg";
+import proSlide2Asset from "../assets/pro-preowned-slide-2.jpeg";
+import proSlide3Asset from "../assets/pro-preowned-slide-3.jpeg";
+import proSlide4Asset from "../assets/pro-preowned-slide-4.jpeg";
+import proSlide5Asset from "../assets/pro-preowned-slide-5.jpeg";
+import proSlide6Asset from "../assets/pro-preowned-slide-6.jpeg";
  
 /* ---------- Animation helpers ---------- */
 
