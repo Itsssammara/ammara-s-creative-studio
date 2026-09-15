@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { motion, type Variants } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import canvaLogo from "@/assets/ammaras-tool-icon-canva.svg";
 import capcutLogo from "@/assets/ammaras-tool-icon-capcut.svg";
 import metaLogo from "@/assets/ammaras-tool-icon-meta-business-suite.svg";
@@ -22,6 +22,12 @@ import hardwareStation1 from "../assets/ammara-social-media-hardware-station-1.j
 import hardwareStation2 from "../assets/ammara-social-media-hardware-station-2.jpg";
 import hardwareStation4 from "../assets/ammara-social-media-hardware-station-4.jpg";
 import hardwareStation5 from "../assets/ammara-social-media-hardware-station-5.jpg";
+import proSlide1Asset from "@/assets/pro-preowned-slide-1.png.asset.json";
+import proSlide2Asset from "@/assets/pro-preowned-slide-2.png.asset.json";
+import proSlide3Asset from "@/assets/pro-preowned-slide-3.png.asset.json";
+import proSlide4Asset from "@/assets/pro-preowned-slide-4.png.asset.json";
+import proSlide5Asset from "@/assets/pro-preowned-slide-5.png.asset.json";
+import proSlide6Asset from "@/assets/pro-preowned-slide-6.png.asset.json";
  
 /* ---------- Animation helpers ---------- */
 
@@ -1554,6 +1560,340 @@ function DetailBlock({
   );
 }
 
+/* ---------- Pro Pre-Owned Phones feature ---------- */
+
+const proCampaignSlides = [
+  { src: proSlide1Asset.url, alt: "Pro Pre-Owned Phones campaign: Premium tech, smarter price" },
+  { src: proSlide2Asset.url, alt: "Pro Pre-Owned Phones campaign: Save thousands" },
+  { src: proSlide3Asset.url, alt: "Pro Pre-Owned Phones campaign: Certified, tested, trusted" },
+  { src: proSlide4Asset.url, alt: "Pro Pre-Owned Phones campaign: Better for the planet" },
+  { src: proSlide5Asset.url, alt: "Pro Pre-Owned Phones campaign: Peace of mind, always" },
+  { src: proSlide6Asset.url, alt: "Pro Pre-Owned Phones campaign: Shop smarter today" },
+];
+
+const proHighlights = [
+  { number: "01", title: "Trust, made visible", body: "Certification messaging turns reassurance into a central part of the campaign story." },
+  { number: "02", title: "Premium perception", body: "Editorial art direction presents pre-owned devices with the polish of a new product launch." },
+  { number: "03", title: "Culture-led appeal", body: "Fashion-inspired styling and confident colour speak naturally to a younger audience." },
+  { number: "04", title: "Mobile clarity", body: "Bold type, focused layouts and strong contrast keep every message easy to scan." },
+  { number: "05", title: "Clear next step", body: "The final slide closes the narrative with a direct, memorable purchase invitation." },
+];
+
+function ProCampaignCarousel() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [lightboxSlide, setLightboxSlide] = useState<number | null>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const goToSlide = (index: number) => {
+    const nextIndex = (index + proCampaignSlides.length) % proCampaignSlides.length;
+    const track = trackRef.current;
+    if (!track) return;
+    track.scrollTo({ left: track.clientWidth * nextIndex, behavior: "smooth" });
+    setActiveSlide(nextIndex);
+  };
+
+  useEffect(() => {
+    if (lightboxSlide === null) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setLightboxSlide(null);
+      if (event.key === "ArrowRight") {
+        setLightboxSlide((current) => current === null ? 0 : (current + 1) % proCampaignSlides.length);
+      }
+      if (event.key === "ArrowLeft") {
+        setLightboxSlide((current) => current === null ? 0 : (current - 1 + proCampaignSlides.length) % proCampaignSlides.length);
+      }
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [lightboxSlide]);
+
+  return (
+    <div>
+      <div className="relative mx-auto max-w-4xl">
+        <div className="pointer-events-none absolute -inset-3 translate-x-3 translate-y-3 rounded-[24px] bg-campaign-hot/20 sm:-inset-5" />
+        <div
+          ref={trackRef}
+          onScroll={(event) => {
+            const track = event.currentTarget;
+            if (!track.clientWidth) return;
+            setActiveSlide(Math.round(track.scrollLeft / track.clientWidth));
+          }}
+          className="relative flex snap-x snap-mandatory overflow-x-auto rounded-[24px] bg-campaign-blush shadow-[0_30px_80px_-35px_oklch(0_0_0/0.7)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          aria-label="Pro Pre-Owned Phones campaign gallery"
+        >
+          {proCampaignSlides.map((slide, index) => (
+            <button
+              key={slide.src}
+              type="button"
+              onClick={() => setLightboxSlide(index)}
+              className="group relative w-full shrink-0 snap-center overflow-hidden bg-campaign-blush focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-campaign-hot"
+              aria-label={`Open slide ${index + 1} of ${proCampaignSlides.length}`}
+            >
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                loading={index === 0 ? "eager" : "lazy"}
+                className="mx-auto block aspect-[4/5] w-full max-w-[864px] object-contain transition-transform duration-700 group-hover:scale-[1.015]"
+              />
+              <span className="absolute bottom-5 right-5 hidden rounded-full bg-campaign-ink/85 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-campaign-paper shadow-lg backdrop-blur-sm sm:block">
+                View full image
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={() => goToSlide(activeSlide - 1)}
+          className="absolute left-0 top-1/2 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-campaign-paper text-2xl text-campaign-ink shadow-xl transition hover:-translate-x-1/2 hover:-translate-y-[55%] lg:flex"
+          aria-label="Previous campaign slide"
+        >
+          ←
+        </button>
+        <button
+          type="button"
+          onClick={() => goToSlide(activeSlide + 1)}
+          className="absolute right-0 top-1/2 hidden h-12 w-12 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-campaign-paper text-2xl text-campaign-ink shadow-xl transition hover:translate-x-1/2 hover:-translate-y-[55%] lg:flex"
+          aria-label="Next campaign slide"
+        >
+          →
+        </button>
+      </div>
+
+      <div className="mt-6 flex items-center justify-center gap-2" aria-label={`Slide ${activeSlide + 1} of ${proCampaignSlides.length}`}>
+        {proCampaignSlides.map((slide, index) => (
+          <button
+            key={slide.src}
+            type="button"
+            onClick={() => goToSlide(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${activeSlide === index ? "w-7 bg-campaign-hot" : "w-2 bg-campaign-paper/35 hover:bg-campaign-paper/60"}`}
+            aria-label={`Go to slide ${index + 1}`}
+            aria-current={activeSlide === index ? "true" : undefined}
+          />
+        ))}
+      </div>
+
+      <AnimatePresence>
+        {lightboxSlide !== null && (
+          <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Campaign image viewer"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-campaign-ink/95 p-4 sm:p-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightboxSlide(null)}
+          >
+            <button
+              type="button"
+              onClick={() => setLightboxSlide(null)}
+              className="absolute right-4 top-4 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-campaign-paper/25 bg-campaign-ink/70 text-2xl text-campaign-paper sm:right-8 sm:top-8"
+              aria-label="Close image viewer"
+              autoFocus
+            >
+              ×
+            </button>
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                setLightboxSlide((lightboxSlide - 1 + proCampaignSlides.length) % proCampaignSlides.length);
+              }}
+              className="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-campaign-paper text-xl text-campaign-ink shadow-xl sm:left-8 sm:h-12 sm:w-12"
+              aria-label="Previous full-size image"
+            >
+              ←
+            </button>
+            <motion.img
+              key={proCampaignSlides[lightboxSlide].src}
+              src={proCampaignSlides[lightboxSlide].src}
+              alt={proCampaignSlides[lightboxSlide].alt}
+              className="max-h-[90vh] max-w-[88vw] rounded-[24px] object-contain shadow-2xl"
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              transition={{ duration: 0.25 }}
+              onClick={(event) => event.stopPropagation()}
+            />
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                setLightboxSlide((lightboxSlide + 1) % proCampaignSlides.length);
+              }}
+              className="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-campaign-paper text-xl text-campaign-ink shadow-xl sm:right-8 sm:h-12 sm:w-12"
+              aria-label="Next full-size image"
+            >
+              →
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function ProCaseStudy() {
+  const reduceMotion = useReducedMotion();
+  const badges = ["6 Slides", "Instagram Campaign", "Brand Identity", "Product Marketing"];
+  const visualNotes = [
+    "Blush pink brand palette",
+    "Hot pink accents",
+    "Bold oversized headlines",
+    "Premium iPhone mockups",
+    "Lifestyle imagery",
+    "High-contrast typography",
+  ];
+
+  return (
+    <Reveal>
+      <article className="relative overflow-hidden rounded-[24px] border border-campaign-paper/10 bg-[color:var(--burgundy-darker)] shadow-[0_35px_90px_-45px_oklch(0_0_0/0.8)]">
+        <div className="absolute inset-x-0 top-0 h-px bg-campaign-hot/70" aria-hidden />
+        <div className="relative px-6 py-10 sm:px-10 sm:py-14 lg:px-14 lg:py-16">
+          <header className="grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+            <div className="relative z-10">
+              <div className="text-[10px] font-bold uppercase tracking-[0.28em] text-campaign-hot">
+                Social campaign
+              </div>
+              <h3 className="mt-5 font-display text-5xl leading-[0.95] text-campaign-paper sm:text-6xl lg:text-7xl">
+                Pro Pre-Owned <em className="text-campaign-blush">Phones</em>
+              </h3>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-campaign-paper/75 sm:text-lg">
+                A six-slide campaign promoting certified pre-owned phones through premium visuals, bold typography and trust-focused messaging.
+              </p>
+              <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-campaign-paper/15 py-6 text-sm">
+                <div>
+                  <dt className="text-[9px] font-bold uppercase tracking-[0.2em] text-campaign-paper/45">Category</dt>
+                  <dd className="mt-1 text-campaign-paper">Social Media Design &amp; Brand Marketing</dd>
+                </div>
+                <div>
+                  <dt className="text-[9px] font-bold uppercase tracking-[0.2em] text-campaign-paper/45">Role</dt>
+                  <dd className="mt-1 text-campaign-paper">Social Media Designer</dd>
+                </div>
+                <div>
+                  <dt className="text-[9px] font-bold uppercase tracking-[0.2em] text-campaign-paper/45">Year</dt>
+                  <dd className="mt-1 text-campaign-paper">2026</dd>
+                </div>
+              </dl>
+              <ul className="mt-7 flex flex-wrap gap-2">
+                {badges.map((badge) => (
+                  <li key={badge} className="rounded-full border border-campaign-blush/35 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-campaign-blush">
+                    {badge}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <motion.div
+              className="relative mx-auto w-full max-w-[540px] lg:max-w-none"
+              initial={{ opacity: 0, y: reduceMotion ? 0 : 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.25 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="absolute inset-0 translate-x-4 translate-y-4 rotate-3 rounded-[24px] bg-campaign-hot/30" aria-hidden />
+              <div className="absolute inset-0 -translate-x-3 translate-y-2 -rotate-2 rounded-[24px] border border-campaign-paper/20 bg-campaign-blush/15" aria-hidden />
+              <motion.img
+                src={proSlide1Asset.url}
+                alt="Pro Pre-Owned Phones campaign cover: Premium tech, smarter price"
+                className="relative aspect-[4/5] w-full rounded-[24px] object-cover shadow-[0_30px_70px_-30px_oklch(0_0_0/0.8)]"
+                whileHover={reduceMotion ? undefined : { y: -7, rotate: -0.4 }}
+                transition={{ duration: 0.35 }}
+              />
+            </motion.div>
+          </header>
+
+          <section className="mt-20 sm:mt-28" aria-labelledby="pro-gallery-title">
+            <div className="mx-auto mb-9 max-w-2xl text-center">
+              <span className="handwritten text-2xl text-campaign-hot">the full campaign</span>
+              <h4 id="pro-gallery-title" className="mt-2 font-display text-4xl text-campaign-paper sm:text-5xl">Campaign Gallery</h4>
+              <p className="mt-3 text-sm leading-relaxed text-campaign-paper/60">Swipe through the six-part story, or open any artwork for a closer look.</p>
+            </div>
+            <ProCampaignCarousel />
+          </section>
+
+          <section className="mt-24 space-y-20 sm:mt-32 sm:space-y-28">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
+              <Reveal>
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-[0.28em] text-campaign-hot">01 / The Concept</div>
+                  <h4 className="mt-4 font-display text-4xl text-campaign-paper sm:text-5xl">Changing the meaning of <em>pre-owned.</em></h4>
+                  <p className="mt-6 max-w-xl text-base leading-relaxed text-campaign-paper/70 sm:text-lg">
+                    The goal was to reposition pre-owned phones as premium rather than second-hand. Luxury-inspired visuals, confident product styling and bold messaging make value feel aspirational—without losing the trust signals buyers need.
+                  </p>
+                </div>
+              </Reveal>
+              <motion.div
+                className="relative mx-auto w-full max-w-md"
+                initial={{ opacity: 0, y: reduceMotion ? 0 : 36 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.25 }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="absolute inset-0 translate-x-5 translate-y-5 rounded-[24px] border border-campaign-hot/30" aria-hidden />
+                <img src={proSlide3Asset.url} alt="Certified quality campaign artwork" loading="lazy" className="relative aspect-[4/5] w-full rounded-[24px] object-cover shadow-2xl" />
+              </motion.div>
+            </div>
+
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
+              <motion.div
+                className="relative mx-auto w-full max-w-md lg:order-1"
+                initial={{ opacity: 0, y: reduceMotion ? 0 : 36 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.25 }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="absolute inset-0 -translate-x-5 translate-y-5 rounded-[24px] bg-campaign-blush/10" aria-hidden />
+                <img src={proSlide2Asset.url} alt="Fashion-inspired Save thousands campaign artwork" loading="lazy" className="relative aspect-[4/5] w-full rounded-[24px] object-cover shadow-2xl" />
+              </motion.div>
+              <Reveal className="lg:order-2">
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-[0.28em] text-campaign-hot">02 / Visual Direction</div>
+                  <h4 className="mt-4 font-display text-4xl text-campaign-paper sm:text-5xl">Soft colour. <em>Sharp impact.</em></h4>
+                  <p className="mt-6 text-base leading-relaxed text-campaign-paper/70 sm:text-lg">
+                    A controlled blush-and-pink system gives the campaign instant recognition, while fashion-led portraits and polished phone renders add editorial confidence.
+                  </p>
+                  <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                    {visualNotes.map((note) => (
+                      <div key={note} className="rounded-[24px] border border-campaign-paper/10 bg-campaign-paper/[0.04] px-5 py-4 text-sm text-campaign-paper/80 transition duration-300 hover:-translate-y-1 hover:border-campaign-hot/50 hover:bg-campaign-hot/10">
+                        {note}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </section>
+
+          <section className="mt-24 sm:mt-32" aria-labelledby="pro-why-title">
+            <Reveal>
+              <div className="max-w-2xl">
+                <div className="text-[10px] font-bold uppercase tracking-[0.28em] text-campaign-hot">03 / Why It Works</div>
+                <h4 id="pro-why-title" className="mt-4 font-display text-4xl text-campaign-paper sm:text-5xl">Built to feel good. <em>Designed to sell.</em></h4>
+              </div>
+            </Reveal>
+            <StaggerGroup className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {proHighlights.map((item) => (
+                <motion.div key={item.number} variants={fadeUp} className="group rounded-[24px] border border-campaign-paper/10 bg-campaign-paper/[0.05] p-6 transition duration-300 hover:-translate-y-2 hover:border-campaign-hot/45 hover:bg-campaign-hot/10">
+                  <div className="font-display text-3xl italic text-campaign-hot">{item.number}</div>
+                  <h5 className="mt-8 font-display text-xl text-campaign-paper">{item.title}</h5>
+                  <p className="mt-3 text-sm leading-relaxed text-campaign-paper/60">{item.body}</p>
+                </motion.div>
+              ))}
+            </StaggerGroup>
+          </section>
+        </div>
+      </article>
+    </Reveal>
+  );
+}
+
 /* ---------- Section wrapper (kept as SocialProjects for existing render call) ---------- */
 
 function SocialProjects() {
@@ -1588,6 +1928,7 @@ function SocialProjects() {
         </Reveal>
 
         <div className="mt-14 space-y-14 sm:space-y-20">
+          <ProCaseStudy />
           {caseStudies.map((c, i) => (
             <CaseStudy key={c.id} data={c} index={i} />
           ))}
