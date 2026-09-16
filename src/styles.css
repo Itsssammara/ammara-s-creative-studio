@@ -99,10 +99,6 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --color-campaign-blush: var(--campaign-blush);
-  --color-campaign-hot: var(--campaign-hot);
-  --color-campaign-ink: var(--campaign-ink);
-  --color-campaign-paper: var(--campaign-paper);
 }
 
 :root {
@@ -135,10 +131,6 @@
   --ink: oklch(0.20 0.07 22);
   --tape: oklch(0.88 0.07 85 / 0.75);
   --star: oklch(0.78 0.16 75);
-  --campaign-blush: oklch(0.84 0.075 14);
-  --campaign-hot: oklch(0.58 0.24 8);
-  --campaign-ink: oklch(0.16 0.025 15);
-  --campaign-paper: oklch(0.97 0.012 30);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -187,10 +179,6 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
-  --campaign-blush: oklch(0.84 0.075 14);
-  --campaign-hot: oklch(0.67 0.22 8);
-  --campaign-ink: oklch(0.12 0.02 15);
-  --campaign-paper: oklch(0.97 0.012 30);
 }
 
 @layer base {
