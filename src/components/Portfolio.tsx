@@ -3,9 +3,6 @@
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
 import { useEffect, useState } from "react";
-import { motion, type Variants } from "framer-motion";
-import type { ReactNode, CSSProperties } from "react";
-import { useState } from "react";
 import canvaLogo from "@/assets/ammaras-tool-icon-canva.svg";
 import capcutLogo from "@/assets/ammaras-tool-icon-capcut.svg";
 import metaLogo from "@/assets/ammaras-tool-icon-meta-business-suite.svg";
