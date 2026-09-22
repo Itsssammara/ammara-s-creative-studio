@@ -2,10 +2,7 @@
 
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
-import { useEffect, useState } from "react";
-import { motion, type Variants } from "framer-motion";
-import type { ReactNode, CSSProperties } from "react";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import canvaLogo from "@/assets/ammaras-tool-icon-canva.svg";
 import capcutLogo from "@/assets/ammaras-tool-icon-capcut.svg";
 import metaLogo from "@/assets/ammaras-tool-icon-meta-business-suite.svg";
@@ -26,18 +23,18 @@ import hardwareStation1 from "../assets/ammara-social-media-hardware-station-1.j
 import hardwareStation2 from "../assets/ammara-social-media-hardware-station-2.jpg";
 import hardwareStation4 from "../assets/ammara-social-media-hardware-station-4.jpg";
 import hardwareStation5 from "../assets/ammara-social-media-hardware-station-5.jpg";
-import proPreOwned1Asset from "../assets/pro-preowned-slide-1.jpeg.asset.json";
-import proPreOwned2Asset from "../assets/pro-preowned-slide-2.jpeg.asset.json";
-import proPreOwned3Asset from "../assets/pro-preowned-slide-3.jpeg.asset.json";
-import proPreOwned4Asset from "../assets/pro-preowned-slide-4.jpeg.asset.json";
-import proPreOwned5Asset from "../assets/pro-preowned-slide-5.jpeg.asset.json";
+import proPreOwned1Asset from "../assets/pro-preowned-slide-1.jpeg";
+import proPreOwned2Asset from "../assets/pro-preowned-slide-2.jpeg";
+import proPreOwned3Asset from "../assets/pro-preowned-slide-3.jpeg";
+import proPreOwned4Asset from "../assets/pro-preowned-slide-4.jpeg";
+import proPreOwned5Asset from "../assets/pro-preowned-slide-5.jpeg";
 
  
 /* ---------- Animation helpers ---------- */
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
-  show: { opazcity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
 
 const stagger: Variants = {
@@ -1088,36 +1085,36 @@ const caseStudies: CaseStudyData[] = [
         fg: "oklch(0.2 0 0)",
         label: "Premium Tech",
         altText: "Pro Pre-Owned Phones premium tech and smarter price campaign design",
-        src: proPreOwned1Asset.url,
+        src: proPreOwned1Asset,
       },
       {
         bg: "oklch(0.9 0.08 350)",
         fg: "oklch(0.2 0 0)",
         label: "Save Thousands",
         altText: "Pro Pre-Owned Phones save thousands campaign design",
-        src: proPreOwned2Asset.url,
+        src: proPreOwned2Asset,
       },
       {
         bg: "oklch(0.9 0.08 350)",
         fg: "oklch(0.2 0 0)",
         label: "Certified Quality",
         altText: "Pro Pre-Owned Phones certified, tested and trusted campaign design",
-        src: proPreOwned3Asset.url,
+        src: proPreOwned3Asset,
       },
       {
         bg: "oklch(0.9 0.08 350)",
         fg: "oklch(0.2 0 0)",
         label: "Better for the Planet",
         altText: "Pro Pre-Owned Phones sustainability campaign design",
-        src: proPreOwned4Asset.url,
+        src: proPreOwned4Asset,
       },
     ],
     reel: {
       bg: "linear-gradient(160deg, oklch(0.58 0.23 350), oklch(0.6 0.17 145))",
       fg: "oklch(0.97 0.02 80)",
-      headline: "Peace of Mind",
+      headline: "COMING SOON",
       altText: "Pro Pre-Owned Phones peace of mind campaign design",
-    },
+    
     isPlaceholder: true,
     showcase: {
       tagline: "Campaign Concept • Social Media Design • Copywriting",
@@ -1125,23 +1122,23 @@ const caseStudies: CaseStudyData[] = [
       autoCarousel: true,
       images: [
         {
-          src: proPreOwned1Asset.url,
+          src: proPreOwned1Asset,
           alt: "Pro Pre-Owned Phones premium tech and smarter price campaign design",
         },
         {
-          src: proPreOwned2Asset.url,
+          src: proPreOwned2Asset,
           alt: "Pro Pre-Owned Phones save thousands campaign design",
         },
         {
-          src: proPreOwned3Asset.url,
+          src: proPreOwned3Asset,
           alt: "Pro Pre-Owned Phones certified, tested and trusted campaign design",
         },
         {
-          src: proPreOwned4Asset.url,
+          src: proPreOwned4Asset,
           alt: "Pro Pre-Owned Phones sustainability campaign design",
         },
         {
-          src: proPreOwned5Asset.url,
+          src: proPreOwned5Asset,
           alt: "Pro Pre-Owned Phones peace of mind and warranty campaign design",
         },
       ],
@@ -1153,11 +1150,6 @@ const caseStudies: CaseStudyData[] = [
     industry: "Food & Beverage",
     projectTitle: "Weekly Promotional Content",
     projectType: "Social Media Management",
-
-    clientName: "Placeholder Client B",
-    industry: "Health & Wellness",
-    projectTitle: "Always-On Content System",
-    projectType: "Organic Content",
 
     accent: "oklch(0.6 0.14 145)",
     overview:
@@ -1242,12 +1234,6 @@ const caseStudies: CaseStudyData[] = [
     industry: "Hardware Retail",
     projectTitle: "Retail Content System",
     projectType: "Social Media Management",
-
-    id: "case-03",
-    clientName: "Placeholder Client C",
-    industry: "Professional Services",
-    projectTitle: "Lead-Gen Campaign",
-    projectType: "Meta Ads",
 
     accent: "oklch(0.72 0.16 45)",
     overview:
