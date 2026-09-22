@@ -22,6 +22,11 @@ import hardwareStation1 from "../assets/ammara-social-media-hardware-station-1.j
 import hardwareStation2 from "../assets/ammara-social-media-hardware-station-2.jpg";
 import hardwareStation4 from "../assets/ammara-social-media-hardware-station-4.jpg";
 import hardwareStation5 from "../assets/ammara-social-media-hardware-station-5.jpg";
+import proPreOwned1Asset from "../assets/pro-preowned-slide-1.jpeg.asset.json";
+import proPreOwned2Asset from "../assets/pro-preowned-slide-2.jpeg.asset.json";
+import proPreOwned3Asset from "../assets/pro-preowned-slide-3.jpeg.asset.json";
+import proPreOwned4Asset from "../assets/pro-preowned-slide-4.jpeg.asset.json";
+import proPreOwned5Asset from "../assets/pro-preowned-slide-5.jpeg.asset.json";
  
 /* ---------- Animation helpers ---------- */
 
@@ -1046,6 +1051,97 @@ const caseStudies: CaseStudyData[] = [
   },
   {
     id: "case-02",
+    clientName: "Pro Pre-Owned Phones",
+    industry: "Pre-Owned Tech Retail",
+    projectTitle: "Trust-Led Brand Campaign",
+    projectType: "Social Media Content Design",
+    accent: "oklch(0.58 0.23 350)",
+    overview:
+      "Created a cohesive social media campaign for Pro Pre-Owned Phones that positioned certified pre-owned devices as a smart, trustworthy and affordable alternative to buying new. The five-part series communicates the brand's key benefits through bold, benefit-led creative.",
+    challenge:
+      "Build confidence in pre-owned technology while clearly communicating value, quality assurance, sustainability and after-sales support in a way that feels modern and easy to understand.",
+    approach:
+      "Developed a bright, distinctive visual direction using the brand's pink and green palette, bold product imagery and concise messaging. Each design focuses on one customer benefit while remaining recognisable as part of the same campaign.",
+    strategy:
+      "Structured the content as a five-part awareness series covering smarter pricing, meaningful savings, certified quality, reduced e-waste and dependable support. This gave the audience a clear reason to trust the brand at every stage of consideration.",
+    execution:
+      "Designed five portrait-format social media graphics with consistent typography, colour, logo placement and hand-drawn accents. Product and lifestyle imagery were paired with short, direct copy to make each benefit immediately scannable on mobile feeds.",
+    takeaway:
+      "The completed campaign gives Pro Pre-Owned Phones a polished and recognisable content system that turns practical buying concerns into clear, engaging brand messages without losing its youthful personality.",
+    services: [
+      "Social Media Design",
+      "Campaign Concept",
+      "Copywriting",
+      "Art Direction",
+      "Content Strategy",
+    ],
+    metrics: [],
+    postImages: [
+      {
+        bg: "oklch(0.9 0.08 350)",
+        fg: "oklch(0.2 0 0)",
+        label: "Premium Tech",
+        altText: "Pro Pre-Owned Phones premium tech and smarter price campaign design",
+        src: proPreOwned1Asset.url,
+      },
+      {
+        bg: "oklch(0.9 0.08 350)",
+        fg: "oklch(0.2 0 0)",
+        label: "Save Thousands",
+        altText: "Pro Pre-Owned Phones save thousands campaign design",
+        src: proPreOwned2Asset.url,
+      },
+      {
+        bg: "oklch(0.9 0.08 350)",
+        fg: "oklch(0.2 0 0)",
+        label: "Certified Quality",
+        altText: "Pro Pre-Owned Phones certified, tested and trusted campaign design",
+        src: proPreOwned3Asset.url,
+      },
+      {
+        bg: "oklch(0.9 0.08 350)",
+        fg: "oklch(0.2 0 0)",
+        label: "Better for the Planet",
+        altText: "Pro Pre-Owned Phones sustainability campaign design",
+        src: proPreOwned4Asset.url,
+      },
+    ],
+    reel: {
+      bg: "linear-gradient(160deg, oklch(0.58 0.23 350), oklch(0.6 0.17 145))",
+      fg: "oklch(0.97 0.02 80)",
+      headline: "Peace of Mind",
+      altText: "Pro Pre-Owned Phones peace of mind campaign design",
+    },
+    isPlaceholder: true,
+    showcase: {
+      tagline: "Campaign Concept • Social Media Design • Copywriting",
+      badges: [],
+      images: [
+        {
+          src: proPreOwned1Asset.url,
+          alt: "Pro Pre-Owned Phones premium tech and smarter price campaign design",
+        },
+        {
+          src: proPreOwned2Asset.url,
+          alt: "Pro Pre-Owned Phones save thousands campaign design",
+        },
+        {
+          src: proPreOwned3Asset.url,
+          alt: "Pro Pre-Owned Phones certified, tested and trusted campaign design",
+        },
+        {
+          src: proPreOwned4Asset.url,
+          alt: "Pro Pre-Owned Phones sustainability campaign design",
+        },
+        {
+          src: proPreOwned5Asset.url,
+          alt: "Pro Pre-Owned Phones peace of mind and warranty campaign design",
+        },
+      ],
+    },
+  },
+  {
+    id: "case-03",
     clientName: "Ocean Corner",
     industry: "Food & Beverage",
     projectTitle: "Weekly Promotional Content",
@@ -1122,7 +1218,7 @@ const caseStudies: CaseStudyData[] = [
     isPlaceholder: true,
   },
   {
-    id: "case-03",
+    id: "case-04",
     clientName: "Hardware Station",
     industry: "Hardware Retail",
     projectTitle: "Retail Content System",
