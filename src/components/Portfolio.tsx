@@ -1151,11 +1151,6 @@ const caseStudies: CaseStudyData[] = [
     projectTitle: "Weekly Promotional Content",
     projectType: "Social Media Management",
 
-    clientName: "Placeholder Client B",
-    industry: "Health & Wellness",
-    projectTitle: "Always-On Content System",
-    projectType: "Organic Content",
-
     accent: "oklch(0.6 0.14 145)",
     overview:
       "Placeholder overview: educational carousels and short-form video for a wellness brand — soft, botanical visuals paired with clear ingredient storytelling.",
