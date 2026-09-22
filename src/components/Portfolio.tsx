@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { motion, type Variants } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import canvaLogo from "@/assets/ammaras-tool-icon-canva.svg";
 import capcutLogo from "@/assets/ammaras-tool-icon-capcut.svg";
 import metaLogo from "@/assets/ammaras-tool-icon-meta-business-suite.svg";
@@ -942,6 +942,7 @@ type CaseStudyData = {
     tagline: string;
     badges: { icon: string; label: string }[];
     images: { src: string; alt: string }[]; // first is hero
+    autoCarousel?: boolean;
   };
 };
 
@@ -1116,6 +1117,7 @@ const caseStudies: CaseStudyData[] = [
     showcase: {
       tagline: "Campaign Concept • Social Media Design • Copywriting",
       badges: [],
+      autoCarousel: true,
       images: [
         {
           src: proPreOwned1Asset.url,
@@ -1585,6 +1587,10 @@ function ShowcaseGrid({
 }: {
   showcase: NonNullable<CaseStudyData["showcase"]>;
 }) {
+  if (showcase.autoCarousel) {
+    return <AutoShowcaseCarousel images={showcase.images} />;
+  }
+
   const tileClass =
     "group relative block w-full aspect-square overflow-hidden rounded-2xl bg-[color:var(--cream)] shadow-[0_18px_40px_-24px_oklch(0_0_0/0.55)] ring-1 ring-[color:var(--burgundy)]/10 transition-all duration-300 will-change-transform hover:-translate-y-1 hover:shadow-[0_28px_60px_-24px_oklch(0_0_0/0.6)] hover:ring-[color:var(--accent)]/40";
   return (
@@ -1612,6 +1618,96 @@ function ShowcaseGrid({
         ))}
       </motion.div>
     </>
+  );
+}
+
+function AutoShowcaseCarousel({
+  images,
+}: {
+  images: NonNullable<CaseStudyData["showcase"]>["images"];
+}) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length < 2) return;
+
+    const interval = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % images.length);
+    }, 3500);
+
+    return () => window.clearInterval(interval);
+  }, [images.length]);
+
+  if (images.length === 0) return null;
+
+  const showPrevious = () => {
+    setActiveIndex((current) => (current - 1 + images.length) % images.length);
+  };
+  const showNext = () => {
+    setActiveIndex((current) => (current + 1) % images.length);
+  };
+  const activeImage = images[activeIndex] ?? images[0];
+
+  return (
+    <div
+      className="mx-auto w-full max-w-md"
+      role="region"
+      aria-label="Pro Pre-Owned Phones campaign carousel"
+      aria-roledescription="carousel"
+    >
+      <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[color:var(--cream)] shadow-[0_18px_40px_-24px_oklch(0_0_0/0.55)] ring-1 ring-[color:var(--burgundy)]/10">
+        <AnimatePresence initial={false} mode="popLayout">
+          <motion.img
+            key={activeImage.src}
+            src={activeImage.src}
+            alt={activeImage.alt}
+            loading="lazy"
+            className="absolute inset-0 block h-full w-full object-contain"
+            initial={{ opacity: 0, x: 36 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -36 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          />
+        </AnimatePresence>
+
+        <button
+          type="button"
+          onClick={showPrevious}
+          aria-label="Show previous design"
+          className="absolute left-2 top-1/2 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-[color:var(--burgundy)]/90 text-xl text-[color:var(--cream)] shadow-md transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] sm:left-3"
+        >
+          <span aria-hidden>←</span>
+        </button>
+        <button
+          type="button"
+          onClick={showNext}
+          aria-label="Show next design"
+          className="absolute right-2 top-1/2 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-[color:var(--burgundy)]/90 text-xl text-[color:var(--cream)] shadow-md transition-transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] sm:right-3"
+        >
+          <span aria-hidden>→</span>
+        </button>
+      </div>
+
+      <div className="mt-4 flex items-center justify-center gap-2" aria-label="Choose a campaign design">
+        {images.map((image, index) => (
+          <button
+            key={image.src}
+            type="button"
+            onClick={() => setActiveIndex(index)}
+            aria-label={`Show design ${index + 1}`}
+            aria-current={index === activeIndex ? "true" : undefined}
+            className={`h-2.5 rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] ${
+              index === activeIndex
+                ? "w-8 bg-[color:var(--burgundy)]"
+                : "w-2.5 bg-[color:var(--burgundy)]/25 hover:bg-[color:var(--burgundy)]/45"
+            }`}
+          />
+        ))}
+      </div>
+      <p className="mt-2 text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-[color:var(--ink)]/55">
+        {activeIndex + 1} / {images.length}
+      </p>
+    </div>
   );
 }
 
