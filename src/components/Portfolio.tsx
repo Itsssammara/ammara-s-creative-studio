@@ -1,7 +1,11 @@
 /* eslint-disable prettier/prettier */
+
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
 import { useEffect, useState } from "react";
+import { motion, type Variants } from "framer-motion";
+import type { ReactNode, CSSProperties } from "react";
+import { useState } from "react";
 import canvaLogo from "@/assets/ammaras-tool-icon-canva.svg";
 import capcutLogo from "@/assets/ammaras-tool-icon-capcut.svg";
 import metaLogo from "@/assets/ammaras-tool-icon-meta-business-suite.svg";
@@ -27,12 +31,13 @@ import proPreOwned2Asset from "../assets/pro-preowned-slide-2.jpeg.asset.json";
 import proPreOwned3Asset from "../assets/pro-preowned-slide-3.jpeg.asset.json";
 import proPreOwned4Asset from "../assets/pro-preowned-slide-4.jpeg.asset.json";
 import proPreOwned5Asset from "../assets/pro-preowned-slide-5.jpeg.asset.json";
+
  
 /* ---------- Animation helpers ---------- */
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: { opazcity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
 
 const stagger: Variants = {
@@ -1148,27 +1153,38 @@ const caseStudies: CaseStudyData[] = [
     industry: "Food & Beverage",
     projectTitle: "Weekly Promotional Content",
     projectType: "Social Media Management",
+
+    clientName: "Placeholder Client B",
+    industry: "Health & Wellness",
+    projectTitle: "Always-On Content System",
+    projectType: "Organic Content",
+
     accent: "oklch(0.6 0.14 145)",
     overview:
-      "Ocean Corner is a local fish & chips takeaway that wanted a consistent social media presence to keep the brand active and regularly promote weekly meal specials.",
+      "Placeholder overview: educational carousels and short-form video for a wellness brand — soft, botanical visuals paired with clear ingredient storytelling.",
     challenge:
-      "Maintain an active Facebook and Instagram presence, increase local brand awareness, and keep customers informed of weekly specials through consistent content.",
-    approach:
-      "Designed branded social media graphics that matched Ocean Corner's identity, wrote clear promotional copy, and created content that highlighted value meals, limited-time offers, and popular menu items.",
+      "Audience trusted the products but rarely shared or saved posts. Content felt promotional rather than useful.",
     strategy:
-      "Deliver 4 static promotional posts each month plus 1 short-form Reel, keep branding consistent across every asset, and centre content around menu highlights, combo deals and seasonal promotions.",
+      "Shifted the ratio toward educational and save-worthy posts, tightened the visual system and introduced a recurring 'ingredient spotlight' series.",
+    approach:
+      "Every post now teaches something first and sells second — calm palette, generous type and captions written like a knowledgeable friend.",
     execution:
-      "Created monthly content calendars, designed promotional graphics in Canva, edited short-form video content, and delivered weekly posts to maintain a consistent online presence across Facebook and Instagram.",
+      "Weekly Reels, 3 carousels per week, story series for launches, plus a monthly insight report showing which pillars drove saves and shares.",
     takeaway:
-      "Delivered reliable, on-brand content that kept the business visible online, reinforced brand recognition, and ensured customers regularly saw new specials and promotions.",
+      "Content that the community actually saves — higher meaningful engagement and a stronger association between the brand and its expertise.",
     services: [
-      "Social Media Management",
-      "Graphic Design",
       "Content Strategy",
+      "Social Media Management",
+      "Copywriting",
       "Short-Form Video",
       "Monthly Reporting",
     ],
-    metrics: [],
+    metrics: [
+      { value: "68K", label: "Impressions" },
+      { value: "+34%", label: "Saves" },
+      { value: "9.2K", label: "New Followers" },
+      { value: "5m", label: "Avg. Watch" },
+    ],
     postImages: [
       {
         bg: "oklch(0.55 0.14 145)",
@@ -1177,7 +1193,7 @@ const caseStudies: CaseStudyData[] = [
         sub: "from within",
         variant: "big",
         emoji: "🌿",
-        altText: "Ocean Corner promotional post 1",
+        altText: "Ocean Corner: Beef Burger & Chips R45 promo",
         src: oceanCorner1,
       },
       {
@@ -1186,7 +1202,7 @@ const caseStudies: CaseStudyData[] = [
         label: "Ingredient",
         sub: "spotlight",
         emoji: "🌱",
-        altText: "Ocean Corner promotional post 2",
+        altText: "Ocean Corner: Full House Steak Gatsby R199 promo",
         src: oceanCorner2,
       },
       {
@@ -1195,7 +1211,7 @@ const caseStudies: CaseStudyData[] = [
         label: "3 Reasons",
         sub: "to switch",
         emoji: "🍃",
-        altText: "Ocean Corner promotional post 3",
+        altText: "Ocean Corner: 1pc Snoek & Chips + 2 Russians R50 promo",
         src: oceanCorner3,
       },
       {
@@ -1205,47 +1221,60 @@ const caseStudies: CaseStudyData[] = [
         sub: "drops Friday",
         variant: "big",
         emoji: "🧴",
-        altText: "Ocean Corner promotional post 4",
+        altText: "Ocean Corner: Chicken Burger & Chips R40 promo",
         src: oceanCorner4,
       },
     ],
     reel: {
       bg: "linear-gradient(160deg, oklch(0.28 0.09 145), oklch(0.55 0.14 145))",
       fg: "oklch(0.97 0.02 100)",
-      headline: "Weekly Special",
-      caption: "Reel • 00:24",
-      emoji: "🎬",
-      altText: "Ocean Corner short-form Reel showcasing a weekly special",
+      headline: "Ritual, in 30s",
+      caption: "Reel • 00:31",
+      emoji: "🌿",
+      altText: "Placeholder Reel: 30-second wellness ritual demo",
     },
     isPlaceholder: true,
   },
   {
+
     id: "case-04",
     clientName: "Hardware Station",
     industry: "Hardware Retail",
     projectTitle: "Retail Content System",
     projectType: "Social Media Management",
+
+    id: "case-03",
+    clientName: "Placeholder Client C",
+    industry: "Professional Services",
+    projectTitle: "Lead-Gen Campaign",
+    projectType: "Meta Ads",
+
     accent: "oklch(0.72 0.16 45)",
     overview:
-      "Hardware Station is a South African hardware retailer with multiple branches. My role was to maintain a consistent social media presence while promoting new store openings, monthly specials, seasonal campaigns, and public holiday content across the brand's social channels.",
+      "Placeholder overview: a Meta Ads campaign paired with organic content to turn interest into booked calls — creative testing, tight audience targeting and weekly optimisation.",
     challenge:
-      "Keep the brand active online, promote monthly offers and new branch launches, and ensure every post reflected a consistent visual identity across multiple locations.",
-    approach:
-      "Created clean, branded promotional graphics tailored to each campaign while maintaining a consistent look and feel. Every design was built to clearly communicate specials, announcements, and key information in an easy-to-read format.",
+      "The client was spending on ads with low-quality leads and no clear picture of which creatives were working.",
     strategy:
-      "Produce 4 branded social media posts each month, create new store opening announcements and monthly promotional flyers, share public holiday and seasonal content, and deliver 1 short-form Reel per month using client-supplied video footage.",
+      "Rebuilt the funnel around three offers, launched a structured creative test and set up event tracking so every rand of spend was attributable.",
+    approach:
+      "Editorial ad creatives that look at home in the feed, hooks written for the target buyer, and landing pages that match the ad promise.",
     execution:
-      "Designed promotional graphics in Canva, adapted content for different campaigns throughout the month, and incorporated client-provided video footage into engaging short-form Reels for Facebook and Instagram.",
+      "9 ad creatives across 3 audiences, weekly reporting, budget shifted every 5 days based on cost-per-lead and quality of booked calls.",
     takeaway:
-      "Delivered a consistent stream of branded content that kept customers informed of new locations, monthly promotions, and seasonal campaigns while maintaining a professional and recognizable online presence.",
+      "A predictable lead pipeline the client can scale — lower cost-per-lead and a clear playbook of creatives that consistently outperform.",
     services: [
-      "Social Media Management",
-      "Graphic Design",
-      "Content Strategy",
-      "Short-Form Video",
+      "Meta Ads",
+      "Ad Creative",
+      "Copywriting",
+      "Landing Page Support",
       "Monthly Reporting",
     ],
-    metrics: [],
+    metrics: [
+      { value: "128", label: "Qualified Leads" },
+      { value: "-41%", label: "Cost / Lead" },
+      { value: "3.6x", label: "ROAS" },
+      { value: "22K", label: "Reach" },
+    ],
     postImages: [
       {
         bg: "oklch(0.32 0.13 20)",
@@ -1253,7 +1282,7 @@ const caseStudies: CaseStudyData[] = [
         label: "BOOK A",
         sub: "strategy call",
         variant: "big",
-        altText: "Hardware Station promotional post 1",
+        altText: "Hardware Station: New store opening 24 April in Bonnievale",
         src: hardwareStation1,
       },
       {
@@ -1261,7 +1290,7 @@ const caseStudies: CaseStudyData[] = [
         fg: "oklch(0.32 0.13 20)",
         label: "Case Study",
         sub: "01",
-        altText: "Hardware Station promotional post 2",
+        altText: "Hardware Station: Grand Opening Specials flyer",
         src: hardwareStation2,
       },
       {
@@ -1269,7 +1298,7 @@ const caseStudies: CaseStudyData[] = [
         fg: "oklch(0.97 0.02 80)",
         label: "Client Win",
         sub: "+218% reach",
-        altText: "Hardware Station promotional post 3",
+        altText: "Hardware Station: Freedom Day 27 April celebration post",
         src: hardwareStation4,
       },
       {
@@ -1278,17 +1307,17 @@ const caseStudies: CaseStudyData[] = [
         label: "TIPS",
         sub: "for founders",
         variant: "big",
-        altText: "Hardware Station promotional post 4",
+        altText: "Hardware Station: Eid ul-Fitr Mubarak greeting post",
         src: hardwareStation5,
       },
     ],
     reel: {
       bg: "linear-gradient(160deg, oklch(0.22 0.09 22), oklch(0.55 0.15 25))",
       fg: "oklch(0.97 0.02 80)",
-      headline: "New Arrivals Reel",
-      caption: "Reel • 00:24",
+      headline: "How we scaled it",
+      caption: "Reel • 00:22",
       emoji: "📈",
-      altText: "Hardware Station short-form Reel showcasing new arrivals",
+      altText: "Placeholder Reel: how we scaled the campaign",
     },
     isPlaceholder: true,
   },
@@ -1346,8 +1375,76 @@ function PostImage({ tile, className = "" }: { tile: PostTile; className?: strin
   );
 }
 
-
-
+/** Lightweight CSS phone mockup — no external asset needed. */
+function PhoneMockup({ reel, floatIndex = 0 }: { reel: ReelTile; floatIndex?: number }) {
+  return (
+    <motion.div
+      className="relative mx-auto w-[190px] sm:w-[210px] lg:w-[230px]"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <motion.div
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 5 + floatIndex, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div
+          className="relative rounded-[36px] p-[8px] shadow-[0_25px_60px_-20px_oklch(0_0_0/0.6)]"
+          style={{ background: "oklch(0.14 0.05 22)" }}
+        >
+          {/* Screen */}
+          <div
+            className="relative overflow-hidden rounded-[28px]"
+            style={{ aspectRatio: "9 / 19.5", background: reel.bg, color: reel.fg }}
+          >
+            {/* Notch */}
+            <div
+              aria-hidden
+              className="absolute left-1/2 top-2 z-10 h-4 w-20 -translate-x-1/2 rounded-full"
+              style={{ background: "oklch(0.1 0.03 22)" }}
+            />
+            {/* Reel body */}
+            <div className="flex h-full flex-col justify-end p-4">
+              {reel.emoji && (
+                <div className="absolute inset-0 grid place-items-center text-6xl opacity-90">
+                  {reel.emoji}
+                </div>
+              )}
+              <div className="relative z-10">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.25em] opacity-80">
+                  {reel.caption}
+                </div>
+                <div
+                  className="mt-1 text-xl font-black uppercase leading-tight"
+                  style={{ fontFamily: "var(--font-heavy)" }}
+                >
+                  {reel.headline}
+                </div>
+              </div>
+              {/* Play button */}
+              <div
+                aria-hidden
+                className="absolute left-1/2 top-1/2 z-10 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full backdrop-blur"
+                style={{ background: "oklch(1 0 0 / 0.2)" }}
+              >
+                <div
+                  className="ml-1 h-0 w-0"
+                  style={{
+                    borderTop: "10px solid transparent",
+                    borderBottom: "10px solid transparent",
+                    borderLeft: "16px solid currentColor",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+      <span className="sr-only">{reel.altText}</span>
+    </motion.div>
+  );
+}
 
 function MetricCard({ metric }: { metric: Metric }) {
   return (
@@ -1388,23 +1485,23 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
           className="tape absolute -top-3 right-10 hidden h-6 w-20 rotate-[7deg] rounded-sm sm:block"
         />
 
-        {/* Header — centred on mobile, original layout from sm: up */}
-        <header className="flex flex-col items-center gap-3 text-center sm:flex sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-4 sm:text-left">
-          <div className="min-w-0 sm:order-1">
-            <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--ink)]/60 sm:justify-start">
+        {/* Header */}
+        <header className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 sm:flex sm:flex-wrap sm:items-end sm:justify-between">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--ink)]/60">
               <span>{data.clientName}</span>
               <span aria-hidden>•</span>
               <span>{data.industry}</span>
             </div>
             <h3
-              className="heavy mt-4 text-balance text-[clamp(1.9rem,8.5vw,2.4rem)] uppercase leading-[0.95] text-[color:var(--burgundy)] sm:mt-2 sm:text-4xl lg:text-5xl"
+              className="heavy mt-2 text-3xl uppercase leading-[0.95] text-[color:var(--burgundy)] sm:text-4xl lg:text-5xl"
               style={{ fontFamily: "var(--font-heavy)" }}
             >
               {data.projectTitle}
             </h3>
           </div>
           <span
-            className="order-first shrink-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[color:var(--cream)] sm:order-2"
+            className="shrink-0 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[color:var(--cream)]"
             style={{ background: data.accent }}
           >
             {data.projectType}
@@ -1412,30 +1509,38 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
         </header>
 
         {/* Main visual collage */}
-        <div className="mx-auto mt-8 max-w-3xl lg:max-w-none">
-          {data.showcase ? (
-            <ShowcaseGrid showcase={data.showcase} />
-          ) : (
-            <motion.div
-              className="grid grid-cols-2 gap-3 sm:gap-4"
-              variants={stagger}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: false, amount: 0.15 }}
-            >
-              {data.postImages.map((tile, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeUp}
-                  className="transition-transform duration-300 hover:scale-[1.02]"
-                >
-                  <PostImage tile={tile} />
-                </motion.div>
-              ))}
-            </motion.div>
-          )}
-        </div>
+        {/* Mobile: phone first, then grid. Desktop: side-by-side. */}
+        <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
+          {/* Phone (mobile order 1, desktop order 2) */}
+          <div className="order-1 lg:order-2 lg:pl-2">
+            <PhoneMockup reel={data.reel} floatIndex={index} />
+          </div>
 
+          {/* 2x2 image grid (mobile order 2, desktop order 1) */}
+          <div className="order-2 lg:order-1">
+            {data.showcase ? (
+              <ShowcaseGrid showcase={data.showcase} />
+            ) : (
+              <motion.div
+                className="grid grid-cols-2 gap-3 sm:gap-4"
+                variants={stagger}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.15 }}
+              >
+                {data.postImages.map((tile, i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeUp}
+                    className="transition-transform duration-300 hover:scale-[1.02]"
+                  >
+                    <PostImage tile={tile} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+          </div>
+        </div>
 
         {data.showcase && (
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
@@ -1904,7 +2009,7 @@ function Packages() {
   return (
     <section
   id="packages"
-  className="relative hidden px-5 pt-6 pb-24 sm:py-24"
+  className="relative px-5 pt-6 pb-24 sm:py-24"
 >
       <div className="mx-auto max-w-6xl">
         <Reveal>
