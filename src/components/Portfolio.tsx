@@ -3,9 +3,6 @@
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
 import { useEffect, useState } from "react";
-import { motion, type Variants } from "framer-motion";
-import type { ReactNode, CSSProperties } from "react";
-import { useState } from "react";
 import canvaLogo from "@/assets/ammaras-tool-icon-canva.svg";
 import capcutLogo from "@/assets/ammaras-tool-icon-capcut.svg";
 import metaLogo from "@/assets/ammaras-tool-icon-meta-business-suite.svg";
@@ -37,7 +34,7 @@ import proPreOwned5Asset from "../assets/pro-preowned-slide-5.jpeg.asset.json";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
-  show: { opazcity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
 
 const stagger: Variants = {
@@ -1154,11 +1151,6 @@ const caseStudies: CaseStudyData[] = [
     projectTitle: "Weekly Promotional Content",
     projectType: "Social Media Management",
 
-    clientName: "Placeholder Client B",
-    industry: "Health & Wellness",
-    projectTitle: "Always-On Content System",
-    projectType: "Organic Content",
-
     accent: "oklch(0.6 0.14 145)",
     overview:
       "Placeholder overview: educational carousels and short-form video for a wellness brand — soft, botanical visuals paired with clear ingredient storytelling.",
@@ -1242,12 +1234,6 @@ const caseStudies: CaseStudyData[] = [
     industry: "Hardware Retail",
     projectTitle: "Retail Content System",
     projectType: "Social Media Management",
-
-    id: "case-03",
-    clientName: "Placeholder Client C",
-    industry: "Professional Services",
-    projectTitle: "Lead-Gen Campaign",
-    projectType: "Meta Ads",
 
     accent: "oklch(0.72 0.16 45)",
     overview:
