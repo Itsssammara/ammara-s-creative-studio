@@ -1235,12 +1235,6 @@ const caseStudies: CaseStudyData[] = [
     projectTitle: "Retail Content System",
     projectType: "Social Media Management",
 
-    id: "case-03",
-    clientName: "Placeholder Client C",
-    industry: "Professional Services",
-    projectTitle: "Lead-Gen Campaign",
-    projectType: "Meta Ads",
-
     accent: "oklch(0.72 0.16 45)",
     overview:
       "Placeholder overview: a Meta Ads campaign paired with organic content to turn interest into booked calls — creative testing, tight audience targeting and weekly optimisation.",
