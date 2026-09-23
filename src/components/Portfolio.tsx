@@ -1468,9 +1468,9 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
         />
 
         {/* Header */}
-        <header className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 sm:flex sm:flex-wrap sm:items-end sm:justify-between">
-          <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--ink)]/60">
+        <header className="flex flex-col items-center gap-3 text-center sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-4 sm:text-left">
+          <div className="flex min-w-0 flex-col items-center sm:items-start">
+            <div className="flex flex-wrap items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--ink)]/60 sm:justify-start">
               <span>{data.clientName}</span>
               <span aria-hidden>•</span>
               <span>{data.industry}</span>
@@ -1547,7 +1547,7 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
 
         {/* Overview */}
         <div className="mt-8">
-          <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--ink)]/60">
+          <div className="text-center text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--ink)]/60 sm:text-left">
             Project overview
           </div>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[color:var(--ink)]/85 sm:text-base">
@@ -1825,7 +1825,7 @@ function DetailBlock({
 }) {
   return (
     <div className={className}>
-      <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--burgundy)]/80">
+      <div className="text-center text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--burgundy)]/80 sm:text-left">
         {title}
       </div>
       <p className="mt-2 text-sm leading-relaxed text-[color:var(--ink)]/85 sm:text-base">{body}</p>
