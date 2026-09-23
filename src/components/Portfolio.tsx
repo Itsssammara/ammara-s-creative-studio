@@ -1028,7 +1028,9 @@ const caseStudies: CaseStudyData[] = [
       },
       isPlaceholder: true,
       showcase: {
-        tagline: "Social Media Marketing • Graphic Design • Meta Ads",
+        // Tagline hidden on request — restore with:
+        // tagline: "Social Media Marketing • Graphic Design • Meta Ads",
+        tagline: "",
         badges: [],
         images: [
           {
