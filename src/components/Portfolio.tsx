@@ -1110,7 +1110,7 @@ const caseStudies: CaseStudyData[] = [
       reel: {
         bg: "linear-gradient(160deg, oklch(0.58 0.23 350), oklch(0.6 0.17 145))",
         fg: "oklch(0.97 0.02 80)",
-        headline: "COMING SOON",
+        headline: "Coming Soon!",
         altText: "Pro Pre-Owned Phones peace of mind campaign design",
       },
       isPlaceholder: true,
@@ -1218,7 +1218,7 @@ const caseStudies: CaseStudyData[] = [
       reel: {
         bg: "linear-gradient(160deg, oklch(0.28 0.09 145), oklch(0.55 0.14 145))",
         fg: "oklch(0.97 0.02 100)",
-        headline: "Ritual, in 30s",
+        headline: "Coming Soon!",
         caption: "Reel • 00:31",
         emoji: "🌿",
         altText: "Placeholder Reel: 30-second wellness ritual demo",
@@ -1297,7 +1297,7 @@ const caseStudies: CaseStudyData[] = [
       reel: {
         bg: "linear-gradient(160deg, oklch(0.22 0.09 22), oklch(0.55 0.15 25))",
         fg: "oklch(0.97 0.02 80)",
-        headline: "How we scaled it",
+        headline: "Coming Soon!",
         caption: "Reel • 00:22",
         emoji: "📈",
         altText: "Placeholder Reel: how we scaled the campaign",
