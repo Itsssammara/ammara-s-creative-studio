@@ -1,9 +1,8 @@
 /* eslint-disable prettier/prettier */
 
 import { AnimatePresence, motion, type Variants } from "framer-motion";
-import { useEffect, useState, type ReactNode } from "react";
-import type { CSSProperties } from "react";
-
+import type { ReactNode, CSSProperties } from "react";
+import { useEffect, useState } from "react";
 import canvaLogo from "@/assets/ammaras-tool-icon-canva.svg";
 import capcutLogo from "@/assets/ammaras-tool-icon-capcut.svg";
 import metaLogo from "@/assets/ammaras-tool-icon-meta-business-suite.svg";
