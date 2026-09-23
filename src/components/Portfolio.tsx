@@ -983,332 +983,328 @@ const caseStudies: CaseStudyData[] = [
     //   { value: "320", label: "Link Clicks" },
     // ],
     postImages: [
-      {
-        bg: "oklch(0.55 0.18 40)",
-        fg: "oklch(0.97 0.02 80)",
-        label: "NEW",
-        sub: "collection",
-        variant: "big",
-        emoji: "✨",
-        altText: "Placeholder social post: seasonal launch announcement",
-      },
-      {
-        bg: "oklch(0.92 0.03 80)",
-        fg: "oklch(0.35 0.13 40)",
-        label: "Best Sellers",
-        sub: "restocked",
-        emoji: "🛍️",
-        altText: "Placeholder social post: best sellers restocked",
-      },
-      {
-        bg: "oklch(0.86 0.09 70)",
-        fg: "oklch(0.30 0.12 40)",
-        label: "Weekend",
-        sub: "edit",
-        emoji: "🌼",
-        altText: "Placeholder social post: weekend edit carousel",
-      },
-      {
-        bg: "oklch(0.35 0.13 40)",
-        fg: "oklch(0.96 0.03 80)",
-        label: "PICK",
-        sub: "of the week",
-        variant: "big",
-        emoji: "💫",
-        altText: "Placeholder social post: pick of the week feature",
-      },
-    ],
-    reel: {
-      bg: "linear-gradient(160deg, oklch(0.35 0.14 40), oklch(0.62 0.18 45))",
-      fg: "oklch(0.97 0.02 80)",
-      headline: "Coming Soon!",
-      caption: "Reel • 00:24",
-      emoji: "🎬",
-      altText: "Placeholder Reel: behind-the-scenes of the seasonal launch",
-    },
-    isPlaceholder: true,
-    showcase: {
-      tagline: "Social Media Marketing • Graphic Design • Meta Ads",
-      badges: [
-        
-      ],
-      images: [
-      {
-        src: gatesville1,
-        alt: "Montego Classic Adult dog food promotion",
-      },
-      {
-        src: gatesville2,
-        alt: "Seachem Stability aquarium supplement promotion",
-      },
-      {
-        src: gatesville3,
-        alt: "Ultrum Original Shampoo promotion",
-      },
-      {
-        src: gatesville4,
-        alt: "Montego Monty & Me Adult Cat promotion",
-      },
-    ],
-    },
-  },
-  {
-    id: "case-02",
-    clientName: "Pro Pre-Owned Phones",
-    industry: "Pre-Owned Tech Retail",
-    projectTitle: "Trust-Led Brand Campaign",
-    projectType: "Social Media Content Design",
-    accent: "oklch(0.58 0.23 350)",
-    overview:
-      "Created a cohesive social media campaign for Pro Pre-Owned Phones that positioned certified pre-owned devices as a smart, trustworthy and affordable alternative to buying new. The five-part series communicates the brand's key benefits through bold, benefit-led creative.",
-    challenge:
-      "Build confidence in pre-owned technology while clearly communicating value, quality assurance, sustainability and after-sales support in a way that feels modern and easy to understand.",
-    approach:
-      "Developed a bright, distinctive visual direction using the brand's pink and green palette, bold product imagery and concise messaging. Each design focuses on one customer benefit while remaining recognisable as part of the same campaign.",
-    strategy:
-      "Structured the content as a five-part awareness series covering smarter pricing, meaningful savings, certified quality, reduced e-waste and dependable support. This gave the audience a clear reason to trust the brand at every stage of consideration.",
-    execution:
-      "Designed five portrait-format social media graphics with consistent typography, colour, logo placement and hand-drawn accents. Product and lifestyle imagery were paired with short, direct copy to make each benefit immediately scannable on mobile feeds.",
-    takeaway:
-      "The completed campaign gives Pro Pre-Owned Phones a polished and recognisable content system that turns practical buying concerns into clear, engaging brand messages without losing its youthful personality.",
-    services: [
-      "Social Media Design",
-      "Campaign Concept",
-      "Copywriting",
-      "Art Direction",
-      "Content Strategy",
-    ],
-    metrics: [],
-    postImages: [
-      {
-        bg: "oklch(0.9 0.08 350)",
-        fg: "oklch(0.2 0 0)",
-        label: "Premium Tech",
-        altText: "Pro Pre-Owned Phones premium tech and smarter price campaign design",
-        src: proPreOwned1Asset,
-      },
-      {
-        bg: "oklch(0.9 0.08 350)",
-        fg: "oklch(0.2 0 0)",
-        label: "Save Thousands",
-        altText: "Pro Pre-Owned Phones save thousands campaign design",
-        src: proPreOwned2Asset,
-      },
-      {
-        bg: "oklch(0.9 0.08 350)",
-        fg: "oklch(0.2 0 0)",
-        label: "Certified Quality",
-        altText: "Pro Pre-Owned Phones certified, tested and trusted campaign design",
-        src: proPreOwned3Asset,
-      },
-      {
-        bg: "oklch(0.9 0.08 350)",
-        fg: "oklch(0.2 0 0)",
-        label: "Better for the Planet",
-        altText: "Pro Pre-Owned Phones sustainability campaign design",
-        src: proPreOwned4Asset,
-      },
-    ],
-    reel: {
-      bg: "linear-gradient(160deg, oklch(0.58 0.23 350), oklch(0.6 0.17 145))",
-      fg: "oklch(0.97 0.02 80)",
-      headline: "COMING SOON",
-      altText: "Pro Pre-Owned Phones peace of mind campaign design",
-    
-    isPlaceholder: true,
-    showcase: {
-      tagline: "Campaign Concept • Social Media Design • Copywriting",
-      badges: [],
-      autoCarousel: true,
-      images: [
         {
+          bg: "oklch(0.55 0.18 40)",
+          fg: "oklch(0.97 0.02 80)",
+          label: "NEW",
+          sub: "collection",
+          variant: "big",
+          emoji: "✨",
+          altText: "Placeholder social post: seasonal launch announcement",
+        },
+        {
+          bg: "oklch(0.92 0.03 80)",
+          fg: "oklch(0.35 0.13 40)",
+          label: "Best Sellers",
+          sub: "restocked",
+          emoji: "🛍️",
+          altText: "Placeholder social post: best sellers restocked",
+        },
+        {
+          bg: "oklch(0.86 0.09 70)",
+          fg: "oklch(0.30 0.12 40)",
+          label: "Weekend",
+          sub: "edit",
+          emoji: "🌼",
+          altText: "Placeholder social post: weekend edit carousel",
+        },
+        {
+          bg: "oklch(0.35 0.13 40)",
+          fg: "oklch(0.96 0.03 80)",
+          label: "PICK",
+          sub: "of the week",
+          variant: "big",
+          emoji: "💫",
+          altText: "Placeholder social post: pick of the week feature",
+        },
+      ],
+      reel: {
+        bg: "linear-gradient(160deg, oklch(0.35 0.14 40), oklch(0.62 0.18 45))",
+        fg: "oklch(0.97 0.02 80)",
+        headline: "Coming Soon!",
+        caption: "Reel • 00:24",
+        emoji: "🎬",
+        altText: "Placeholder Reel: behind-the-scenes of the seasonal launch",
+      },
+      isPlaceholder: true,
+      showcase: {
+        tagline: "Social Media Marketing • Graphic Design • Meta Ads",
+        badges: [],
+        images: [
+          {
+            src: gatesville1,
+            alt: "Montego Classic Adult dog food promotion",
+          },
+          {
+            src: gatesville2,
+            alt: "Seachem Stability aquarium supplement promotion",
+          },
+          {
+            src: gatesville3,
+            alt: "Ultrum Original Shampoo promotion",
+          },
+          {
+            src: gatesville4,
+            alt: "Montego Monty & Me Adult Cat promotion",
+          },
+        ],
+      },
+    },
+    {
+      id: "case-02",
+      clientName: "Pro Pre-Owned Phones",
+      industry: "Pre-Owned Tech Retail",
+      projectTitle: "Trust-Led Brand Campaign",
+      projectType: "Social Media Content Design",
+      accent: "oklch(0.58 0.23 350)",
+      overview:
+        "Created a cohesive social media campaign for Pro Pre-Owned Phones that positioned certified pre-owned devices as a smart, trustworthy and affordable alternative to buying new. The five-part series communicates the brand's key benefits through bold, benefit-led creative.",
+      challenge:
+        "Build confidence in pre-owned technology while clearly communicating value, quality assurance, sustainability and after-sales support in a way that feels modern and easy to understand.",
+      approach:
+        "Developed a bright, distinctive visual direction using the brand's pink and green palette, bold product imagery and concise messaging. Each design focuses on one customer benefit while remaining recognisable as part of the same campaign.",
+      strategy:
+        "Structured the content as a five-part awareness series covering smarter pricing, meaningful savings, certified quality, reduced e-waste and dependable support. This gave the audience a clear reason to trust the brand at every stage of consideration.",
+      execution:
+        "Designed five portrait-format social media graphics with consistent typography, colour, logo placement and hand-drawn accents. Product and lifestyle imagery were paired with short, direct copy to make each benefit immediately scannable on mobile feeds.",
+      takeaway:
+        "The completed campaign gives Pro Pre-Owned Phones a polished and recognisable content system that turns practical buying concerns into clear, engaging brand messages without losing its youthful personality.",
+      services: [
+        "Social Media Design",
+        "Campaign Concept",
+        "Copywriting",
+        "Art Direction",
+        "Content Strategy",
+      ],
+      metrics: [],
+      postImages: [
+        {
+          bg: "oklch(0.9 0.08 350)",
+          fg: "oklch(0.2 0 0)",
+          label: "Premium Tech",
+          altText: "Pro Pre-Owned Phones premium tech and smarter price campaign design",
           src: proPreOwned1Asset,
-          alt: "Pro Pre-Owned Phones premium tech and smarter price campaign design",
         },
         {
+          bg: "oklch(0.9 0.08 350)",
+          fg: "oklch(0.2 0 0)",
+          label: "Save Thousands",
+          altText: "Pro Pre-Owned Phones save thousands campaign design",
           src: proPreOwned2Asset,
-          alt: "Pro Pre-Owned Phones save thousands campaign design",
         },
         {
+          bg: "oklch(0.9 0.08 350)",
+          fg: "oklch(0.2 0 0)",
+          label: "Certified Quality",
+          altText: "Pro Pre-Owned Phones certified, tested and trusted campaign design",
           src: proPreOwned3Asset,
-          alt: "Pro Pre-Owned Phones certified, tested and trusted campaign design",
         },
         {
+          bg: "oklch(0.9 0.08 350)",
+          fg: "oklch(0.2 0 0)",
+          label: "Better for the Planet",
+          altText: "Pro Pre-Owned Phones sustainability campaign design",
           src: proPreOwned4Asset,
-          alt: "Pro Pre-Owned Phones sustainability campaign design",
-        },
-        {
-          src: proPreOwned5Asset,
-          alt: "Pro Pre-Owned Phones peace of mind and warranty campaign design",
         },
       ],
-    },
-  },
-  {
-    id: "case-03",
-    clientName: "Ocean Corner",
-    industry: "Food & Beverage",
-    projectTitle: "Weekly Promotional Content",
-    projectType: "Social Media Management",
-
-    accent: "oklch(0.6 0.14 145)",
-    overview:
-      "Placeholder overview: educational carousels and short-form video for a wellness brand — soft, botanical visuals paired with clear ingredient storytelling.",
-    challenge:
-      "Audience trusted the products but rarely shared or saved posts. Content felt promotional rather than useful.",
-    strategy:
-      "Shifted the ratio toward educational and save-worthy posts, tightened the visual system and introduced a recurring 'ingredient spotlight' series.",
-    approach:
-      "Every post now teaches something first and sells second — calm palette, generous type and captions written like a knowledgeable friend.",
-    execution:
-      "Weekly Reels, 3 carousels per week, story series for launches, plus a monthly insight report showing which pillars drove saves and shares.",
-    takeaway:
-      "Content that the community actually saves — higher meaningful engagement and a stronger association between the brand and its expertise.",
-    services: [
-      "Content Strategy",
-      "Social Media Management",
-      "Copywriting",
-      "Short-Form Video",
-      "Monthly Reporting",
-    ],
-    metrics: [
-      { value: "68K", label: "Impressions" },
-      { value: "+34%", label: "Saves" },
-      { value: "9.2K", label: "New Followers" },
-      { value: "5m", label: "Avg. Watch" },
-    ],
-    postImages: [
-      {
-        bg: "oklch(0.55 0.14 145)",
-        fg: "oklch(0.97 0.02 100)",
-        label: "GLOW",
-        sub: "from within",
-        variant: "big",
-        emoji: "🌿",
-        altText: "Ocean Corner: Beef Burger & Chips R45 promo",
-        src: oceanCorner1,
-      },
-      {
-        bg: "oklch(0.94 0.03 100)",
-        fg: "oklch(0.35 0.12 145)",
-        label: "Ingredient",
-        sub: "spotlight",
-        emoji: "🌱",
-        altText: "Ocean Corner: Full House Steak Gatsby R199 promo",
-        src: oceanCorner2,
-      },
-      {
-        bg: "oklch(0.78 0.09 130)",
-        fg: "oklch(0.28 0.12 145)",
-        label: "3 Reasons",
-        sub: "to switch",
-        emoji: "🍃",
-        altText: "Ocean Corner: 1pc Snoek & Chips + 2 Russians R50 promo",
-        src: oceanCorner3,
-      },
-      {
-        bg: "oklch(0.28 0.09 145)",
-        fg: "oklch(0.95 0.03 100)",
-        label: "NEW",
-        sub: "drops Friday",
-        variant: "big",
-        emoji: "🧴",
-        altText: "Ocean Corner: Chicken Burger & Chips R40 promo",
-        src: oceanCorner4,
-      },
-    ],
-    reel: {
-      bg: "linear-gradient(160deg, oklch(0.28 0.09 145), oklch(0.55 0.14 145))",
-      fg: "oklch(0.97 0.02 100)",
-      headline: "Ritual, in 30s",
-      caption: "Reel • 00:31",
-      emoji: "🌿",
-      altText: "Placeholder Reel: 30-second wellness ritual demo",
-    },
-    isPlaceholder: true,
-  },
-  {
-
-    id: "case-04",
-    clientName: "Hardware Station",
-    industry: "Hardware Retail",
-    projectTitle: "Retail Content System",
-    projectType: "Social Media Management",
-
-    accent: "oklch(0.72 0.16 45)",
-    overview:
-      "Placeholder overview: a Meta Ads campaign paired with organic content to turn interest into booked calls — creative testing, tight audience targeting and weekly optimisation.",
-    challenge:
-      "The client was spending on ads with low-quality leads and no clear picture of which creatives were working.",
-    strategy:
-      "Rebuilt the funnel around three offers, launched a structured creative test and set up event tracking so every rand of spend was attributable.",
-    approach:
-      "Editorial ad creatives that look at home in the feed, hooks written for the target buyer, and landing pages that match the ad promise.",
-    execution:
-      "9 ad creatives across 3 audiences, weekly reporting, budget shifted every 5 days based on cost-per-lead and quality of booked calls.",
-    takeaway:
-      "A predictable lead pipeline the client can scale — lower cost-per-lead and a clear playbook of creatives that consistently outperform.",
-    services: [
-      "Meta Ads",
-      "Ad Creative",
-      "Copywriting",
-      "Landing Page Support",
-      "Monthly Reporting",
-    ],
-    metrics: [
-      { value: "128", label: "Qualified Leads" },
-      { value: "-41%", label: "Cost / Lead" },
-      { value: "3.6x", label: "ROAS" },
-      { value: "22K", label: "Reach" },
-    ],
-    postImages: [
-      {
-        bg: "oklch(0.32 0.13 20)",
-        fg: "oklch(0.96 0.03 80)",
-        label: "BOOK A",
-        sub: "strategy call",
-        variant: "big",
-        altText: "Hardware Station: New store opening 24 April in Bonnievale",
-        src: hardwareStation1,
-      },
-      {
-        bg: "oklch(0.94 0.02 80)",
-        fg: "oklch(0.32 0.13 20)",
-        label: "Case Study",
-        sub: "01",
-        altText: "Hardware Station: Grand Opening Specials flyer",
-        src: hardwareStation2,
-      },
-      {
-        bg: "oklch(0.72 0.16 45)",
+      reel: {
+        bg: "linear-gradient(160deg, oklch(0.58 0.23 350), oklch(0.6 0.17 145))",
         fg: "oklch(0.97 0.02 80)",
-        label: "Client Win",
-        sub: "+218% reach",
-        altText: "Hardware Station: Freedom Day 27 April celebration post",
-        src: hardwareStation4,
+        headline: "COMING SOON",
+        altText: "Pro Pre-Owned Phones peace of mind campaign design",
       },
-      {
-        bg: "oklch(0.22 0.09 22)",
-        fg: "oklch(0.96 0.03 80)",
-        label: "TIPS",
-        sub: "for founders",
-        variant: "big",
-        altText: "Hardware Station: Eid ul-Fitr Mubarak greeting post",
-        src: hardwareStation5,
+      isPlaceholder: true,
+      showcase: {
+        tagline: "Campaign Concept • Social Media Design • Copywriting",
+        badges: [],
+        autoCarousel: true,
+        images: [
+          {
+            src: proPreOwned1Asset,
+            alt: "Pro Pre-Owned Phones premium tech and smarter price campaign design",
+          },
+          {
+            src: proPreOwned2Asset,
+            alt: "Pro Pre-Owned Phones save thousands campaign design",
+          },
+          {
+            src: proPreOwned3Asset,
+            alt: "Pro Pre-Owned Phones certified, tested and trusted campaign design",
+          },
+          {
+            src: proPreOwned4Asset,
+            alt: "Pro Pre-Owned Phones sustainability campaign design",
+          },
+          {
+            src: proPreOwned5Asset,
+            alt: "Pro Pre-Owned Phones peace of mind and warranty campaign design",
+          },
+        ],
       },
-    ],
-    reel: {
-      bg: "linear-gradient(160deg, oklch(0.22 0.09 22), oklch(0.55 0.15 25))",
-      fg: "oklch(0.97 0.02 80)",
-      headline: "How we scaled it",
-      caption: "Reel • 00:22",
-      emoji: "📈",
-      altText: "Placeholder Reel: how we scaled the campaign",
     },
-    isPlaceholder: true,
-  },
-];
+    {
+      id: "case-03",
+      clientName: "Ocean Corner",
+      industry: "Food & Beverage",
+      projectTitle: "Weekly Promotional Content",
+      projectType: "Social Media Management",
 
+      accent: "oklch(0.6 0.14 145)",
+      overview:
+        "Placeholder overview: educational carousels and short-form video for a wellness brand — soft, botanical visuals paired with clear ingredient storytelling.",
+      challenge:
+        "Audience trusted the products but rarely shared or saved posts. Content felt promotional rather than useful.",
+      strategy:
+        "Shifted the ratio toward educational and save-worthy posts, tightened the visual system and introduced a recurring 'ingredient spotlight' series.",
+      approach:
+        "Every post now teaches something first and sells second — calm palette, generous type and captions written like a knowledgeable friend.",
+      execution:
+        "Weekly Reels, 3 carousels per week, story series for launches, plus a monthly insight report showing which pillars drove saves and shares.",
+      takeaway:
+        "Content that the community actually saves — higher meaningful engagement and a stronger association between the brand and its expertise.",
+      services: [
+        "Content Strategy",
+        "Social Media Management",
+        "Copywriting",
+        "Short-Form Video",
+        "Monthly Reporting",
+      ],
+      metrics: [
+        { value: "68K", label: "Impressions" },
+        { value: "+34%", label: "Saves" },
+        { value: "9.2K", label: "New Followers" },
+        { value: "5m", label: "Avg. Watch" },
+      ],
+      postImages: [
+        {
+          bg: "oklch(0.55 0.14 145)",
+          fg: "oklch(0.97 0.02 100)",
+          label: "GLOW",
+          sub: "from within",
+          variant: "big",
+          emoji: "🌿",
+          altText: "Ocean Corner: Beef Burger & Chips R45 promo",
+          src: oceanCorner1,
+        },
+        {
+          bg: "oklch(0.94 0.03 100)",
+          fg: "oklch(0.35 0.12 145)",
+          label: "Ingredient",
+          sub: "spotlight",
+          emoji: "🌱",
+          altText: "Ocean Corner: Full House Steak Gatsby R199 promo",
+          src: oceanCorner2,
+        },
+        {
+          bg: "oklch(0.78 0.09 130)",
+          fg: "oklch(0.28 0.12 145)",
+          label: "3 Reasons",
+          sub: "to switch",
+          emoji: "🍃",
+          altText: "Ocean Corner: 1pc Snoek & Chips + 2 Russians R50 promo",
+          src: oceanCorner3,
+        },
+        {
+          bg: "oklch(0.28 0.09 145)",
+          fg: "oklch(0.95 0.03 100)",
+          label: "NEW",
+          sub: "drops Friday",
+          variant: "big",
+          emoji: "🧴",
+          altText: "Ocean Corner: Chicken Burger & Chips R40 promo",
+          src: oceanCorner4,
+        },
+      ],
+      reel: {
+        bg: "linear-gradient(160deg, oklch(0.28 0.09 145), oklch(0.55 0.14 145))",
+        fg: "oklch(0.97 0.02 100)",
+        headline: "Ritual, in 30s",
+        caption: "Reel • 00:31",
+        emoji: "🌿",
+        altText: "Placeholder Reel: 30-second wellness ritual demo",
+      },
+      isPlaceholder: true,
+    },
+    {
+      id: "case-04",
+      clientName: "Hardware Station",
+      industry: "Hardware Retail",
+      projectTitle: "Retail Content System",
+      projectType: "Social Media Management",
+
+      accent: "oklch(0.72 0.16 45)",
+      overview:
+        "Placeholder overview: a Meta Ads campaign paired with organic content to turn interest into booked calls — creative testing, tight audience targeting and weekly optimisation.",
+      challenge:
+        "The client was spending on ads with low-quality leads and no clear picture of which creatives were working.",
+      strategy:
+        "Rebuilt the funnel around three offers, launched a structured creative test and set up event tracking so every rand of spend was attributable.",
+      approach:
+        "Editorial ad creatives that look at home in the feed, hooks written for the target buyer, and landing pages that match the ad promise.",
+      execution:
+        "9 ad creatives across 3 audiences, weekly reporting, budget shifted every 5 days based on cost-per-lead and quality of booked calls.",
+      takeaway:
+        "A predictable lead pipeline the client can scale — lower cost-per-lead and a clear playbook of creatives that consistently outperform.",
+      services: [
+        "Meta Ads",
+        "Ad Creative",
+        "Copywriting",
+        "Landing Page Support",
+        "Monthly Reporting",
+      ],
+      metrics: [
+        { value: "128", label: "Qualified Leads" },
+        { value: "-41%", label: "Cost / Lead" },
+        { value: "3.6x", label: "ROAS" },
+        { value: "22K", label: "Reach" },
+      ],
+      postImages: [
+        {
+          bg: "oklch(0.32 0.13 20)",
+          fg: "oklch(0.96 0.03 80)",
+          label: "BOOK A",
+          sub: "strategy call",
+          variant: "big",
+          altText: "Hardware Station: New store opening 24 April in Bonnievale",
+          src: hardwareStation1,
+        },
+        {
+          bg: "oklch(0.94 0.02 80)",
+          fg: "oklch(0.32 0.13 20)",
+          label: "Case Study",
+          sub: "01",
+          altText: "Hardware Station: Grand Opening Specials flyer",
+          src: hardwareStation2,
+        },
+        {
+          bg: "oklch(0.72 0.16 45)",
+          fg: "oklch(0.97 0.02 80)",
+          label: "Client Win",
+          sub: "+218% reach",
+          altText: "Hardware Station: Freedom Day 27 April celebration post",
+          src: hardwareStation4,
+        },
+        {
+          bg: "oklch(0.22 0.09 22)",
+          fg: "oklch(0.96 0.03 80)",
+          label: "TIPS",
+          sub: "for founders",
+          variant: "big",
+          altText: "Hardware Station: Eid ul-Fitr Mubarak greeting post",
+          src: hardwareStation5,
+        },
+      ],
+      reel: {
+        bg: "linear-gradient(160deg, oklch(0.22 0.09 22), oklch(0.55 0.15 25))",
+        fg: "oklch(0.97 0.02 80)",
+        headline: "How we scaled it",
+        caption: "Reel • 00:22",
+        emoji: "📈",
+        altText: "Placeholder Reel: how we scaled the campaign",
+      },
+      isPlaceholder: true,
+    },
+];
 /* ---------- Sub-components ---------- */
 
 function PostImage({ tile, className = "" }: { tile: PostTile; className?: string }) {
