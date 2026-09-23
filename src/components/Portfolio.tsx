@@ -1115,7 +1115,8 @@ const caseStudies: CaseStudyData[] = [
       },
       isPlaceholder: true,
       showcase: {
-        tagline: "Campaign Concept • Social Media Design • Copywriting",
+        // Heading hidden for this project — restore by putting the copy back in the string below.
+        tagline: "",
         badges: [],
         autoCarousel: true,
         images: [
@@ -1524,11 +1525,13 @@ function CaseStudy({ data, index }: { data: CaseStudyData; index: number }) {
           </div>
         </div>
 
-        {data.showcase && (
+        {data.showcase && (data.showcase.tagline || data.showcase.badges.length > 0) && (
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
-            <p className="text-sm font-medium tracking-wide text-[color:var(--ink)]/70 sm:text-base">
-              {data.showcase.tagline}
-            </p>
+            {data.showcase.tagline && (
+              <p className="text-sm font-medium tracking-wide text-[color:var(--ink)]/70 sm:text-base">
+                {data.showcase.tagline}
+              </p>
+            )}
             <ul className="flex flex-wrap gap-2 sm:justify-end">
               {data.showcase.badges.map((b) => (
                 <li
