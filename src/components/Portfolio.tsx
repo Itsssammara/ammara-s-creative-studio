@@ -30,7 +30,7 @@ import proPreOwned4Asset from "../assets/pro-preowned-slide-4.jpeg";
 import proPreOwned5Asset from "../assets/pro-preowned-slide-5.jpeg";
 import yogaMetaCampaignSlide1 from "../assets/yoga-meta-campaign-slide-1.jpg";
 import yogaMetaCampaignSlide2 from "../assets/yoga-meta-campaign-slide-2.jpg";
-
+import hydrotechLogo from "../assets/hydrotech-innovations-logo.png";
  
 /* ---------- Animation helpers ---------- */
 
@@ -820,10 +820,11 @@ const logofolio: LogoMark[] = [
     name: "AH",
     image: "/logos/ammara-portfolio-logo-4.png",
   },
-  {
-    name: "Hydrotech Innovations",
-    image: "/logos/ammara-portfolio-logo-5.png",
-  },
+{
+  name: "Hydrotech Innovations",
+  image: hydrotechLogo,
+  url: "https://hydrotechinnovations.co.za/",
+},
   {
     name: "Shabana Ismail",
     image: "/logos/ammara-portfolio-logo-2.png",
