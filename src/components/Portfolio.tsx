@@ -28,6 +28,8 @@ import proPreOwned2Asset from "../assets/pro-preowned-slide-2.jpeg";
 import proPreOwned3Asset from "../assets/pro-preowned-slide-3.jpeg";
 import proPreOwned4Asset from "../assets/pro-preowned-slide-4.jpeg";
 import proPreOwned5Asset from "../assets/pro-preowned-slide-5.jpeg";
+import yogaMetaCampaignSlide1 from "../assets/yoga-meta-campaign-slide-1.jpg.asset.json";
+import yogaMetaCampaignSlide2 from "../assets/yoga-meta-campaign-slide-2.jpg.asset.json";
 
  
 /* ---------- Animation helpers ---------- */
@@ -298,7 +300,7 @@ function Nav() {
 const links = [
   ["About", "#about"],
   ["Logos", "#logofolio"],
-  ["Social", "#social"],
+  ["Work", "#social"],
   ["Reviews", "#testimonials"],
   ["Packages", "#packages"],
   ["Contact", "#contact"],
@@ -1902,6 +1904,19 @@ function Results() {
           </div>
         </Reveal>
 
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <img
+            src={yogaMetaCampaignSlide1.url}
+            alt="Yoga studio Meta Ads campaign portfolio slide with campaign goal, creative, budget, and results"
+            className="block h-auto w-full rounded-md"
+          />
+          <img
+            src={yogaMetaCampaignSlide2.url}
+            alt="Yoga studio Meta Ads campaign results slide showing Ads Manager performance and supporting evidence"
+            className="block h-auto w-full rounded-md"
+          />
+        </div>
+
         <StaggerGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {metrics.map((m, i) => (
             <motion.div key={m.l} variants={fadeUp}>
@@ -1996,7 +2011,7 @@ function Packages() {
   return (
     <section
   id="packages"
-  className="relative px-5 pt-6 pb-24 sm:py-24"
+  className="hidden relative px-5 pt-6 pb-24 sm:py-24"
 >
       <div className="mx-auto max-w-6xl">
         <Reveal>
