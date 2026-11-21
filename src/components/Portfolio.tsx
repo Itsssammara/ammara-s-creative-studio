@@ -28,8 +28,8 @@ import proPreOwned2Asset from "../assets/pro-preowned-slide-2.jpeg";
 import proPreOwned3Asset from "../assets/pro-preowned-slide-3.jpeg";
 import proPreOwned4Asset from "../assets/pro-preowned-slide-4.jpeg";
 import proPreOwned5Asset from "../assets/pro-preowned-slide-5.jpeg";
-import yogaMetaCampaignSlide1 from "../assets/yoga-meta-campaign-slide-1.jpg.asset.json";
-import yogaMetaCampaignSlide2 from "../assets/yoga-meta-campaign-slide-2.jpg.asset.json";
+import yogaMetaCampaignSlide1 from "../assets/yoga-meta-campaign-slide-1.jpg";
+import yogaMetaCampaignSlide2 from "../assets/yoga-meta-campaign-slide-2.jpg";
 
  
 /* ---------- Animation helpers ---------- */
@@ -302,7 +302,7 @@ const links = [
   ["Logos", "#logofolio"],
   ["Work", "#social"],
   ["Reviews", "#testimonials"],
-  ["Packages", "#packages"],
+  // ["Packages", "#packages"],
   ["Contact", "#contact"],
 ];
 
@@ -599,14 +599,15 @@ function About() {
 
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-[color:var(--cream)]/90 sm:text-lg">
-              Hi, I'm Ammara, a South Africa–based Social Media Manager with a creative background in web development, U/UX and Meta Ads. 
+              Hi, I'm Ammara, a Cape Town-based Social Media Manager, Paid Media Specialist and founder of Fume Media. 
+              With a background spanning agency management, graphic design and web development (WordPress & Elementor), I bridge the gap between creative storytelling and performance marketing.
 
             </p>
           </Reveal>
 
           <Reveal delay={0.2}>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-[color:var(--cream)]/85 sm:text-lg">
-            I enjoy creating content, learning new marketing strategies and helping businesses present themselves confidently online.
+            Whether it's producing scroll-stopping short-form video, designing cohesive brand identities, or scaling paid campaigns, my goal is to make your online presence feel intentional, authentic and effective.
             </p>
           </Reveal>
 
@@ -619,8 +620,7 @@ function About() {
             </Reveal>
             <Reveal delay={0.32}>
               <p className="max-w-xl text-base leading-relaxed text-[color:var(--cream)]/90 sm:text-lg">
-                             Over the past two years, I've worked with 9+ clients, creating content, running Meta Ads, designing posts & logos and building websites. I believe good work comes from listening, paying attention to the details and being someone clients can rely on.
-
+                Over the past year, I've managed organic and paid campaigns for 10+ brands across South Africa, handling everything from content calendars and Meta Ads to full website builds and lead automation. Right now, I'm actively expanding my paid media and analytics toolkit with Google Ads, GA4 and TikTok for Business to give my clients an even sharper edge. I believe great marketing comes down to active listening, obsessive attention to detail and being a partner you can genuinely rely on.
               </p>
             </Reveal>
           </div>
@@ -1906,12 +1906,12 @@ function Results() {
 
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
           <img
-            src={yogaMetaCampaignSlide1.url}
+            src={yogaMetaCampaignSlide1}
             alt="Yoga studio Meta Ads campaign portfolio slide with campaign goal, creative, budget, and results"
             className="block h-auto w-full rounded-md"
           />
           <img
-            src={yogaMetaCampaignSlide2.url}
+            src={yogaMetaCampaignSlide2}
             alt="Yoga studio Meta Ads campaign results slide showing Ads Manager performance and supporting evidence"
             className="block h-auto w-full rounded-md"
           />
@@ -2078,13 +2078,14 @@ function Packages() {
 }
 
 const experiences = [
-    { y: "Present", t: "Freelancing " },
+    { y: "Present", t: "Fume Media (Founder & Freelance Marketer)", p: "Social Media Management & Meta Ads" },
   { y: "Jun 2025 – May 2026", t: "WebXtreme ", p: "Web Developer & Social Media Manager" },
   { y: "Nov 2024 — May 2025", t: "The Three Stars ", p: "Web Designer and Developer" },
   { y: "Apr 2024 — Sept 2024", t: "Life Choices Studio", p: "Technical intern" },
 ];
 
 const educationList = [
+  { y: "Ongoing", t: "Google Skillshop & TikTok Academy", p: "Google Ads, GA4 & TikTok for Business Certifications" },
   { y: "Ongoing", t: "SMMA Academy", p: "Social Media Management" },
   { y: "2025", t: "She Can Do", p: "UI/UX Part-time Internship" },
   { y: "2023 — 2024", t: "Life Choices Coding Academy", p: "Certificate in Web Development" },
@@ -2327,7 +2328,7 @@ const testimonials = [
     r: "Founder & Managing Director",
   },
   {
-    q: "The reports finally made sense. We knew what was working and what to double down on every month.",
+    q: "Working with Ammara was a breeze. She brought our brand to life with amazing designs and creative posts that consistently impressed us.",
     n: "— Irfaan",
     r: "Business Owner",
   },
@@ -2393,16 +2394,16 @@ function Contact() {
         <Reveal delay={0.25}>
           <div className="mt-10 flex flex-col items-center gap-4">
             <a
-              href="mailto:ahdesigns.za@gmail.com"
+              href="mailto:hello.fumemedia@gmail.com"
               className="rounded-full bg-[color:var(--cream)] px-8 py-4 text-base font-medium text-[color:var(--burgundy)] shadow-lg transition hover:-translate-y-0.5 hover:bg-[color:var(--star)]"
             >
               Let's work together →
             </a>
             <a
-              href="mailto:ahdesigns.za@gmail.com"
+              href="mailto:hello.fumemedia@gmail.com"
               className="text-sm text-[color:var(--cream)]/60 underline-offset-4 hover:underline"
             >
-              ahdesigns.za@gmail.com
+              hello.fumemedia@gmail.com
             </a>
           </div>
         </Reveal>
