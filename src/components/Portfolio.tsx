@@ -2079,7 +2079,7 @@ function Packages() {
 
 const experiences = [
     { y: "Present", t: "Fume Media (Founder & Freelance Marketer)", p: "Social Media Management & Meta Ads" },
-  { y: "Jun 2025 – May 2026", t: "WebXtreme ", p: "Web Developer & Social Media Manager" },
+  { y: "Jun 2025 – May 2026", t: "WebXtreme ", p: "Social Media Manager & Web Developer" },
   { y: "Nov 2024 — May 2025", t: "The Three Stars ", p: "Web Designer and Developer" },
   { y: "Apr 2024 — Sept 2024", t: "Life Choices Studio", p: "Technical intern" },
 ];
